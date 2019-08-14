@@ -9,23 +9,23 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="img-main/favicon.png" rel="icon">
+  <link href="img-main/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib-main/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/venobox/venobox.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib-main/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib-main/animate/animate.min.css" rel="stylesheet">
+  <link href="lib-main/venobox/venobox.css" rel="stylesheet">
+  <link href="lib-main/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css-main/style.css" rel="stylesheet">
 
   <!-- =======================================================
     Theme Name: TheEvent
@@ -46,7 +46,7 @@
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use a text logo -->
         <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
-        <a href="#intro" class="scrollto"><img src="img/logo.png"></a>
+        <a href="#intro" class="scrollto"><img src="img-main/logo.png"></a>
       </div>
 
       <nav id="nav-menu-container">
@@ -114,7 +114,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-6">
             <div class="speaker">
-              <img src="img/speakers/1.jpg" alt="Speaker 1" class="img-fluid">
+              <img src="img-main/speakers/1.jpg" alt="Speaker 1" class="img-fluid">
               <div class="details">
                 <h3><a href="speaker-details.html">Brenden Legros</a></h3>
                 <p>Quas alias incidunt</p>
@@ -129,7 +129,7 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="speaker">
-              <img src="img/speakers/2.jpg" alt="Speaker 2" class="img-fluid">
+              <img src="img-main/speakers/2.jpg" alt="Speaker 2" class="img-fluid">
               <div class="details">
                 <h3><a href="speaker-details.html">Hubert Hirthe</a></h3>
                 <p>Consequuntur odio aut</p>
@@ -144,7 +144,7 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="speaker">
-              <img src="img/speakers/3.jpg" alt="Speaker 3" class="img-fluid">
+              <img src="img-main/speakers/3.jpg" alt="Speaker 3" class="img-fluid">
               <div class="details">
                 <h3><a href="speaker-details.html">Cole Emmerich</a></h3>
                 <p>Fugiat laborum et</p>
@@ -159,7 +159,7 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="speaker">
-              <img src="img/speakers/4.jpg" alt="Speaker 4" class="img-fluid">
+              <img src="img-main/speakers/4.jpg" alt="Speaker 4" class="img-fluid">
               <div class="details">
                 <h3><a href="speaker-details.html">Jack Christiansen</a></h3>
                 <p>Debitis iure vero</p>
@@ -174,7 +174,7 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="speaker">
-              <img src="img/speakers/5.jpg" alt="Speaker 5" class="img-fluid">
+              <img src="img-main/speakers/5.jpg" alt="Speaker 5" class="img-fluid">
               <div class="details">
                 <h3><a href="speaker-details.html">Alejandrin Littel</a></h3>
                 <p>Qui molestiae natus</p>
@@ -189,7 +189,7 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="speaker">
-              <img src="img/speakers/6.jpg" alt="Speaker 6" class="img-fluid">
+              <img src="img-main/speakers/6.jpg" alt="Speaker 6" class="img-fluid">
               <div class="details">
                 <h3><a href="speaker-details.html">Willow Trantow</a></h3>
                 <p>Non autem dicta</p>
@@ -218,7 +218,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="hotel">
               <div class="hotel-img">
-                <img src="img/hotels/1.jpg" alt="Hotel 1" class="img-fluid">
+                <img src="img-main/hotels/1.jpg" alt="Hotel 1" class="img-fluid">
               </div>
               <h3><a href="#">Hotel 1</a></h3>
               <div class="stars">
@@ -235,7 +235,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="hotel">
               <div class="hotel-img">
-                <img src="img/hotels/2.jpg" alt="Hotel 2" class="img-fluid">
+                <img src="img-main/hotels/2.jpg" alt="Hotel 2" class="img-fluid">
               </div>
               <h3><a href="#">Hotel 2</a></h3>
               <div class="stars">
@@ -252,7 +252,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="hotel">
               <div class="hotel-img">
-                <img src="img/hotels/3.jpg" alt="Hotel 3" class="img-fluid">
+                <img src="img-main/hotels/3.jpg" alt="Hotel 3" class="img-fluid">
               </div>
               <h3><a href="#">Hotel 3</a></h3>
               <div class="stars">
@@ -278,14 +278,14 @@
       </div>
 
       <div class="owl-carousel gallery-carousel">
-        <a href="img/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/1.jpg" alt=""></a>
-        <a href="img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/2.jpg" alt=""></a>
-        <a href="img/gallery/3.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/3.jpg" alt=""></a>
-        <a href="img/gallery/4.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/4.jpg" alt=""></a>
-        <a href="img/gallery/5.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/5.jpg" alt=""></a>
-        <a href="img/gallery/6.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/6.jpg" alt=""></a>
-        <a href="img/gallery/7.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/7.jpg" alt=""></a>
-        <a href="img/gallery/8.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/8.jpg" alt=""></a>
+        <a href="img-main/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="img-main/gallery/1.jpg" alt=""></a>
+        <a href="img-main/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><img src="img-main/gallery/2.jpg" alt=""></a>
+        <a href="img-main/gallery/3.jpg" class="venobox" data-gall="gallery-carousel"><img src="img-main/gallery/3.jpg" alt=""></a>
+        <a href="img-main/gallery/4.jpg" class="venobox" data-gall="gallery-carousel"><img src="img-main/gallery/4.jpg" alt=""></a>
+        <a href="img-main/gallery/5.jpg" class="venobox" data-gall="gallery-carousel"><img src="img-main/gallery/5.jpg" alt=""></a>
+        <a href="img-main/gallery/6.jpg" class="venobox" data-gall="gallery-carousel"><img src="img-main/gallery/6.jpg" alt=""></a>
+        <a href="img-main/gallery/7.jpg" class="venobox" data-gall="gallery-carousel"><img src="img-main/gallery/7.jpg" alt=""></a>
+        <a href="img-main/gallery/8.jpg" class="venobox" data-gall="gallery-carousel"><img src="img-main/gallery/8.jpg" alt=""></a>
       </div>
     </section>
     -->
@@ -324,64 +324,64 @@
 
           <div class="col-lg-3 col-md-4">
             <div class="venue-gallery">
-              <a href="img/venue-gallery/1.jpg" class="venobox" data-gall="venue-gallery">
-                <img src="img/venue-gallery/1.jpg" alt="" class="img-fluid">
+              <a href="img-main/venue-gallery/1.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img-main/venue-gallery/1.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="venue-gallery">
-              <a href="img/venue-gallery/2.jpg" class="venobox" data-gall="venue-gallery">
-                <img src="img/venue-gallery/2.jpg" alt="" class="img-fluid">
+              <a href="img-main/venue-gallery/2.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img-main/venue-gallery/2.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="venue-gallery">
-              <a href="img/venue-gallery/3.jpg" class="venobox" data-gall="venue-gallery">
-                <img src="img/venue-gallery/3.jpg" alt="" class="img-fluid">
+              <a href="img-main/venue-gallery/3.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img-main/venue-gallery/3.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="venue-gallery">
-              <a href="img/venue-gallery/4.jpg" class="venobox" data-gall="venue-gallery">
-                <img src="img/venue-gallery/4.jpg" alt="" class="img-fluid">
+              <a href="img-main/venue-gallery/4.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img-main/venue-gallery/4.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="venue-gallery">
-              <a href="img/venue-gallery/5.jpg" class="venobox" data-gall="venue-gallery">
-                <img src="img/venue-gallery/5.jpg" alt="" class="img-fluid">
+              <a href="img-main/venue-gallery/5.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img-main/venue-gallery/5.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="venue-gallery">
-              <a href="img/venue-gallery/6.jpg" class="venobox" data-gall="venue-gallery">
-                <img src="img/venue-gallery/6.jpg" alt="" class="img-fluid">
+              <a href="img-main/venue-gallery/6.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img-main/venue-gallery/6.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="venue-gallery">
-              <a href="img/venue-gallery/7.jpg" class="venobox" data-gall="venue-gallery">
-                <img src="img/venue-gallery/7.jpg" alt="" class="img-fluid">
+              <a href="img-main/venue-gallery/7.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img-main/venue-gallery/7.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="venue-gallery">
-              <a href="img/venue-gallery/8.jpg" class="venobox" data-gall="venue-gallery">
-                <img src="img/venue-gallery/8.jpg" alt="" class="img-fluid">
+              <a href="img-main/venue-gallery/8.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img-main/venue-gallery/8.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
@@ -430,7 +430,7 @@
               <div class="col-md-2"><time>10:00 AM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/1.jpg" alt="Brenden Legros">
+                  <img src="img-main/speakers/1.jpg" alt="Brenden Legros">
                 </div>
                 <h4>Keynote <span>Brenden Legros</span></h4>
                 <p>Facere provident incidunt quos voluptas.</p>
@@ -441,7 +441,7 @@
               <div class="col-md-2"><time>11:00 AM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/2.jpg" alt="Hubert Hirthe">
+                  <img src="img-main/speakers/2.jpg" alt="Hubert Hirthe">
                 </div>
                 <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
                 <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
@@ -452,7 +452,7 @@
               <div class="col-md-2"><time>12:00 AM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/3.jpg" alt="Cole Emmerich">
+                  <img src="img-main/speakers/3.jpg" alt="Cole Emmerich">
                 </div>
                 <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
                 <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
@@ -463,7 +463,7 @@
               <div class="col-md-2"><time>02:00 PM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/4.jpg" alt="Jack Christiansen">
+                  <img src="img-main/speakers/4.jpg" alt="Jack Christiansen">
                 </div>
                 <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
                 <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
@@ -474,7 +474,7 @@
               <div class="col-md-2"><time>03:00 PM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/5.jpg" alt="Alejandrin Littel">
+                  <img src="img-main/speakers/5.jpg" alt="Alejandrin Littel">
                 </div>
                 <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
                 <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
@@ -485,7 +485,7 @@
               <div class="col-md-2"><time>04:00 PM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/6.jpg" alt="Willow Trantow">
+                  <img src="img-main/speakers/6.jpg" alt="Willow Trantow">
                 </div>
                 <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
                 <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
@@ -502,7 +502,7 @@
               <div class="col-md-2"><time>10:00 AM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/1.jpg" alt="Brenden Legros">
+                  <img src="img-main/speakers/1.jpg" alt="Brenden Legros">
                 </div>
                 <h4>Libero corrupti explicabo itaque. <span>Brenden Legros</span></h4>
                 <p>Facere provident incidunt quos voluptas.</p>
@@ -513,7 +513,7 @@
               <div class="col-md-2"><time>11:00 AM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/2.jpg" alt="Hubert Hirthe">
+                  <img src="img-main/speakers/2.jpg" alt="Hubert Hirthe">
                 </div>
                 <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
                 <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
@@ -524,7 +524,7 @@
               <div class="col-md-2"><time>12:00 AM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/3.jpg" alt="Cole Emmerich">
+                  <img src="img-main/speakers/3.jpg" alt="Cole Emmerich">
                 </div>
                 <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
                 <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
@@ -535,7 +535,7 @@
               <div class="col-md-2"><time>02:00 PM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/4.jpg" alt="Jack Christiansen">
+                  <img src="img-main/speakers/4.jpg" alt="Jack Christiansen">
                 </div>
                 <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
                 <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
@@ -546,7 +546,7 @@
               <div class="col-md-2"><time>03:00 PM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/5.jpg" alt="Alejandrin Littel">
+                  <img src="img-main/speakers/5.jpg" alt="Alejandrin Littel">
                 </div>
                 <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
                 <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
@@ -557,7 +557,7 @@
               <div class="col-md-2"><time>04:00 PM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/6.jpg" alt="Willow Trantow">
+                  <img src="img-main/speakers/6.jpg" alt="Willow Trantow">
                 </div>
                 <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
                 <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
@@ -574,7 +574,7 @@
               <div class="col-md-2"><time>10:00 AM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/2.jpg" alt="Hubert Hirthe">
+                  <img src="img-main/speakers/2.jpg" alt="Hubert Hirthe">
                 </div>
                 <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
                 <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
@@ -585,7 +585,7 @@
               <div class="col-md-2"><time>11:00 AM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/3.jpg" alt="Cole Emmerich">
+                  <img src="img-main/speakers/3.jpg" alt="Cole Emmerich">
                 </div>
                 <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
                 <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
@@ -596,7 +596,7 @@
               <div class="col-md-2"><time>12:00 AM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/1.jpg" alt="Brenden Legros">
+                  <img src="img-main/speakers/1.jpg" alt="Brenden Legros">
                 </div>
                 <h4>Libero corrupti explicabo itaque. <span>Brenden Legros</span></h4>
                 <p>Facere provident incidunt quos voluptas.</p>
@@ -607,7 +607,7 @@
               <div class="col-md-2"><time>02:00 PM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/4.jpg" alt="Jack Christiansen">
+                  <img src="img-main/speakers/4.jpg" alt="Jack Christiansen">
                 </div>
                 <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
                 <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
@@ -618,7 +618,7 @@
               <div class="col-md-2"><time>03:00 PM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/5.jpg" alt="Alejandrin Littel">
+                  <img src="img-main/speakers/5.jpg" alt="Alejandrin Littel">
                 </div>
                 <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
                 <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
@@ -629,7 +629,7 @@
               <div class="col-md-2"><time>04:00 PM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="img/speakers/6.jpg" alt="Willow Trantow">
+                  <img src="img-main/speakers/6.jpg" alt="Willow Trantow">
                 </div>
                 <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
                 <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
@@ -660,49 +660,49 @@
 
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="img/supporters/1.png" class="img-fluid" alt="">
+              <img src="img-main/supporters/1.png" class="img-fluid" alt="">
             </div>
           </div>
           
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="img/supporters/2.png" class="img-fluid" alt="">
+              <img src="img-main/supporters/2.png" class="img-fluid" alt="">
             </div>
           </div>
         
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="img/supporters/3.png" class="img-fluid" alt="">
+              <img src="img-main/supporters/3.png" class="img-fluid" alt="">
             </div>
           </div>
           
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="img/supporters/4.png" class="img-fluid" alt="">
+              <img src="img-main/supporters/4.png" class="img-fluid" alt="">
             </div>
           </div>
           
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="img/supporters/5.png" class="img-fluid" alt="">
+              <img src="img-main/supporters/5.png" class="img-fluid" alt="">
             </div>
           </div>
         
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="img/supporters/6.png" class="img-fluid" alt="">
+              <img src="img-main/supporters/6.png" class="img-fluid" alt="">
             </div>
           </div>
           
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="img/supporters/7.png" class="img-fluid" alt="">
+              <img src="img-main/supporters/7.png" class="img-fluid" alt="">
             </div>
           </div>
           
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="img/supporters/8.png" class="img-fluid" alt="">
+              <img src="img-main/supporters/8.png" class="img-fluid" alt="">
             </div>
           </div>
 
@@ -1012,7 +1012,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-info">
-            <img src="img/logo.png" alt="TheEvenet">
+            <img src="img-main/logo.png" alt="TheEvenet">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
 
@@ -1073,21 +1073,21 @@
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 
   <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/superfish/hoverIntent.js"></script>
-  <script src="lib/superfish/superfish.min.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/venobox/venobox.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib-main/jquery/jquery.min.js"></script>
+  <script src="lib-main/jquery/jquery-migrate.min.js"></script>
+  <script src="lib-main/bootstrap/js-main/bootstrap.bundle.min.js"></script>
+  <script src="lib-main/easing/easing.min.js"></script>
+  <script src="lib-main/superfish/hoverIntent.js"></script>
+  <script src="lib-main/superfish/superfish.min.js"></script>
+  <script src="lib-main/wow/wow.min.js"></script>
+  <script src="lib-main/venobox/venobox.min.js"></script>
+  <script src="lib-main/owlcarousel/owl.carousel.min.js"></script>
 
   <!-- Contact Form JavaScript File -->
   <script src="contactform/contactform.js"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
+  <script src="js-main/main.js"></script>
 </body>
 
 </html>
