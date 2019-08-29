@@ -21,7 +21,7 @@ if( isset($_POST['id']) ) {
 	}
 	if(empty($id)){
 			$error = true;
-			$mensaje = "Ingrese su ID o correo electrónico.";
+			$mensaje = "Ingrese su correo electrónico.";
 			$res = array('error' => $error, 'mensaje' => $mensaje);
 			$response[]=$res;
 			echo json_encode($response);
@@ -31,18 +31,18 @@ if( isset($_POST['id']) ) {
 
 	if (!$error) {
 		//PARA VERIFICAR EL CORREO ELECTRÓNICO
-		$query=$conex->query("SELECT IDUSUARIOS, CORREOUSUARIO FROM usuario WHERE CORREOUSUARIO='$id'");
+		$query=$conex->query("SELECT IdAsistente, Email FROM asistente WHERE Email = '$id'");
 		$row=mysqli_fetch_array($query);
 		$count = mysqli_num_rows($query); // if uname/pass correct it returns must be 1 row
 
 		if( $count == 1 ) {
 			$passtemp = GenerarID();
             $hashpasstemp =  hash('sha256', $passtemp);
-            $emailsend = $row['CORREOUSUARIO'];
+            $emailsend = $row['Email'];
 
-            $mail_asunto = "Recuperar contraseña de Resérvelapp";
+            $mail_asunto = "Recuperar contraseña de OnlineCongressApp (Asistente)";
 
-            $mail_header = "From: soporte@reservelapp.com\r\n";
+            $mail_header = "From: soporte@onlinecongress.com\r\n";
             $mail_header.= "MIME-Version: 1.0\r\n";
             $mail_header.= "Content-type: text/html; charset=iso-8859-1\r\n";
 
@@ -52,10 +52,10 @@ if( isset($_POST['id']) ) {
                 Se le notifica que su nueva contraseña temporal con la que deberá iniciar sesión es:<br>
                 <strong>'.$passtemp.'</strong><br><br>
                 Sugerimos que cambie su contraseña inmediatamente después de iniciar sesión.
-                <br><br><br>Gracias.<br><br>Atentamente, Resérvelapp.
+                <br><br><br>Gracias.<br><br>Atentamente, OnlineCongress.
             </body> </html> ';
 
-            $query=$conex->query(" UPDATE usuario SET PASSWORDUSUARIO = '$hashpasstemp' WHERE CORREOUSUARIO='$id'; ");
+            $query=$conex->query(" UPDATE asistente SET Password = '$hashpasstemp' WHERE Email = '$id'; ");
 
             if ($query) {
                 @mail($emailsend, $mail_asunto, $mail_msg, $mail_header);

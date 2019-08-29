@@ -14,7 +14,7 @@ if( isset($_POST['id']) && isset($_POST['pass']) ) {
 		$pass = htmlspecialchars($pass);
 	}
 
-	$queryverifpass = $conex->query(" SELECT NOMBREUSUARIO FROM usuario WHERE IDUSUARIOS = '$id' AND PASSWORDUSUARIO = '$pass' ");
+	$queryverifpass = $conex->query(" SELECT * FROM asistente WHERE IdAsistente = '$id' AND Password = '$pass' ");
 	$count = mysqli_num_rows($queryverifpass);
 	if($count!=1){
 		$error = true;

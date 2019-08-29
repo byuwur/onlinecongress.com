@@ -1,8 +1,8 @@
 <?php
     $s="localhost";
     $u="mateus_root";
-    $p="Andres1235$";
-    $b="reserv";
+    $p="12345679";
+    $b="onlinecongress";
 
 	$conex = new mysqli($s, $u, $p, $b) or die('No se pudo conectar a la Base de Datos');
 	mysqli_set_charset($conex, "utf8");

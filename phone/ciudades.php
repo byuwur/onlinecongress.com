@@ -3,14 +3,14 @@
 include_once 'conectar_bd.php';
 $ciudad=array();
 
-//$dep=8;
+//$provincia=8;
 $error=false;
 
-if( isset($_GET['dep']) ) {
+if( isset($_GET['provincia']) ) {
 
-	$dep =$_GET['dep'];
+	$provincia =$_GET['provincia'];
 
-	$res= $conex -> query("SELECT * FROM ciudad WHERE departamento_IDDEPARTAMENTO='$dep' ");
+	$res= $conex -> query("SELECT * FROM ciudades WHERE state_id='$provincia' ");
 
 	while($row = mysqli_fetch_object($res)){
 		$ciudad[]=$row;
@@ -21,7 +21,7 @@ if( isset($_GET['dep']) ) {
 }
 else{
 	$error = true;
-	$mensaje = "Seleccione un departamento.";
+	$mensaje = "Seleccione una provincia.";
 	$res = array('error' => $error, 'mensaje' => $mensaje);
 	echo json_encode($res);
 }
