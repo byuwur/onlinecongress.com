@@ -1,5 +1,5 @@
 <?php 		
-	include("conexion.php");
+	include("../../conectar_bd.php");
 	$Id_Cancha=$_POST["IDI"];
 	
 	@mkdir("Imagenes_Usuario/$Id_Cancha/");
@@ -13,7 +13,7 @@
 	$extension = end(explode(".", $_FILES['archivo']['name']));
 	$Ruta = "Imagenes_Usuario/".$Id_Cancha."/".basename($randon).$extension.".jpg"; 
 
-	$Ruta2 = "http://reservelapp.com/phone/cuenta/fotoperfil/Imagenes_Usuario/".$Id_Cancha."/".basename($randon).$extension; 
+	$Ruta2 = "Imagenes_Usuario/".$Id_Cancha."/".basename($randon).$extension; 
 	$uploadedfileload2="true";
 
 	move_uploaded_file(@$_FILES['file']['tmp_name'], $Ruta); 

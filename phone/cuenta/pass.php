@@ -1,5 +1,5 @@
 <?php
-include_once 'conectar_bd.php';
+include_once '../conectar_bd.php';
 
 if( isset($_POST['id']) && isset($_POST['passactual']) && isset($_POST['passnueva']) ) {
 

@@ -1,5 +1,5 @@
 <?php
-include_once 'conectar_bd.php';
+include_once '../conectar_bd.php';
 
 function GenerarID ($length = 3){
     $cadena="";

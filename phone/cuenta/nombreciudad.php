@@ -1,28 +1,15 @@
 <?php
+
 include_once 'conectar_bd.php';
+$response=array();
 
 if( isset($_GET['ciudad']) ) {
-
-	if (!empty($_GET['ciudad'])){
-		$ciudad = trim($_GET['ciudad']);
-		$ciudad = strip_tags($ciudad);
-		$ciudad = htmlspecialchars($ciudad);
+	$ciudad =$_GET['ciudad'];
+	$res= $conex -> query("SELECT name_ciu FROM ciudades WHERE id='$ciudad' ");
+	while($row = mysqli_fetch_object($res)){
+		$response[]=$row;
 	}
-	$query= $conex -> query(" SELECT NOMBRECIUDAD FROM ciudad WHERE IDCIUDADES='$ciudad' ");
-	
-	if ($query) {
-		$queryarray = mysqli_fetch_array($query);
-		$nombre = $queryarray['NOMBRECIUDAD'];
-
-		$res[] = array('nombre' => $nombre);
-		echo json_encode($res);
-		exit;
-	}
-	else {
-	    $mensaje = "Algo salió mal. Intente más tarde.";
-	    $res[] = array('mensaje' => $mensaje);
-		echo json_encode($res);
-		exit;
-	}
+	echo json_encode($response);
+	exit;
 }
 ?>

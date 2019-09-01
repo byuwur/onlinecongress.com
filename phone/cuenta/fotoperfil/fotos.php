@@ -1,5 +1,5 @@
 <?php
-	include 'conexion.php';
+	include '../../conectar_bd.php';
 
 if (isset($_POST['id'])){
 	
@@ -9,8 +9,8 @@ if (isset($_POST['id'])){
 		$id = htmlspecialchars($id);
 	}
 
-		$Registro_Img = "INSERT INTO imagen_usuario (usuario_IDUSUARIO) VALUES ('$id')";
-		$conex->query($Registro_Img);
+		//$Registro_Img = "INSERT INTO imagen_usuario (usuario_IDUSUARIO) VALUES ('$id')";
+		//$conex->query($Registro_Img);
 	
 	echo "
 	<script src='js/jquery-1.10.2.min.js'></script>

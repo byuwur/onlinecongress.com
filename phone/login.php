@@ -55,7 +55,7 @@
 					//echo json_encode($res);
                 }
                 else{
-                   	$_SESSION['user'] = $row['IDUSUARIOS'];
+                   	$_SESSION['user'] = $row['IdAsistente'];
 	                   	$mensaje = "Ha ingresado correctamente.";
 	                   	$sesion=true;
 
@@ -97,7 +97,7 @@
 						//echo json_encode($res);
 	                }
 	                else{
-	                   	$_SESSION['user'] = $row['IDUSUARIOS'];
+	                   	$_SESSION['user'] = $row['IdAsistente'];
 	                   	$mensaje = "Ha ingresado correctamente.";
 	                   	$sesion=true;
 

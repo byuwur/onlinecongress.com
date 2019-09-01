@@ -14,16 +14,14 @@ if( isset($_POST['id']) && isset($_POST['pass']) ) {
 		$pass = htmlspecialchars($pass);
 	}
 
-	$password = hash('sha256', $pass);
-	$queryverifpass = $conex->query(" SELECT * FROM asistente WHERE IdAsistente = '$id' AND Password = '$password' ");
+	$queryverifpass = $conex->query(" SELECT * FROM asistente WHERE IdAsistente = '$id' AND Password = '$pass' ");
 	$count = mysqli_num_rows($queryverifpass);
 	if($count!=1){
 		$error = true;
 		$success = false;
 		$mensaje = "Parece que algo salió mal. Intente más tarde";
-		$res = array('error' => $error, 'mensaje' => $mensaje, 'success' => $success);
-		$response[]=$res;
-		echo json_encode($response);
+		$res[] = array('error' => $error, 'mensaje' => $mensaje, 'success' => $success);
+		echo json_encode($res);
 		exit;
 	}
 	else {
@@ -43,7 +41,7 @@ if( isset($_POST['id']) && isset($_POST['pass']) ) {
 		$success = true;
 		
 		$mensaje = "Continuar.";
-		$res = array('error'=>$error,'mensaje'=>$mensaje,'sesion'=>$sesion,'usrid'=>$usrid,'usrname'=>$usrname,'usrape'=>$usrape,'usremail'=>$usremail,'usrciudad'=>$usrciudad,'usrcel'=>$usrcel,'usrrol'=>$usrrol,'usrsex'=>$usrsex,'usrinst'=>$usrinst,'usrpass'=>$usrpass);
+		$res[] = array('error'=>$error, 'success' => $success, 'mensaje'=>$mensaje,'usrid'=>$usrid,'usrname'=>$usrname,'usrape'=>$usrape,'usremail'=>$usremail,'usrciudad'=>$usrciudad,'usrcel'=>$usrcel,'usrrol'=>$usrrol,'usrsex'=>$usrsex,'usrinst'=>$usrinst,'usrpass'=>$usrpass);
 		echo json_encode($res);
 		exit;
 	}

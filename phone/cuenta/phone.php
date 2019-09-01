@@ -1,5 +1,5 @@
 <?php
-include_once 'conectar_bd.php';
+include_once '../conectar_bd.php';
 
 if( isset($_POST['id']) && isset($_POST['phone']) ) {
 
@@ -21,31 +21,7 @@ if( isset($_POST['id']) && isset($_POST['phone']) ) {
 		$response[]=$res;
 		echo json_encode($response);
 		exit;
-	} else if (strlen($phone) < 10) {
-		$error = true;
-    	$success = false;
-		$mensaje = "El número telefónico tiene 10 caracteres.";
-		$res = array('error' => $error, 'mensaje' => $mensaje, 'success' => $success);
-		$response[]=$res;
-		echo json_encode($response);
-		exit;
-	} else if (strlen($phone) > 10) {
-		$error = true;
-    	$success = false;
-		$mensaje = "El número telefónico tiene 10 caracteres.";
-		$res = array('error' => $error, 'mensaje' => $mensaje, 'success' => $success);
-		$response[]=$res;
-		echo json_encode($response);
-		exit;
-	} else if (preg_match("/^[a-zA-Z ]+$/",$phone)) {
-    	$error = true;
-    	$success = false;
-		$mensaje = "El número telefónico tiene únicamente números.";
-		$res = array('error' => $error, 'mensaje' => $mensaje, 'success' => $success);
-		$response[]=$res;
-		echo json_encode($response);
-		exit;
- 	}
+	}
 
 	$query = $conex->query(" UPDATE usuario SET CELULARUSUARIO = '$phone' WHERE IDUSUARIOS='$id'; ");
 	
