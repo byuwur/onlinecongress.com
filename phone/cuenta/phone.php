@@ -23,7 +23,7 @@ if( isset($_POST['id']) && isset($_POST['phone']) ) {
 		exit;
 	}
 
-	$query = $conex->query(" UPDATE usuario SET CELULARUSUARIO = '$phone' WHERE IDUSUARIOS='$id'; ");
+	$query = $conex->query(" UPDATE asistente SET Telefono = '$phone' WHERE IdAsistente='$id'; ");
 	
 	if ($query) {
 		$error = false;

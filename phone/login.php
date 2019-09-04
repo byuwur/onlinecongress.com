@@ -59,18 +59,20 @@
 	                   	$mensaje = "Ha ingresado correctamente.";
 	                   	$sesion=true;
 
-	                   	$usrid=$row['IdAsistente'];
+						$usrid=$row['IdAsistente'];
+						$usrtipodni=$row['TipoDocumentoA'];
+						$usrdni=$row['DocumentoA'];
 						$usrname=$row['NombresA'];
 						$usrape=$row['ApellidosA'];
 	                   	$usremail=$row['Email'];
 	                   	$usrcel=$row['Telefono'];
 	                   	$usrciudad=$row['Ciudad'];
-						$usrrol=$row['Tipo'];
 						$usrsex=$row['Genero'];
 						$usrinst=$row['Institucion'];   
 	                   	$usrpass=$row['Password'];
+						$usrrol=$row['Tipo'];
 
-						$res = array('error'=>$error,'mensaje'=>$mensaje,'sesion'=>$sesion,'usrid'=>$usrid,'usrname'=>$usrname,'usrape'=>$usrape,'usremail'=>$usremail,'usrciudad'=>$usrciudad,'usrcel'=>$usrcel,'usrrol'=>$usrrol,'usrsex'=>$usrsex,'usrinst'=>$usrinst,'usrpass'=>$usrpass);
+						$res = array('error'=>$error,'mensaje'=>$mensaje,'sesion'=>$sesion,'usrid'=>$usrid,'usrtipodni'=>$usrtipodni,'usrdni'=>$usrdni,'usrname'=>$usrname,'usrape'=>$usrape,'usremail'=>$usremail,'usrciudad'=>$usrciudad,'usrcel'=>$usrcel,'usrrol'=>$usrrol,'usrsex'=>$usrsex,'usrinst'=>$usrinst,'usrpass'=>$usrpass);
 						$response[]=$res;
 						echo json_encode($response);
 						exit;
@@ -102,17 +104,19 @@
 	                   	$sesion=true;
 
 	                   	$usrid=$row['IdAsistente'];
+						$usrtipodni=$row['TipoDocumentoA'];
+						$usrdni=$row['DocumentoA'];
 						$usrname=$row['NombresA'];
 						$usrape=$row['ApellidosA'];
 	                   	$usremail=$row['Email'];
 	                   	$usrcel=$row['Telefono'];
 	                   	$usrciudad=$row['Ciudad'];
-						$usrrol=$row['Tipo'];
 						$usrsex=$row['Genero'];
 						$usrinst=$row['Institucion'];   
 	                   	$usrpass=$row['Password'];
+						$usrrol=$row['Tipo'];
 
-						$res = array('error'=>$error,'mensaje'=>$mensaje,'sesion'=>$sesion,'usrid'=>$usrid,'usrname'=>$usrname,'usrape'=>$usrape,'usremail'=>$usremail,'usrciudad'=>$usrciudad,'usrcel'=>$usrcel,'usrrol'=>$usrrol,'usrsex'=>$usrsex,'usrinst'=>$usrinst,'usrpass'=>$usrpass);
+						$res = array('error'=>$error,'mensaje'=>$mensaje,'sesion'=>$sesion,'usrid'=>$usrid,'usrtipodni'=>$usrtipodni,'usrdni'=>$usrdni,'usrname'=>$usrname,'usrape'=>$usrape,'usremail'=>$usremail,'usrciudad'=>$usrciudad,'usrcel'=>$usrcel,'usrrol'=>$usrrol,'usrsex'=>$usrsex,'usrinst'=>$usrinst,'usrpass'=>$usrpass);
 						$response[]=$res;
 						echo json_encode($response);
 						exit;

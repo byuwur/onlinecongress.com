@@ -21,6 +21,6 @@
 	$file_name2=$_FILES[file][name];
 	$NombreImagen2 = $file_name2;
 	
-	$Registro_Evento = "UPDATE imagen_usuario SET Imagen1='$Ruta2', usuario_IDUSUARIO='$Id_Cancha' where usuario_IDUSUARIO='$Id_Cancha'";
+	$Registro_Evento = "UPDATE asistente SET Foto='$Ruta2' WHERE IdAsistente='$Id_Cancha'";
 	$conex->query($Registro_Evento);
 ?>

@@ -31,7 +31,7 @@ if( isset($_POST['id']) && isset($_POST['correo']) ) {
 		exit;
 	} else {
 		// check email exist or not
-		$query = $conex->query("SELECT CORREOUSUARIO FROM usuario WHERE CORREOUSUARIO='$correo'");
+		$query = $conex->query("SELECT Email FROM asistente WHERE Email='$correo'");
 		$count = mysqli_num_rows($query);
 		if($count!=0){
 			$error = true;
@@ -44,7 +44,7 @@ if( isset($_POST['id']) && isset($_POST['correo']) ) {
 		}
 	}
 	
-	$query = $conex->query(" UPDATE usuario SET CORREOUSUARIO = '$correo' WHERE IDUSUARIOS='$id'; ");
+	$query = $conex->query(" UPDATE asistente SET Email = '$correo' WHERE IdAsistente='$id'; ");
 	
 	if ($query) {
 		$error = false;

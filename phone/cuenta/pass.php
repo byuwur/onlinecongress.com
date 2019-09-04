@@ -56,7 +56,7 @@ if( isset($_POST['id']) && isset($_POST['passactual']) && isset($_POST['passnuev
 	$passwordactual = hash('sha256', $passactual);
 	$passwordnueva = hash('sha256', $passnueva);
 
-	$queryverifpass = $conex->query(" SELECT NOMBREUSUARIO FROM usuario WHERE IDUSUARIOS = '$id' AND PASSWORDUSUARIO = '$passwordactual' ");
+	$queryverifpass = $conex->query(" SELECT * FROM asistente WHERE IdAsistente = '$id' AND Password = '$passwordactual' ");
 	$count = mysqli_num_rows($queryverifpass);
 	if($count!=1){
 		$error = true;
@@ -68,7 +68,7 @@ if( isset($_POST['id']) && isset($_POST['passactual']) && isset($_POST['passnuev
 		exit;
 	}
 	else {
-		$query = $conex->query(" UPDATE usuario SET PASSWORDUSUARIO = '$passwordnueva' WHERE IDUSUARIOS='$id'; ");
+		$query = $conex->query(" UPDATE asistente SET Password = '$passwordnueva' WHERE IdAsistente='$id'; ");
 	
 		if ($query) {
 			$error = false;

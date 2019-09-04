@@ -1,28 +1,28 @@
 <?php
 include_once '../conectar_bd.php';
 
-if( isset($_POST['id']) && isset($_POST['ciudad']) ) {
+if( isset($_POST['id']) && isset($_POST['sexo']) ) {
 
 	if (!empty($_POST['id'])){
 		$id = trim($_POST['id']);
 		$id = strip_tags($id);
 		$id = htmlspecialchars($id);
 	}
-	if (!empty($_POST['ciudad'])){
-		$ciudad = trim($_POST['ciudad']);
-		$ciudad = strip_tags($ciudad);
-		$ciudad = htmlspecialchars($ciudad);
+	if (!empty($_POST['sexo'])){
+		$sexo = trim($_POST['sexo']);
+		$sexo = strip_tags($sexo);
+		$sexo = htmlspecialchars($sexo);
 	}
-	if (empty($ciudad)) {
+	if (empty($sexo)) {
 		$error = true;
 		$success = false;
-		$mensaje = "Ingrese una ciudad.";
+		$mensaje = "Ingrese sexo.";
 		$res = array('error' => $error, 'mensaje' => $mensaje, 'success' => $success);
 		$response[]=$res;
 		echo json_encode($response);
 		exit;
 	}
-	$query = $conex->query(" UPDATE asistente SET Ciudad = '$ciudad' WHERE IdAsistente='$id'; ");
+	$query = $conex->query(" UPDATE asistente SET Genero = '$sexo' WHERE IdAsistente='$id'; ");
 	
 	if ($query) {
 		$error = false;

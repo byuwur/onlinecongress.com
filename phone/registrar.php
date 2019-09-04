@@ -7,11 +7,27 @@
 	$success=false;
 	$mensaje="";
 
-	if (( isset($_POST['name']) && isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['phone']) ) || isset($_POST['ciudad'])) {
+	if (( isset($_POST['tipodni']) && isset($_POST['dni']) && isset($_POST['name']) && isset($_POST['last']) && isset($_POST['sexo']) && isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['ciudad']) ) && isset($_POST['inst']) || isset($_POST['phone'])) {
+		//
+		$tipodni = trim($_POST['tipodni']);
+		$tipodni = strip_tags($tipodni);
+		$tipodni = htmlspecialchars($tipodni);
+		//
+		$dni = trim($_POST['dni']);
+		$dni = strip_tags($dni);
+		$dni = htmlspecialchars($dni);
 		// clean user inputs to prevent sql injections
 		$name = trim($_POST['name']);
 		$name = strip_tags($name);
 		$name = htmlspecialchars($name);
+		//
+		$last = trim($_POST['last']);
+		$last = strip_tags($last);
+		$last = htmlspecialchars($last);
+		//
+		$sexo = trim($_POST['sexo']);
+		$sexo = strip_tags($sexo);
+		$sexo = htmlspecialchars($sexo);
 		//
 		$email = trim($_POST['email']);
 		$email = strip_tags($email);
@@ -21,19 +37,24 @@
 		$pass = strip_tags($pass);
 		$pass = htmlspecialchars($pass);
 		//
-		$phone = trim($_POST['phone']);
-		$phone = strip_tags($phone);
-		$phone = htmlspecialchars($phone);
+		$ciudad = trim($_POST['ciudad']);
+		$ciudad = strip_tags($ciudad);
+		$ciudad = htmlspecialchars($ciudad);
+		//
+		$inst = trim($_POST['inst']);
+		$inst = strip_tags($inst);
+		$inst = htmlspecialchars($inst);
 		//ciudad validation
-		if (!empty($_POST['ciudad'])){
-			$ciudad = trim($_POST['ciudad']);
-			$ciudad = strip_tags($ciudad);
-			$ciudad = htmlspecialchars($ciudad);
+		if (!empty($_POST['phone'])){
+			$phone = trim($_POST['phone']);
+			$phone = strip_tags($phone);
+			$phone = htmlspecialchars($phone);
 		}
+		$_anio=date("Y");
 		//random unique 6 char id
 		$count = 1;
 		while ($count!=0) {
-			$chars = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+			$chars = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
    			$randomString = '';
     		for ($i = 0; $i < 6; $i++) {
         		$randomString .= $chars[rand(0, strlen($chars) - 1)];
@@ -75,7 +96,7 @@
 			exit;
 		} else {
 			// check email exist or not
-			$query = $conex->query("SELECT CORREOUSUARIO FROM usuario WHERE CORREOUSUARIO='$email'");
+			$query = $conex->query("SELECT Email FROM asistente WHERE Email = '$email'");
 			$count = mysqli_num_rows($query);
 			if($count!=0){
 				$error = true;
@@ -102,29 +123,6 @@
 			echo json_encode($response);
 			exit;
 		}
-		// phone validation
-		if (strlen($phone) < 10) {
-			$error = true;
-			$mensaje = "El número telefónico tiene 10 caracteres.";
-			$res = array('error' => $error, 'mensaje' => $mensaje, 'success' => $success);
-			$response[]=$res;
-			echo json_encode($response);
-			exit;
-		} else if (strlen($phone) > 10) {
-			$error = true;
-			$mensaje = "El número telefónico tiene 10 caracteres.";
-			$res = array('error' => $error, 'mensaje' => $mensaje, 'success' => $success);
-			$response[]=$res;
-			echo json_encode($response);
-			exit;
-		} else if (preg_match("/^[a-zA-Z ]+$/",$phone)) {
-      		$error = true;
-			$mensaje = "El número telefónico tiene únicamente números.";
-			$res = array('error' => $error, 'mensaje' => $mensaje, 'success' => $success);
-			$response[]=$res;
-			echo json_encode($response);
-			exit;
- 		}
  		//set reserver role
 		$rol=2;
 		// password encrypt using SHA256();
@@ -132,17 +130,19 @@
 		// if there's no error, continue to signup
 		if( !$error ) {
 			//ciudad validation
- 			if (!empty($_POST['ciudad'])) {
-				$query = $conex->query("INSERT INTO usuario(IDUSUARIOS,NOMBREUSUARIO,CORREOUSUARIO,PASSWORDUSUARIO,CELULARUSUARIO,ROL,ciudad_IDCIUDAD) VALUES('$randomString','$name','$email','$password','$phone','$rol','$ciudad')");
+ 			if (!empty($_POST['phone'])) {
+				$query = $conex->query("INSERT INTO `asistente` (`IdAsistente`, `TipoDocumentoA`, `DocumentoA`, `NombresA`, `ApellidosA`, `Institucion`, `Genero`, `Email`, `Ciudad`, `Password`, `AñoA`, `Tipo`, `Telefono`)
+				VALUES ('$randomString', '$tipodni', '$dni', '$name', '$last', '$inst', '$sexo', '$email', '$ciudad', '$password', '$_anio', '2', '$phone');");
  			}
 			else{
-				$query = $conex->query("INSERT INTO usuario(IDUSUARIOS,NOMBREUSUARIO,CORREOUSUARIO,PASSWORDUSUARIO,CELULARUSUARIO,ROL) VALUES('$randomString','$name','$email','$password','$phone','$rol')");
+				$query = $conex->query("INSERT INTO `asistente` (`IdAsistente`, `TipoDocumentoA`, `DocumentoA`, `NombresA`, `ApellidosA`, `Institucion`, `Genero`, `Email`, `Ciudad`, `Password`, `AñoA`, `Tipo`, `Telefono`)
+				VALUES ('$randomString', '$tipodni', '$dni', '$name', '$last', '$inst', '$sexo', '$email', '$ciudad', '$password', '$_anio', '2', NULL);");
 			}
 			//register if it's all ok
 			if ($query) {
 				$error = false;
 				$success = true;
-				if(!empty($_POST['ciudad'])){
+				if(!empty($_POST['phone'])){
 					$mensaje = "Registrado satisfactoriamente. Revise su correo electrónico para verificar su cuenta.\n\nSu ID es $randomString";
 				}
 				else{
