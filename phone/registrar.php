@@ -60,7 +60,7 @@
         		$randomString .= $chars[rand(0, strlen($chars) - 1)];
     		}
     		//id verification
-			$query = $conex->query("SELECT IDUSUARIOS FROM usuario WHERE IDUSUARIOS='$randomString'");
+			$query = $conex->query("SELECT IdAsistente FROM asistente WHERE IdAsistente='$randomString'");
 			$count = mysqli_num_rows($query);
 		}
 		// basic name validation

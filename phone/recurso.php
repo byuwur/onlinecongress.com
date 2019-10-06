@@ -6,9 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
-  <!-- Favicons -->
-  <link href="../img-main/favicon.png" rel="icon">
-  <link href="../img-main/apple-touch-icon.png" rel="apple-touch-icon">
+  
   <style>
     body {
         background: #000;
@@ -27,9 +25,6 @@
 </head>
 
 <body>
-<iframe src="https://www.youtube-nocookie.com/embed/tGHoknod5WM?start=142"
-    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-</iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MAlSjtxy5ak" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </body>
 </html>
