@@ -521,7 +521,7 @@ echo '
           Contactate con nosotros y te damos la oportunidad de participar en este congreso.
         </p>
         <?php echo'<a class="btn btn-outline-warning btn-ponentes" href="Ponente/index.php?T=0" style="width: 80%; color; color:#fff">
-        REGISTRO DE PONENTES
+        REGISTRO DE PERSONAS
         </a>';?> 
       </div>
     </div>
