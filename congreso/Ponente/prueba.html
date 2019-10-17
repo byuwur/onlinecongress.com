@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+	$("#fileInput").change(function(){
+    $("button").prop("disabled", this.files.length == 0);
+});
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<input type="file" id="fileInput" />
+
+<button disabled="disabled">Enviar</button>
+</body>
+</html>
