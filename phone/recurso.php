@@ -15,6 +15,8 @@
     </style>
 </head>
 <body>
-<?= '<iframe src="https://www.youtube.com/embed/MAlSjtxy5ak" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ?>
+<? echo '<iframe src="https://www.youtube.com/embed/MAlSjtxy5ak" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+  //echo '<iframe src="http://www.sld.cu/galerias/pdf/sitios/bmn/aprenda_a_buscar_en_google_1.pdf" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+?>
 </body>
 </html>
