@@ -103,16 +103,10 @@ echo '
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-12 col-sm-2">
+			<div class="col-xs-12 col-sm-4">
 				<h4>Fecha</h4>
 				<p>
 				'.$Fecha.'
-				</p>
-			</div>
-			<div class="col-xs-12 col-sm-2">
-				<h4>Hora</h4>
-				<p>
-				'.date("g:i a",strtotime($Resultado['Hora'])).'
 				</p>
 			</div>
 		</div>

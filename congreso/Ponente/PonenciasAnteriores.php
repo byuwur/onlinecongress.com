@@ -7,7 +7,6 @@ $Tipo = $_GET['T'];
 $TipoU = $_GET['TU'];
 date_default_timezone_set('America/Bogota'); 
 $Fecha = date("Y-m-d");
-$Hora = date("H:i");
 $sql=$conex->query("SELECT archivosponentes.Ruta, archivosponentes.IdPonencia,archivosponentes.Tipo, ponente.Nombres, ponente.Apellidos, ponente.NivelFormacion, ponencia.Titulo, programacion.Fecha FROM archivosponentes, ponente, ponencia, programacion WHERE ponencia.IdPonencia=archivosponentes.IdPonencia AND ponencia.Estado=1 AND ponente.IdPonencia=archivosponentes.IdPonencia AND programacion.IdPonencia=archivosponentes.IdPonencia AND programacion.Fecha<'$Fecha' AND ponente.Tipo='$Tipo' AND ponente.IdPonencia=ponencia.IdPonencia AND archivosponentes.Id_Congreso='$Idc' AND ponente.Id_Congreso='$Idc' ORDER BY programacion.Fecha ASC");
 
 echo '
@@ -59,11 +58,11 @@ echo '
 						echo '</h3>
 						<p style="font-size:15px;">'.$Resultado['Nombres'].' '.$Resultado['Apellidos'].'</p>
 					</div>
-					<div class="col-xs-12 col-sm-4">
+					<div class="col-xs-12 col-sm-3">
 						<h3 style="font-size:18px;">Fecha</h3>
 						<p style="font-size:15px;">'.$Fecha.'</p>
 					</div>
-					<div class="col-xs-12 col-sm-1">
+					<div class="col-xs-12 col-sm-2">
 						<a class="btn btn-raised btn-info" style="height:50px; color:#fff" href="Ponencia.php?U='.$Usuario.'&P='.$Resultado['IdPonencia'].'&Tipo='.$Tipo.'&TU='.$TipoU.'">Ver</a>
 					</div>
 				</div>

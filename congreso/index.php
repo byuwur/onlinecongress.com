@@ -1,11 +1,13 @@
 <?php 
 include('Head.php');
 include('Nav.php'); 
- if (@$_GET['cerrar']) {
-    session_start();
-    session_unset(@$_SESSION['IdPonente']);
-    session_destroy();
-  }
+echo "
+  <style type='text/css'>
+    hr{
+      background: $ResultadoI[Color];
+    }
+  </style>
+";
 ?>
   <div id="Inicio"></div>
 <div class="slider-container" style="overflow: hidden;">
@@ -21,13 +23,14 @@ include('Nav.php');
         </svg>
         <div class="slide__text">
           <p class="slide__text-desc" style="font-size: 22px;">
-          Gracias por la participación en el   II Congreso Virtual Argentino e Iberoamericano de Tecnología y Educación. A partir del 05 de Junio, los participantes del congreso, podrán acceder a sus certificados digitales, tan solo escribiendo su número único de identidad.</p>
+          <?php echo $ResultadoI['Texto1'];?>
+          </p>
            <!--p class="slide__text-desc" style="font-size: 22px;">
           Para el Segundo Congreso Virtual Argentino e Iberoamericano de Tecnología y Educación - COVAITE 2019.  Se tendrá la publicación digital de las memorias del congreso con registro ISBN, con aquellos resúmenes de comunicación aprobados por el comité científico revisor.  Lo anterior con la colaboración de la Editorial de la Universidad Técnica de Machala de Ecuador.</p-->
         </div>
       </div>
     </div>
-    <div class="slide slide-1 ">
+    <div class="slide slide-1 " style="background-image: url("../Img_Web/Slider/image-1.jpg");">
       <div class="slide__bg"></div>
       <div class="slide__content">
         <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
@@ -35,7 +38,8 @@ include('Nav.php');
         </svg>
         <div class="slide__text">
           <!--h3 style="font-size: 40px;" class="slide__text-heading">Educación, tecnología, investigaciones y experiencias.</h3-->
-          <p class="slide__text-desc" style="font-size: 22px;">  El II Congreso Virtual Argentino e Iberoamericano de Tecnología y Educación - COVAITE2019, les comunica que las Conferencias y ponencias estarán habilitadas hasta el 17 de Junio.  Donde podrán escucharlas y leerlas nuevamente.
+          <p class="slide__text-desc" style="font-size: 22px;">
+            <?php echo $ResultadoI['Texto2'];?>
           </p>
         </div>
       </div>
@@ -47,7 +51,8 @@ include('Nav.php');
           <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
         </svg>
         <div class="slide__text">
-          <h3 class="slide__text-heading">Educación, tecnología, investigaciones y experiencias.</h3>
+          <h3 class="slide__text-heading">
+            <?php echo $ResultadoI['Texto3'];?></h3>
           <!--p class="slide__text-desc" style="font-size: 22px;">Sumate y sé parte de un evento educativo único en Latinoamérica. COVAITE ¡Te espera!.</p-->
         </div>
       </div>
@@ -71,7 +76,7 @@ include('Nav.php');
 <div class="container">
   <div class="row">
     <h2 class="section-heading" style="text-align: center;">PATROCINADORES</h2>
-    <hr class="section-heading-spacer center-block" style="background:#0277bd; width:20%">
+    <hr class="section-heading-spacer center-block" style="width:20%">
     <div class="col-xs-2 col-sm-2">
       <a target="_blank" href="http://www.itfip.edu.co/" class="thumb">
           <img style="height: 110px; width: 120px;" class="center-block img-responsive" src="Img_Web/Patrocinadores/logoitfip.png">
@@ -120,72 +125,46 @@ include('Nav.php');
   <div class="Alto container" style="margin-top: 50px;">
     <div class="row">
       <div class="col-sm-12">
-        <hr class="section-heading-spacer" style="background:#0277bd; width:20%">
+        <hr class="section-heading-spacer" style="width:20%">
         <div class="clearfix"></div>
-        <h2 class="section-heading">¿Que significa covaite?</h2>
-        <p style="text-align: left; color: #818181; font-size: 24px;">II Congreso Virtual Argentino e Iberoamericano de Tecnología y Educación.</p>
+        <h2 class="section-heading">¿Que significa <?php echo $ResultadoI['Nombre'];?>?</h2>
+        <p style="text-align: left; color: #818181; font-size: 24px;"><?php echo $ResultadoI['Que_es'];?></p>
         <h2 class="section-heading">Sobre el Congreso</h2>
-        <p style="text-align: left; color: #818181; font-size: 24px;">El avance sostenido en el uso de las Tecnologías en todos los sectores de la sociedad ha configurando cambios significativos y paradigmáticos, constituyéndose en las últimas décadas como herramientas fundamentales para el desarrollo social, científico y económico; la telefonía móvil, televisión digital, computadoras e Internet, entre otros, hoy juegan un papel preponderante en el desenvolvimiento diario de los individuos como ciudadanos de una sociedad cada vez más globalizada y digital.<br><br>
-En el plano educativo, su utilización pedagógico-didáctico constituye uno de los ejes principales de las estrategias metodológicas puestas al servicio de la educación de los alumnos. En este sentido las políticas públicas son cada vez más frecuentes alrededor del mundo, orientadas fundamentalmente a la disminución de la brecha digital y lograr una mayor igualdad de oportunidades, garantizando el acceso a las TIC de todos los alumnos y alumnas que transitan el sistema educativo.
-<br><br>
-Es por ello que desde la comunidad de docentes independiente que conforman el COVAITE, se pretende contribuir con el enriquecimiento de propuestas educativas relacionadas con el uso responsable y educativo de la Tecnología y en especial de las TIC como medios para la construcción del conocimiento.
-<br><br>
-Este Congreso pretende constituirse como un ambiente reflexión y debate sobre el uso de la tecnología en entornos educativos y sociales, dando a conocer experiencias, herramientas y diferentes temáticas educativas presentadas por destacados profesionales del mundo educativo y tecnológico a nivel provincial, nacional e internacional.
-</p>
+        <p style="text-align: left; color: #818181; font-size: 24px;">
+          <?php echo $ResultadoI['Sobre_Congreso'];?>
+        </p>
+        <h2 style="color: #81818" class="section-heading">¿Quienes pueden participar?</h2>
+        <p style="color: #818181; text-align:left; font-size: 24px" class="lead"><?php echo $ResultadoI['Quienes'];?></p>
       </div>
-      
     </div>
-
   </div>
 </div>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-2 col-sm-offset-6">
-      <a target="_blank" href="https://www.facebook.com/covaite/">
+      <a target="_blank" <?php echo 'href="'.$ResultadoI[Facebook].'"'; ?>>
       <img src="Img_Web/Faceboock.svg" class="img-responsive center-block">
       </a>
     </div>
     <div class="col-xs-12 col-sm-2">
-      <a target="_blank" href="https://twitter.com/Congresocovaite">
+      <a target="_blank" <?php echo 'href="'.$ResultadoI[Twitter].'"'; ?>>
       <img src="Img_Web/Twitter.svg" class="img-responsive center-block">
       </a>
     </div>
     <div class="col-xs-12 col-sm-2">
-      <a target="_blank" href="">
+      <a target="_blank" <?php echo 'href="'.$ResultadoI[Youtube].'"'; ?>>
       <img src="Img_Web/Youtube.svg" class="img-responsive center-block">
       </a>
     </div>
   </div>
 </div>
 <br>
- <div id="services" class="content-section-b">
-  <div class="Alto container-fluid" style="margin-top: 100px;">
-    <div class="row">
-      <div class="col-sm-6">
-        <img class="img-responsive animar2" src="Img_Web/pclogo.png">
-      </div>
-      <div class="col-sm-6">
-        <hr class="section-heading-spacer" style="background:#0277bd; width:20%">
-        <h1 style="color: #81818" class="section-heading">¿Quienes pueden participar?</h1>
-        <p style="color: #818181; text-align:left; font-size: 24px" class="lead">No solo especialistas en el área de Tecnología y educación están invitados a participar, con solo tener interés y ganas de ser partícipe de un cambio, es motivo suficiente para ser parte de este Congreso.</p>
-        <p class="animar3" style="color:#818181;padding-left:15px; border-left: dashed 3px #0277bd; text-align:left; font-size: 24px">Docentes de Todos los niveles Educativos.</p>
-        <p class="animar2" style="color:#818181;padding-left:15px; border-left: dashed 3px #0277bd; text-align:left; font-size: 24px">Estudiantes de nivel superior universitario y no universitario.</p>
-        <p class="animar3" style="color:#818181;padding-left:15px; border-left: dashed 3px #0277bd; text-align:left; font-size: 24px">Investigadores en el área de Educación y Tecnología.</p>
-        <p class="animar2" style="color:#818181;padding-left:15px; border-left: dashed 3px #0277bd; text-align:left; font-size: 24px">Personal de instituciones públicas y privadas vinculadas a la Educación.</p>
-        <p class="animar3" style="color:#818181;padding-left:15px; border-left: dashed 3px #0277bd; text-align:left; font-size: 24px">Público en general.</p>
-        <br>
-        <br>
-        <br>
-        <!--a href="#contact" class="btn btn-raised btn-warning page-scroll">INSCRIPCIÓN</a-->
-      </div>
-    </div>
-  </div>
-</div>
+
 <?php 
 include("conexion.php");
 date_default_timezone_set('America/Bogota');
 $Fecha = date("Y-m-d");
-$sql=$conex->query("SELECT Ponente.Fotografia, Ponente.Nombres, Ponente.Apellidos, Ponente.NivelFormacion, Ponente.Email, Ponencia.Titulo, Ponencia.Resumen, Ponencia.Idioma, Ponencia.InstitucionPatrocinadora, Ponencia.SitioWeb,Paises.name_pais, Programacion.Hora FROM Ponente, Ponencia, Paises, Programacion WHERE Ponencia.IdPonencia=Programacion.IdPonencia AND Ponente.IdPonencia=Programacion.IdPonencia AND Programacion.Fecha='$Fecha' AND Programacion.Tipo=1 AND Ponente.Pais=Paises.id AND Ponencia.Estado=1");
+$sql=$conex->query("SELECT ponente.Fotografia, ponente.Nombres, ponente.Apellidos, ponente.NivelFormacion, ponente.Email, ponencia.Titulo, ponencia.Resumen, ponencia.Idioma, ponencia.InstitucionPatrocinadora, ponencia.SitioWeb,paises.name_pais FROM ponente, ponencia, paises, programacion WHERE ponencia.IdPonencia=programacion.IdPonencia AND ponente.IdPonencia=programacion.IdPonencia AND programacion.Fecha='$Fecha' AND programacion.Tipo=1 AND ponente.Pais=paises.id AND ponencia.Estado=1 AND ponente.Id_Congreso='$Idc' ");
 echo '
   <style type="text/css">
     h4{
@@ -207,7 +186,7 @@ while ($ResultadoC=mysqli_fetch_assoc($sql)) {
   if ($Nombre!="") {
   echo'
     <div class="row">
-      <hr style="width: 10%; background: #0277bd" class="center-block">
+      <hr style="width: 10" class="center-block">
       <div class="col-xs-12 col-sm-4">';
         echo "
         <div class='row'>
@@ -226,13 +205,6 @@ while ($ResultadoC=mysqli_fetch_assoc($sql)) {
           <div class="col-xs-12 col-sm-6">
             <h4>Pais</h4>
             <p>'.$ResultadoC['name_pais'].'</p>
-          </div>
-
-          <div class="col-xs-12 col-sm-6">
-            <h4>Hora</h4>
-            <p>
-            '.date("g:i a",strtotime($ResultadoC['Hora'])).'
-            </p>
           </div>
         </div>
       </div>';
@@ -276,7 +248,7 @@ while ($ResultadoC=mysqli_fetch_assoc($sql)) {
 <?php
   date_default_timezone_set('America/Bogota'); 
   include("conexion.php");
-$Query2 = $conex->query("SELECT DISTINCT Programacion.IdPonencia FROM Programacion, Ponencia WHERE Programacion.Tipo='0' /*AND Ponencia.Estado='1'*/ AND Programacion.IdPonencia=Ponencia.IdPonencia ORDER BY RAND() LIMIT 4");
+$Query2 = $conex->query("SELECT DISTINCT programacion.IdPonencia FROM programacion, ponencia, ponente WHERE programacion.Tipo='0' AND Ponencia.Estado='1' AND programacion.IdPonencia=ponencia.IdPonencia AND ponente.IdPonencia=ponencia.IdPonencia AND ponente.Id_Congreso='$Idc' ORDER BY RAND() LIMIT 4");
 if (mysqli_num_rows($Query2)>0) {
       echo '
 <div class="container" style="margin-top: 5%"></div>
@@ -289,7 +261,7 @@ if (mysqli_num_rows($Query2)>0) {
       ';
             while($IdP = mysqli_fetch_assoc($Query2)){
               $IdPonencia = $IdP['IdPonencia'];
-            $Query3 = $conex->query("SELECT Ponencia.Categoria, Ponencia.IdPonencia, Ponencia.Titulo, Ponente.Nombres, Ponente.Apellidos, Ponente.Fotografia, Paises.name_pais, Programacion.Fecha, Programacion.Hora FROM Ponencia, Paises, Ponente, Programacion WHERE Programacion.IdPonencia='$IdPonencia' AND Ponencia.IdPonencia='$IdPonencia' AND Ponencia.Estado=1 AND Ponente.IdPonencia='$IdPonencia' AND Paises.id=Ponente.Pais AND Ponencia.Tipo=0");
+            $Query3 = $conex->query("SELECT ponencia.Categoria, ponencia.IdPonencia, ponencia.Titulo, ponente.Nombres, ponente.Apellidos, ponente.Fotografia, paises.name_pais, programacion.Fecha FROM ponencia, paises, ponente, programacion WHERE programacion.IdPonencia='$IdPonencia' AND ponencia.IdPonencia='$IdPonencia' AND ponencia.Estado=1 AND ponente.IdPonencia='$IdPonencia' AND paises.id=ponente.Pais AND ponencia.Tipo=0 AND ponente.Id_Congreso='$Idc'");
               $Resultado = mysqli_fetch_assoc($Query3);
               $Nombre = strstr($Resultado['Nombres'], ' ', true);
               if ($Nombre=="") {
@@ -309,18 +281,18 @@ if (mysqli_num_rows($Query2)>0) {
               echo '
               <div style="margin-top: 1%" class="col-sm-3 animar4">
                 <div class="card">
-                  <figure class="snip1543"><img style="max-height:120px; min-height:120px;" src="http://covaite.com/ImgCategorias/'.$Resultado['Categoria'].'.png" alt="sample101" />
+                  <figure class="snip1543" style="cursor:pointer;"><img style="max-height:120px; min-height:120px;" src="http://www.onlinecongress.com.co/ImgCategorias/'.$Resultado['Categoria'].'.png" alt="sample101" />
                     <figcaption>
                       <h3>'.$Nombre.' '.$Apellidos.'</h3>
                       <p>'.$Resultado['name_pais'].'</p>
                     </figcaption>
-                    <a href="#"></a>
                   </figure>
                   <div class="card-body">
                     <p class="card-text" style="font-size: 18px;">'.$Titulo.'...</p>
                   </div>
-                  <hr style="margin-left:15px;width: 30%; background-color: #0277bd;" align="left">
-                  <p class="card-text" style="color: #818181;font-size: 15px; font-style: italic; padding-left: 15px;">Fecha: '.$Fecha1.'<br>Hora: '.date("g:i a",strtotime($Resultado['Hora'])).'</p>
+                  <hr style="margin-left:15px;width: 30%;" align="left">
+                  <p class="card-text" style="color: #818181;font-size: 15px; font-style: italic; padding-left: 15px;">Fecha: '.$Fecha1.'<br>
+                  </p>
                   <p class="text-right">
                     <a href="InformacionP.php?P='.$Resultado['IdPonencia'].'" class="btn btn-warning" style="">VER DETALLES</a>
                   </p>
@@ -336,22 +308,22 @@ echo '</div>
 <?php
   date_default_timezone_set('America/Bogota'); 
          
-          $Sql1=$conex->query("SELECT DISTINCT Ponencia.Estado, Programacion.Fecha FROM Ponencia,Programacion WHERE Programacion.Tipo=0 AND Ponencia.Estado=1 AND Programacion.IdPonencia=Ponencia.IdPonencia ORDER BY Fecha ASC");
+          $Sql1=$conex->query("SELECT DISTINCT ponencia.Estado, programacion.Fecha FROM ponencia,programacion, ponente WHERE programacion.Tipo=0 AND ponencia.Estado=1 AND programacion.IdPonencia=ponencia.IdPonencia AND ponente.IdPonencia=ponencia.IdPonencia AND ponente.Id_Congreso='$Idc' ORDER BY Fecha ASC");
 $Vali=mysqli_num_rows($Sql1);
 if ($Vali!=0) {       
         echo ' 
 <div class="container" style="margin-top:3%; height:500px;" id="Ponencias">
   <h3 style="color:#818181;font-size: 44px;text-align: center;">Todas las ponencias</h3>
-          <hr style="width: 10%; background: #0277bd; color: #0277bd" class="center-block">
+          <hr style="width: 10%; color: #0277bd" class="center-block">
   <p style="font-size:18px; text-align:center">La agenda ha sido organizada, si desea saber quienes son los ponentes y autores de las presentaciones, puede dirigirse al menú categorías y seleccionar una de ellas.</p>
   <div class="row well animar2" style="z-index: 1000">
-    <div class="col-sm-2" style="border-right: dashed 3px #0277bd;">
+    <div class="col-sm-2" style="border-right: dashed 3px '.$ResultadoI[Color].';">
       <p>';
           while ($RDias=mysqli_fetch_assoc($Sql1)) {
             $F1=$RDias['Fecha'];
-            $Prueba1 = $conex->query("SELECT (ELT(WEEKDAY('$F1') + 1, 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo')) AS DIA_SEMANA1 FROM Programacion");
+            $Prueba1 = $conex->query("SELECT (ELT(WEEKDAY('$F1') + 1, 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo')) AS DIA_SEMANA1 FROM programacion");
             $Prueba11 = mysqli_fetch_assoc($Prueba1);
-            echo '<a class="btn btn-outline-warning btn-ponentes" data-toggle="tab" href="#'.$Prueba11['DIA_SEMANA1'].'" style="width: 100%; color; color:#fff">'.$Prueba11['DIA_SEMANA1'].'
+            echo '<a class="btn btn-raised btn-info btn-ponentes" data-toggle="tab" href="#'.$Prueba11['DIA_SEMANA1'].'" style="width: 100%; color; color:#fff">'.$Prueba11['DIA_SEMANA1'].'
             </a>';
           }
 echo '
@@ -360,7 +332,7 @@ echo '
     <div class="col-sm-10" style="overflow-x: hidden; overflow-y:auto;">
       <div class="container" style="height: 450px;">';
     $Cont2=0;
-    $Sql2=$conex->query("SELECT DISTINCT Ponencia.Estado, Programacion.Fecha FROM Ponencia,Programacion WHERE Programacion.Tipo=0 AND Ponencia.Estado=1 AND Programacion.IdPonencia=Ponencia.IdPonencia ORDER BY Fecha ASC");
+    $Sql2=$conex->query("SELECT DISTINCT ponencia.Estado, programacion.Fecha FROM ponencia,programacion,ponente WHERE programacion.Tipo=0 AND ponencia.Estado=1 AND programacion.IdPonencia=ponencia.IdPonencia AND ponente.IdPonencia=ponencia.IdPonencia AND ponente.Id_Congreso='$Idc' ORDER BY Fecha ASC");
     while ($Fechas3=mysqli_fetch_assoc($Sql2)) {
       if ($Cont2==0) {
         $active=" in active";
@@ -369,13 +341,13 @@ echo '
       }
       $F=$Fechas3['Fecha'];
 
-      $Prueba = $conex->query("SELECT (ELT(WEEKDAY('$F') + 1, 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo')) AS DIA_SEMANA FROM Programacion");
+      $Prueba = $conex->query("SELECT (ELT(WEEKDAY('$F') + 1, 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo')) AS DIA_SEMANA FROM programacion");
       $Prueba1 = mysqli_fetch_assoc($Prueba);
 
       echo'<div style="position: absolute" class="tab-pane fade'.$active.'" id="'.$Prueba1['DIA_SEMANA'].'">';
       $Cont2=$Cont2+1;
 
-         $Sql3=$conex->query("SELECT Ponencia.Categoria,Ponencia.IdPonencia, Ponencia.Titulo, Ponencia.Resumen, Ponente.Nombres, Ponente.Apellidos, Ponente.Fotografia, Programacion.Fecha, Programacion.Hora FROM Programacion, Ponencia, Ponente WHERE Programacion.IdPonencia=Ponencia.IdPonencia AND Programacion.IdPonencia=Ponente.IdPonencia AND Ponencia.IdPonencia=Ponente.IdPonencia AND Programacion.Fecha='$F' AND Programacion.Tipo=0 /*ORDER BY Hora ASC*/");
+         $Sql3=$conex->query("SELECT ponencia.Categoria,ponencia.IdPonencia, ponencia.Titulo, ponencia.Resumen, ponente.Nombres, ponente.Apellidos, ponente.Fotografia, programacion.Fecha FROM programacion, ponencia, ponente WHERE programacion.IdPonencia=ponencia.IdPonencia AND programacion.IdPonencia=ponente.IdPonencia AND ponencia.IdPonencia=ponente.IdPonencia AND programacion.Fecha='$F' AND programacion.Tipo=0 AND ponente.Id_Congreso='$Idc' /*ORDER BY Hora ASC*/");
         while ($ResultadoP=mysqli_fetch_assoc($Sql3)) {
           $FechaHoy=$ResultadoP['Fecha'];
           $Id = "";
@@ -399,12 +371,12 @@ echo '
                 <div class="papers Ubicacion">
                   <h2>'.$ResultadoP['Titulo'].'</h2>
                   <span style="color:#5e5e5e; font-size: 18px; font-style: italic;"><strong>Ponente: </strong>'.$ResultadoP['Nombres'].' '.$ResultadoP['Apellidos'].'</span>
-                  <span style="color:#0277bd;font-size:14px; float:right; padding-right:15px;">'.$FechaP.'/'.date("g:i a",strtotime($ResultadoP['Hora'])).' 
+                  <span style="color:'.$ResultadoI[Color].';font-size:14px; float:right; padding-right:15px;">'.$FechaP.' 
                   </span>
                   
                 </div>
               </div>
-              <hr class="center-block section-heading-spacer" style="background:#d2d2d2; width:70%"">
+              <hr class="center-block section-heading-spacer" style=" width:70%"">
             </div>
           ';
         }
@@ -420,46 +392,17 @@ echo '
 <div class="Alto Fondo_Section content-section-b" style="position:relative;">
   <div class="container-fluid" style="margin-top: 160px;">
     <div class="row">
-      <h2 class="section-heading" style="text-align:center;">¿Por qué participar en Covaite?</h2>
+      <h2 class="section-heading" style="text-align:center;">¿Por qué participar en <?php echo $ResultadoI[Nombre]?>?</h2>
       <br>
       <br>
       <div class="animar1 col-sm-6">
         <img style="z-index: 901" class="img-responsive" src="Img_Web/image-5.jpg" alt="">
       </div>
       <div class="col-sm-6" style="z-index: 900">
-        <div class="row">
-          <div class="col-sm-2">
-            <img style="margin-top:50%;" src="Img_Web/Iconos/Contribuciones.png" class="img-responsive">
-          </div>
-          <div class="col-sm-10">
-            <h3>Contribuciones</h3>
-            <p style="color: #818181;">
-            Creemos que el aporte de recursos y experiencias educativas innovadoras, contribuirán en gran medida a tus prácticas educativas.
+            <p style="font-size: 18px; text-align: justify;">
+              <?php echo $ResultadoI[Por_que]; ?>
+                
             </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-2">
-            <img style="margin-top:50%;" src="Img_Web/Iconos/Educacion.png" class="img-responsive">
-          </div>
-          <div class="col-sm-10">
-            <h3>Lazos</h3>
-            <p style="color: #818181;">
-            La relación e intercambio con colegas del mundo, posibilitarán la apertura de nuevos horizontes educativos.
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-2">
-            <img style="margin-top:50%;" src="Img_Web/Iconos/Compartir.png" class="img-responsive">
-          </div>
-          <div class="col-sm-10">
-            <h3>Educación Inclusiva</h3>
-            <p style="color: #818181;">
-              Estamos convencidos que el aporte desinteresado de cada uno de los docentes del mundo, permitirá avanzar a la consolidación de una educación de calidad y en igualdad de oportunidades para todos.
-         </p>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -529,3 +472,22 @@ echo '
 <div class="parallax-window" data-parallax="scroll" data-image-src="Img_Web/Slider/image-1-P.jpg" style="margin-top:50px; height: 300px; max-height: 300px; min-height: 300px;">
 </div>
 <?php include('footer.php');?>
+<style type="text/css">
+  .slide:nth-child(1) .slide__bg {
+  left: 0;
+  background-image: url(<?php echo '"'.$ResultadoI[Img1].'"';?>);
+  
+}
+.slide:nth-child(2) .slide__bg {
+  left: -50%;
+  background-image: url(<?php echo '"'.$ResultadoI[Img2].'"';?>);
+}
+.slide:nth-child(3) .slide__bg {
+  left: -100%;
+  background-image: url(<?php echo '"'.$ResultadoI[Img3].'"';?>);
+}/*
+.slide:nth-child(4) .slide__bg {
+  left: -150%;
+  background-image: url("../Img_Web/Slider/image-4.jpg");
+}*/
+</style>

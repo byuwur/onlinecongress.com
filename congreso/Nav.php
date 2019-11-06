@@ -1,4 +1,23 @@
-<div class="navbar-fixed-top navbar navbar-info" style="box-shadow: 0px 0px 10px 0px #818181;">
+<?php
+include('Idc.php');
+include("conexion.php");
+
+ if (@$_GET['cerrar']) {
+    session_start();
+    session_unset(@$_SESSION['IdPonente']);
+    session_destroy();
+  }
+  $Info=$conex->query("SELECT * FROM info_congreso, congreso WHERE info_congreso.Id_Congreso=congreso.Id_Congreso AND info_congreso.Id_Congreso='$Idc' AND congreso.Id_Congreso='$Idc'");
+  $ResultadoI=mysqli_fetch_assoc($Info);
+  echo '
+  <style type="text/css">
+    a:hover{
+      background: '.$ResultadoI[Color].' !important;
+      color:#fff !important;
+    }
+  </style>';
+  ?>
+<div class="navbar-fixed-top navbar navbar-info"<?php echo 'style="box-shadow: 0px 0px 10px 0px #818181; background: '.$ResultadoI['Color'].'"';?>>
     <div class="contaid">
       <div class="navbar-header" style="min-height: 100px;">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-warning-collapse">
@@ -7,13 +26,14 @@
           <span class="icon-bar"></span>
         </button>
         <a href="index.php" style="font-size:14px; color:#fff" class="navbar-brand page-scroll" href="#Inicio">
-          <img src="Img_Web/Congress.png" class="img-responsive" style="height: 80px; margin-top:0px;">
+          <img <?php echo 'src="'.$ResultadoI['Logo'].'"';?> class="img-responsive" style="height: 80px; margin-top:0px;">
+
         </a>
       </div>
       <div class="navbar-collapse collapse navbar-warning-collapse">
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-                <a href="javascript:void(0)" data-target="" class='dropdown-toggle' data-toggle="dropdown" style="color:#0277bd;font-size:14px; min-height: 100px;">COVAITE 2019
+                <a href="javascript:void(0)" data-target="" class='dropdown-toggle' data-toggle="dropdown" style="color:#fff;font-size:14px; min-height: 100px;"><?php echo $ResultadoI['Nombre'];?>
                   <span> </span><b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
@@ -25,11 +45,11 @@
           <li>
         <?php 
           include("conexion.php");
-          $Query2=$conex->query("SELECT IdPonencia,Titulo FROM Ponencia WHERE Tipo=1 AND Estado=1");
+          $Query2=$conex->query("SELECT ponencia.IdPonencia,ponencia.Titulo FROM ponencia, ponente WHERE ponencia.Tipo=1 AND ponencia.Estado=1 AND ponente.Id_Congreso='$Idc' AND ponencia.IdPonencia=ponente.IdPonencia");
           if (mysqli_num_rows($Query2)>0) {
          echo '
           <li class="dropdown">
-                <a href="javascript:void(0)" data-target="" class="dropdown-toggle" data-toggle="dropdown" style="color:#0277bd;font-size:14px; min-height: 100px;">CONFERENCIAS
+                <a href="javascript:void(0)" data-target="" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;font-size:14px; min-height: 100px;">CONFERENCIAS
                   <span> </span><b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu" style="overflow-y: auto; max-height: 460px;">';
@@ -48,13 +68,13 @@
         }
         ?>
           <li class="dropdown">
-                <a href="javascript:void(0)" data-target="" class='dropdown-toggle' data-toggle="dropdown" style="color:#0277bd;font-size:14px; min-height: 100px;">CATEGORIAS
+                <a href="javascript:void(0)" data-target="" class='dropdown-toggle' data-toggle="dropdown" style="color:#fff;font-size:14px; min-height: 100px;">CATEGORIAS
                   <span> </span><b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
                   <?php 
                   include("conexion.php");
-                   $Quer3=$conex->query("SELECT Id, Categoria FROM Categorias");
+                   $Quer3=$conex->query("SELECT Id, Categoria FROM categorias WHERE Id_Congreso='$Idc'");
                    while ($Cate=mysqli_fetch_assoc($Quer3)) {
                      echo '<li><a href="Categorias.php?C='.$Cate[Id].'">'.$Cate[Categoria].'</a></li>';
                    }
@@ -63,7 +83,7 @@
               </li>
           <li>
           <li class="dropdown">
-                <a href="javascript:void(0)" data-target="" class='dropdown-toggle' data-toggle="dropdown" style="color:#0277bd;font-size:14px; min-height: 100px;">PARTICIPA
+                <a href="javascript:void(0)" data-target="" class='dropdown-toggle' data-toggle="dropdown" style="color:#fff;font-size:14px; min-height: 100px;">PARTICIPA
                   <span> </span><b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
@@ -75,11 +95,11 @@
           <li>
 
           <li>
-            <a style="color:#0277bd;font-size:14px; min-height: 100px; margin-top:0px;" class="btn btn-outline-warning" href="Certificados.php">Certificados</a>
+            <a style="color:#fff;font-size:14px; min-height: 100px; margin-top:0px;" class="btn btn-outline-warning" href="Certificados.php">Certificados</a>
           </li>
 
            <li>
-            <a style="color:#0277bd;font-size:14px; min-height: 100px; margin-top:0px;" class="btn btn-outline-warning" href="Contacto.php">CONTACTO</a>
+            <a style="color:#fff;font-size:14px; min-height: 100px; margin-top:0px;" class="btn btn-outline-warning" href="Contacto.php">CONTACTO</a>
           </li>
         </ul>
       </div>

@@ -249,7 +249,7 @@ if ($Resultado==0) {
 				$query3 = $conex->query("INSERT INTO ponente VALUES('$Idc', '$randomString','$TipoDocumento','$Documento','$Nombres','$Apellidos','$Genero','$Email','$Telefono','$Pais','$Provincia','$Ciudad','$Resumen','$Labora','$Formacion','','$Fecha','$Año','$Contra','$Tipo')");
 				$querie4 = $conex->query("INSERT INTO ponencia VALUES('$randomString','','','','','','$Fecha','$Tipo','0','0')");
 				$queryTipo=$conex->query("INSERT INTO archivosponentes VALUES('$Idc', '$randomString','0','')");
-				$Ncon= $conex->query("SELECT Nombre FROM congreso WHERE Id_Congreso='$Idc'");
+				$Ncon= $conex->query("SELECT congreso.Nombre,congreso.Logo, info_congreso.Subdominio, administrador.Email FROM congreso, info_congreso, administrador WHERE congreso.Id_Congreso='$Idc' AND info_congreso.Id_Congreso='$Idc'");
 				$NombreC=mysqli_fetch_assoc($Ncon);
 					$Destino = $Email;
 			        $Remitente = "comitetecnico@covaite.com";
@@ -272,10 +272,10 @@ if ($Resultado==0) {
 			            <table>
 			              <tr>
 			                <td width="250px">
-			                	<a href="http://weapp.com.co/Covaite">
-					              <img src="http://weapp.com.co/Covaite/Img_Web/Logo.png">
-					            </a>
-			                </td>
+		                        <a href="'.$Resul[Subdominio].'">
+		                        <img src="'.$Resul[Logo].'">
+		                      </a>
+		                    </td>
 			              </tr>
 			            </table>
 			          </body>

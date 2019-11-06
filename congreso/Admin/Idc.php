@@ -1,3 +1,3 @@
 <?php
-$Idc="123ADV"
+$Idc="123AVS"
 ?>

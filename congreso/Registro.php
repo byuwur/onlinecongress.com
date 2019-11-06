@@ -3,7 +3,8 @@ include("conexion.php");
 include("Idc.php");
 include('Head.php');
 include('Nav.php'); 
-$Sql1=$conex->query("SELECT Asistente FROM Inscripciones WHERE Id_Congreso='$Idc'");
+include('Idc.php'); 
+$Sql1=$conex->query("SELECT Asistente FROM inscripciones WHERE Id_Congreso='$Idc'");
 $A=mysqli_fetch_assoc($Sql1);
 $Resultado=$A['Asistente'];
 if ($Resultado==0) {
@@ -17,7 +18,7 @@ if ($Resultado==0) {
 <div class="triangulo-equilatero-bottom-left animar2" style="margin-top:0px;">
   <div class="row">
       <div class="col-sm-12" style="color: #fff;">
-        <h2 style="margin-top:25%; text-align: left;">Acompáñanos en esta experiencia educativa única en latinoamerica.</h2>
+        <h2 style="margin-top:25%; text-align: left;">Acompáñanos en esta experiencia educativa única.</h2>
       </div>
     </div>
 </div>
@@ -145,7 +146,7 @@ include("conexion.php");
     		for ($i = 0; $i < 6; $i++) {
         		$randomString .= $chars[rand(0, strlen($chars) - 1)];
     		}
-			$query1 = "SELECT IdAsistente FROM Asistente WHERE IdAsistente='$randomString' AND Id_Congreso='$Idc'";
+			$query1 = "SELECT asistente.IdAsistente FROM asistente, registro_asistencia WHERE asistente.IdAsistente='$randomString' AND registro_asistencia.Id_Congreso='$Idc' AND registro_asistencia.Id_Asistente='$randomString'";
 			$result = $conex->query($query1);
 			$count = mysqli_num_rows($result);
 		}
@@ -164,7 +165,7 @@ include("conexion.php");
 		$Fecha = date("Y-m-d");
 		$Año = date("Y");
 		if ($Documento!="" && $Nombres!="" && $Apellidos!="" && $Genero!="" && $Email!="") {
-				$query2 = $conex->query("SELECT IdAsistente FROM Asistente WHERE DocumentoA='$Documento' AND AñoA='$Año'");		
+				$query2 = $conex->query("SELECT asistente.DocumentoA FROM asistente, registro_asistencia WHERE asistente.DocumentoA='$Documento' AND asistente.AñoA='$Año' AND registro_asistencia.Id_Congreso='$Idc' AND registro_asistencia.Id_Asistente=asistente.IdAsistente");		
 				if (mysqli_num_rows($query2)!=0) {
 					echo "
 				      <div style='display:block;left:0px;' class='Area_Oscura2'>
@@ -188,7 +189,7 @@ include("conexion.php");
 				$Contra=md5($Contra1);
 				$query3 = $conex->query("INSERT INTO asistente VALUES('$randomString','$TipoDocumento','$Documento','$Nombres','$Apellidos', '$Institucion', '$Genero','$Email', '$Pais', '$Contra', '$Año', '2')");
 				$Registro = $conex->query("INSERT INTO registro_asistencia VALUES ('$Idc', '$randomString')");
-				$Ncon= $conex->query("SELECT Nombre FROM congreso WHERE Id_Congreso='$Idc'");
+				$Ncon= $conex->query("SELECT congreso.Nombre,congreso.Logo, info_congreso.Subdominio, administrador.Email FROM congreso, info_congreso, administrador WHERE congreso.Id_Congreso='$Idc' AND info_congreso.Id_Congreso='$Idc'");
 				$NombreC=mysqli_fetch_assoc($Ncon);
 					$Destino = $Email;
 			        $Remitente = "comitetecnico@covaite.com";
@@ -210,11 +211,11 @@ include("conexion.php");
 			            <br>
 			            <table>
 			              <tr>
-			                <td width="250px">
-			                	<a href="http://weapp.com.co/Covaite">
-					              <img src="http://weapp.com.co/Covaite/Img_Web/Logo.png">
-					            </a>
-			                </td>
+		                    <td width="250px">
+		                        <a href="'.$Resul[Subdominio].'">
+		                          <img src="'.$Resul[Logo].'">
+		                        </a>
+		                    </td>
 			              </tr>
 			            </table>
 			          </body>
