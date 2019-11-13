@@ -37,7 +37,7 @@ if( isset($_POST['id']) ) {
 
 		if( $count == 1 ) {
 			$passtemp = GenerarID();
-            $hashpasstemp =  hash('sha256', $passtemp);
+            $hashpasstemp =  hash('md5', $passtemp);
             $emailsend = $row['Email'];
 
             $mail_asunto = "Recuperar contraseña de OnlineCongressApp (Asistente)";

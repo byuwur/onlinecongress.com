@@ -37,7 +37,7 @@
 		}
 		// if there's no error, continue to login
 		if (!$error) {
-			$password = hash('sha256', $pass); // password hashing using SHA256
+			$password = hash('md5', $pass); // password hashing using SHA256
 			//PARA VERIFICAR EL CORREO ELECTRÓNICO
 			$query=$conex->query("SELECT * FROM asistente WHERE Email='$email'");
 			$row=mysqli_fetch_array($query);
@@ -81,7 +81,7 @@
 			}
 		
 			else {
-				$password = hash('sha256', $pass);
+				$password = hash('md5', $pass);
 				//PARA VERIFICAR EL PIN SI NO SE INGRESA EL CORREO
 	            $query=$conex->query("SELECT * FROM asistente WHERE IdAsistente='$email'");
 				$row=mysqli_fetch_array($query);

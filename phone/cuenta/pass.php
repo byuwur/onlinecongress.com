@@ -53,8 +53,8 @@ if( isset($_POST['id']) && isset($_POST['passactual']) && isset($_POST['passnuev
 		exit;
 	}
 
-	$passwordactual = hash('sha256', $passactual);
-	$passwordnueva = hash('sha256', $passnueva);
+	$passwordactual = hash('md5', $passactual);
+	$passwordnueva = hash('md5', $passnueva);
 
 	$queryverifpass = $conex->query(" SELECT * FROM asistente WHERE IdAsistente = '$id' AND Password = '$passwordactual' ");
 	$count = mysqli_num_rows($queryverifpass);

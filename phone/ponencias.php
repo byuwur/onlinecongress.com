@@ -7,7 +7,7 @@ if (isset($_GET['congreso']) || isset($_GET['categoria'])){
 	$categoria = $_GET['categoria'];
 }
 
-$res= $conex->query("SELECT * FROM ponencia WHERE Tipo = 0 AND IdCongreso = '$congreso' AND Estado = '1' ");
+$res= $conex->query("SELECT * FROM ponencia WHERE Tipo = 0 AND Id_Congreso = '$congreso' AND Estado = '1' ");
 $i = 0;
 while($row = mysqli_fetch_object($res)){
 	$pais[$i]=$row;

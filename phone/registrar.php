@@ -126,7 +126,7 @@
  		//set reserver role
 		$rol=2;
 		// password encrypt using SHA256();
-		$password = hash('sha256', $pass);
+		$password = hash('md5', $pass);
 		// if there's no error, continue to signup
 		if( !$error ) {
 			//ciudad validation
