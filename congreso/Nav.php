@@ -94,9 +94,9 @@ include("conexion.php");
               </li>
           <li>
 
-          <li>
+          <!--li>
             <a style="color:#fff;font-size:14px; min-height: 100px; margin-top:0px;" class="btn btn-outline-warning" href="Certificados.php">Certificados</a>
-          </li>
+          </li-->
 
            <li>
             <a style="color:#fff;font-size:14px; min-height: 100px; margin-top:0px;" class="btn btn-outline-warning" href="Contacto.php">CONTACTO</a>

@@ -72,7 +72,7 @@ include("conexion.php");
 					    <div class='row'>
 					        <div class='col-sm-4 col-sm-offset-4'>
 					            <div class='well' style='margin-top:55%;'>
-					               <h4 align='center'>La contraseña actualizado correctamente.</h4>
+					               <h4 align='center'>La contraseña se ha actualizado correctamente.</h4>
 					                <div class='row'>
 					           		    <div class='col-sm-6 col-sm-offset-3'>
 					                      <a href='Contrasena.php?U=$Usuario&Tipo=$Tipo' style='width:100%' class='btn btn-info btn-raised'>Aceptar</a>

@@ -10,7 +10,7 @@ include("conexion.php");?>
 	<div class="well" style="margin-top: 150px;">
 		<div class="row">
 			<div class="col-xs-12">
-				<h2 style="text-align: center;">Descarga el certificado según tú participación en COVAITE 2019</h2>
+				<h2 style="text-align: center;">Descarga el certificado según su participación en COVAITE 2019</h2>
 			</div>
 		</div>
 		<br>

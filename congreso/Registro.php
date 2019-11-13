@@ -64,7 +64,7 @@ if ($Resultado==0) {
 				<input type="text" maxlength="50" class="form-control" name="Apellidos" required>
 			</div>
 			<div class="form-group col-xs-12 col-sm-2" style="margin-top: 0px;">
-			    <label for="exampleSelect1" class="bmd-label-floating">Genero</label>
+			    <label for="exampleSelect1" class="bmd-label-floating">Género</label>
 			    <select class="form-control" id="exampleSelect1" name="Genero">
 			      <option>Femenino</option>
 			      <option>Masculino</option>
@@ -200,12 +200,12 @@ include("conexion.php");
 			          <title></title>
 			        </head>
 			        <body>
-			          <p style="font-size:28px; color:#333"><strong>Bienvenido: </strong> '.$Nombres.' '.$Apellidos.', tú registro ha sido exitoso, ahora pudes ingresar a la plataforma de '.$NombreC[Nombre].'.</p>
+			          <p style="font-size:28px; color:#333"><strong>Bienvenido: </strong> '.$Nombres.' '.$Apellidos.', Su registro ha sido exitoso, ahora puede ingresar a la plataforma de '.$NombreC[Nombre].'.</p>
 			          <br>
 			          <div>
 			            <p style="font-size:28px; color:#333"><strong>Usuario: </strong> '.$Documento.' </p>
-			            <p style="font-size:28px; color:#333"><strong>Password: </strong>Es tú mismo numero de usuario.</p>			           
-			            <p style="font-size:28px; color:#333"><strong>Password: </strong>Es la que ingresaste a la hora de registrate.</p>
+			            <p style="font-size:28px; color:#333"><strong>Password: </strong>Es su mismo número de usuario.</p>			           
+			            <p style="font-size:28px; color:#333"><strong>Password: </strong>Es la que ingreso a la hora de registrarse.</p>
 			            <br>
 			            <hr style="width:45%; background:#ccc;" align="left">
 			            <br>

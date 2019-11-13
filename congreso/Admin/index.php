@@ -26,7 +26,7 @@ include("conexion.php");
               echo '
               <div class="row">
                 <div class="AlertContra alert alert-danger col-xs-12 col-sm-4 col-sm-offset-4" role="alert" style="font-size: 16px; text-align:center">
-                  Verifica tus los datos ingresados.
+                  Verifique sus datos ingresados.
                 </div>
               </div>
               ';

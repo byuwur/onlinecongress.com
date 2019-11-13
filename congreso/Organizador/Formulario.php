@@ -40,12 +40,12 @@ include("Head.php");?>
             </div>
             <div class="row">
               <div class="form-group col-xs-12 col-sm-6">
-                <label for="exampleSelect1" style="font-size: 16px " class="control-label">Nombre Completo del administrador del congreso</label>
+                <label for="exampleSelect1" style="font-size: 16px " class="control-label">Nombre(s) y Apellido(s) del administrador de congreso</label>
                 <input class="form-control" type="text" id="exampleSelect1" name="Nombre">
               </div>
               <div class="form-group col-xs-12 col-sm-6">
                 <label for="exampleSelect1" style="font-size: 16px " class="control-label">Correo electrónico de contacto</label>
-                <input class="form-control" type="text" id="exampleInputEmail1" name="Email">
+                <input class="form-control" type="email" id="exampleInputEmail1" name="Email">
               </div>
             </div>
           <div class="row">

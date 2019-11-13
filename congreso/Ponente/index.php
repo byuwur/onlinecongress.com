@@ -248,7 +248,7 @@ include('Head.php');?>
                 <title></title>
               </head>
               <body>
-                <p style="font-size:28px; color:#333"><strong>Hola: </strong> '.$Nombres.' '.$Apellidos.', Has solicitado el cambio de contraseña, para poder iniciar sesion en '.$Resul[Nombre].' te ha generado la siguiente: </p>
+                <p style="font-size:28px; color:#333"><strong>Hola: </strong> '.$Nombres.' '.$Apellidos.', Has solicitado el cambio de contraseña, para poder iniciar sesión en '.$Resul[Nombre].' te ha generado la siguiente: </p>
                 <br>
                 <div>
                   <p style="font-size:28px; color:#333"><strong>Usuario: </strong> '.$Usuario.' </p>

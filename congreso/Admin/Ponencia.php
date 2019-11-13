@@ -8,7 +8,7 @@ echo '
 $IdPonencia = $_GET['P'];
 $Usuario = $_GET['U'];
 $Tipo = $_GET['T'];
-$sql=$conex->query("SELECT ArchivosPonentes.Ruta, ArchivosPonentes.Tipo, Ponente.IdPonente,Ponente.Nombres, Ponente.Apellidos, Ponente.NivelFormacion, Ponencia.Titulo FROM ArchivosPonentes, Ponente, Ponencia WHERE ArchivosPonentes.IdPonencia='$IdPonencia' AND Ponencia.IdPonencia='$IdPonencia' AND Ponente.IdPonencia='$IdPonencia'");
+$sql=$conex->query("SELECT archivosponentes.Ruta, archivosponentes.Tipo, ponente.IdPonente, ponente.Nombres, ponente.Apellidos, ponente.NivelFormacion, ponencia.Titulo FROM archivosponentes, ponente, ponencia WHERE archivosponentes.IdPonencia='$IdPonencia' AND ponencia.IdPonencia='$IdPonencia' AND ponente.IdPonencia='$IdPonencia'");
 $Resultado=mysqli_fetch_assoc($sql);
 $IdPonente=$Resultado['IdPonente'];
 echo '

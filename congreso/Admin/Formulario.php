@@ -172,12 +172,12 @@ include("Head.php");?>
             <input type="hidden" name="Id_Congreso" <?php echo 'value="'.$Id_Congreso.'"';?>>
           </form>
         </div>
-        <div class="row">
-          <div class="col-xs-12 col-sm-6">
+      </div>
+      <div class="row">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
             <div class="alert alert-danger" style="color: #fff" role="alert">El formato de la imagen debe de ser .jpg o .png, su peso no debe superar 1 Mb y sus medidas deben ser de 1539 píxeles de largo por 732 píxeles de alto.</div>
           </div>
         </div>
-      </div>
 <?php
 $Datos=$conex->query("SELECT info_congreso.Texto1, info_congreso.Texto2, info_congreso.Texto3, info_congreso.Que_es, info_congreso.Sobre_Congreso, info_congreso.Quienes, info_congreso.Por_que, info_congreso.Nosotros, info_congreso.Facebook, info_congreso.Twitter, info_congreso.Youtube, congreso.Nombre, congreso.Institucion, congreso.Color FROM info_congreso, congreso WHERE info_congreso.Id_Congreso='$Id_Congreso' AND congreso.Id_Congreso='$Id_Congreso' AND congreso.Id_Congreso=info_congreso.Id_Congreso");
 $Info=mysqli_fetch_assoc($Datos);

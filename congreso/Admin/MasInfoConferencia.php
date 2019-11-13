@@ -40,7 +40,7 @@ if ($Usuario!="") {
 					<p>'.$Resultado['NivelFormacion'].'</p>
 				</div>
 				<div class="col-xs-12 col-sm-2">
-					<h4>Pais</h4>
+					<h4>País</h4>
 					<p>'.$Resultado['name_pais'].'</p>
 				</div>
 				<div class="col-xs-12 col-sm-2">
