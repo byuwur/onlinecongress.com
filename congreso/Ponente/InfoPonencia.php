@@ -73,7 +73,7 @@ echo '
 				<p style="color: #818181">'.$Resultado1['Nombres'].'</p>
 			</div>
 			<div class="form-group label-floating col-xs-12 col-sm-4">
-				<h5>Apellidos</h5>
+				<h5>Apellido(s)</h5>
 				<p style="color: #818181">'.$Resultado1['Apellidos'].'</p>
 			</div>
 		</div>
@@ -95,7 +95,7 @@ echo '
 		</div>
 		<div class="row">
 			<div style="margin-top: 0px;" class="form-group col-xs-12">
-				<h5>Resúmen bibliográfico del ';
+				<h5>Resumen bibliográfico del ';
 				if ($Tipo==1) {
 		            	echo "conferencista";
 		            }else{
@@ -138,7 +138,7 @@ while ($Resultado2=mysqli_fetch_assoc($sql2)){
 				<p style="color: #818181">'.$Resultado2['TipoDocumentoA'].'</p>
 			 </div>
 			<div class="form-group label-floating col-xs-12 col-sm-4">
-				<h5>Numero de documento</h5>
+				<h5>Número de documento</h5>
 				<p style="color: #818181">'.$Resultado2['IdAutor'].'</p>
 			</div>
 		</div>
@@ -148,7 +148,7 @@ while ($Resultado2=mysqli_fetch_assoc($sql2)){
 				<p style="color: #818181">'.$Resultado2['NombresA'].'</p>
 			</div>
 			<div class="form-group label-floating col-xs-12 col-sm-4">
-				<h5>Apellidos</h5>
+				<h5>Apellido(s)</h5>
 				<p style="color: #818181">'.$Resultado2['ApellidosA'].'</p>
 			</div>
 		</div>

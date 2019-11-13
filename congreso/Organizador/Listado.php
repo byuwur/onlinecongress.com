@@ -22,7 +22,7 @@ if ($Usuario != ""){
         <table class="table">
 			  <thead style="background: #f2f2f2">
 			    <tr>
-			      <th scope="col">CODIGO CONGRESO</th>
+			      <th scope="col">CÓDIGO CONGRESO</th>
 			      <th scope="col">NOMBRE CONGRESO</th>
 			      <th scope="col">ADMINISTRADOR</th>
 			      <th scope="col">CORREO</th>

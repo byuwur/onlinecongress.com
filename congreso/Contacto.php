@@ -1,6 +1,7 @@
 <?php
 include('Head.php');
 include('Nav.php');
+include('Idc.php');
 include("conexion.php");?>
 <style type="text/css">
 	p,ul{
@@ -38,11 +39,11 @@ include("conexion.php");?>
         <div class="row">
           <div style="top:-50px;" class="well well-lg col-lg-12 col-xs-12">
             <div class="form-group label-floating">
-              <label class="control-label" for="focusedInput1">Nombres</label>
+              <label class="control-label" for="focusedInput1">Nombre(s)</label>
               <input class="form-control" id="Nombres" type="text">
             </div>
             <div class="form-group label-floating">
-              <label class="control-label" for="focusedInput1">Apellidos</label>
+              <label class="control-label" for="focusedInput1">Apellido(s)</label>
               <input class="form-control" id="Apellidos" type="text">
             </div>
             <div class="form-group label-floating">
@@ -50,7 +51,7 @@ include("conexion.php");?>
               <input class="form-control" id="Email" type="Email">
             </div>
             <div class="form-group label-floating">
-              <label class="control-label" for="focusedInput1">¿Cómo te podemos ayudar?</label>
+              <label class="control-label" for="focusedInput1">¿Cómo le podemos ayudar?</label>
               <textarea class="form-control" id="Ayuda"></textarea>
             </div>
             <a onclick="enviarmensaje()" class="btn btn-info btn-raised">Enviar</a>
@@ -98,7 +99,7 @@ include("conexion.php");?>
       $(".Loader").fadeIn('fast');
       $(".Loader_C").fadeIn('fast');
       $.ajax({
-        url: 'http://weapp.com.co/Covaite/Email.php',
+        url: 'http://onlinecongress.com.co/Email.php',
         type: 'POST',
         data: data,
         dataType: "json",

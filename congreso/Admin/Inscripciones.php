@@ -47,7 +47,7 @@ if ($Usuario!="") {
                     <div class='row'>
                       <div class='col-sm-4 col-sm-offset-4'>
                         <div class='well' style='margin-top:55%;'>
-                          <h4 align='center'>Las inscriciones de ponentes y conferencistas se han DESACTIVADO.</h4>
+                          <h4 align='center'>Las inscripciones de ponentes y conferencistas se han DESACTIVADO.</h4>
                           <div class='row'>
                             <div class='col-sm-6 col-sm-offset-3'>
                                 <a href='Inscripciones.php' style='width:100%; padding-top:10px' class='btn btn-info btn-raised'>Aceptar</a>
@@ -66,7 +66,7 @@ if ($Usuario!="") {
                     <div class='row'>
                       <div class='col-sm-4 col-sm-offset-4'>
                         <div class='well' style='margin-top:55%;'>
-                          <h4 align='center'>Las inscriciones de ponentes y conferencistas se han ACTIVADO.</h4>
+                          <h4 align='center'>Las inscripciones de ponentes y conferencistas se han ACTIVADO.</h4>
                           <div class='row'>
                             <div class='col-sm-6 col-sm-offset-3'>
                                 <a href='Inscripciones.php' style='width:100%; padding-top:10px' class='btn btn-info btn-raised'>Aceptar</a>
@@ -88,7 +88,7 @@ if ($Usuario!="") {
                     <div class='row'>
                       <div class='col-sm-4 col-sm-offset-4'>
                         <div class='well' style='margin-top:55%;'>
-                          <h4 align='center'>Las inscriciones de asistentes se han DESACTIVADO.</h4>
+                          <h4 align='center'>Las inscripciones de asistentes se han DESACTIVADO.</h4>
                           <div class='row'>
                             <div class='col-sm-6 col-sm-offset-3'>
                                 <a href='Inscripciones.php' style='width:100%; padding-top:10px' class='btn btn-info btn-raised'>Aceptar</a>
@@ -107,7 +107,7 @@ if ($Usuario!="") {
                     <div class='row'>
                       <div class='col-sm-4 col-sm-offset-4'>
                         <div class='well' style='margin-top:55%;'>
-                          <h4 align='center'>Las inscriciones de asistentes se han ACTIVADO.</h4>
+                          <h4 align='center'>Las inscripciones de asistentes se han ACTIVADO.</h4>
                           <div class='row'>
                             <div class='col-sm-6 col-sm-offset-3'>
                                 <a href='Inscripciones.php' style='width:100%; padding-top:10px' class='btn btn-info btn-raised'>Aceptar</a>

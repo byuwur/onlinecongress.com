@@ -1,13 +1,14 @@
 <?php include('Head.php');
 include('Nav.php');
 include("conexion.php");
+include('Idc.php');
 
 $Cate = $_GET['C'];
 
-$Query0=$conex->query("SELECT Categoria FROM Categorias WHERE Id='$Cate'");
+$Query0=$conex->query("SELECT Categoria FROM categorias WHERE Id='$Cate' AND Id_Congreso='$Idc'");
 $Cate0=mysqli_fetch_assoc($Query0);
 
-$Query=$conex->query("SELECT Ponente.Tipo,Ponencia.Categoria,Ponencia.IdPonencia, Ponente.Fotografia, Ponencia.Titulo, Ponencia.Resumen, Ponencia.Idioma FROM Ponencia, Categorias, Ponente WHERE Ponencia.IdPonencia=Ponente.IdPonencia AND Ponencia.Categoria='$Cate' AND Categorias.Id='$Cate' AND Ponencia.Estado=1");
+$Query=$conex->query("SELECT ponente.Tipo,ponencia.Categoria,ponencia.IdPonencia, ponente.Fotografia, ponencia.Titulo, ponencia.Resumen, ponencia.Idioma FROM ponencia, categorias, ponente WHERE ponencia.IdPonencia=ponente.IdPonencia AND ponencia.Categoria='$Cate' AND categorias.Id='$Cate' AND ponencia.Estado=1 AND ponente.Id_Congreso='$Idc' AND categorias.Id_Congreso='$Idc'");
 echo '<div class="container" style="margin-top: 150px;">
 	<div class="row">';
 while ($Cate1=mysqli_fetch_assoc($Query)) {

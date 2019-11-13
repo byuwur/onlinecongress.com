@@ -122,7 +122,7 @@ $RC=$RH['Categoria'];
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
-						<h3>Asignar categoria de la ponencia</h3>	
+						<h3>Asignar categoría de la ponencia</h3>	
 					    <select class="form-control" name="Categoria">
 					    	<option value="'.$RH[Categoria].'">'.$NombreCategoria[Categoria].'</option>
 					    ';
@@ -147,7 +147,7 @@ $RC=$RH['Categoria'];
 						<input type="time" min="00:01" max=24:00" name="Hora" required>
 					</div-->
 					<div class="col-xs-12 col-sm-12">
-						<h3>Asignar categoria de la ponencia</h3>	
+						<h3>Asignar categoría de la ponencia</h3>	
 					    <select class="form-control" name="Categoria">';
 					    $Categoria=$conex->query("SELECT Id, Categoria FROM categorias WHERE Id_Congreso='$Id_Congreso'");
 						while ($RCategorias=mysqli_fetch_assoc($Categoria)) {

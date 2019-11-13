@@ -40,7 +40,7 @@ if ($Usuario!="") {
 					<p>'.$Resultado['NivelFormacion'].'</p>
 				</div>
 				<div class="col-xs-12 col-sm-2">
-					<h4>Pais</h4>
+					<h4>País</h4>
 					<p>'.$Resultado['name_pais'].'</p>
 				</div>
 				<div class="col-xs-12 col-sm-2">
@@ -123,7 +123,7 @@ $RC=$RH['Categoria'];
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
-						<h3>Asignar categoria de la conferencia</h3>	
+						<h3>Asignar categoría de la conferencia</h3>	
 					    <select class="form-control" name="Categoria">
 					    	<option value="'.$RH[Categoria].'">'.$NombreCategoria[Categoria].'</option>
 					    ';

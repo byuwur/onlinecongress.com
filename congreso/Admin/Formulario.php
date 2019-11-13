@@ -7,12 +7,16 @@ include("Head.php");?>
     font-size: 16px;
   }
 </style>
-
 <script src="js/dropzone.js"></script>
 <link rel="stylesheet" type="text/css" href="css/dropzone.css">
 
 <script src="js/dropzone.js"></script>
 <link rel="stylesheet" type="text/css" href="css/dropzone.css">
+<style type="text/css">
+  p {
+    font-size: 16px; 
+  }
+</style>
 <script type="text/javascript">
   jQuery(document).ready(function($){
     Dropzone.options.myDrop1={
@@ -61,6 +65,30 @@ include("Head.php");?>
       }
     }
   });
+  jQuery(document).ready(function($){
+    Dropzone.options.myDrop5={
+      maxFileSize:5,
+      acceptedFiles: 'image/*',
+
+      init: function init(){
+        this.on("error", function(){
+          alert("Error al cargar el archivo");
+        });
+      }
+    }
+  });
+  jQuery(document).ready(function($){
+    Dropzone.options.myDrop6={
+      maxFileSize:5,
+      acceptedFiles: 'image/*',
+
+      init: function init(){
+        this.on("error", function(){
+          alert("Error al cargar el archivo");
+        });
+      }
+    }
+  });
 </script>
 
 <div class="container">
@@ -78,6 +106,42 @@ include("Head.php");?>
             </div>
             <input type="hidden" name="Id_Congreso" <?php echo 'value="'.$Id_Congreso.'"';?>>
           </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+           <div class="alert alert-danger" style="color: #fff" role="alert">El formato de la imagen debe de ser .jpg o .png, su peso no debe superar 1 Mb y sus medidas deben ser de 379 píxeles de largo por 100 píxeles de alto.</div>
+        </div>
+      </div>
+      <br> 
+      <div class="row">
+        <div class="col-sm-6">
+          <p style="text-align: center;">Elija imagen de los patrocinadores</p>
+          <form action="upload5.php" class="dropzone" id="myDrop5">
+            <h2 style="text-align:center; color:#0277bd;">Imagen patrocinadores</h2>
+            <div class="form-group label-floating">
+              <input type="file" name="archivo">
+            </div>
+            <input type="hidden" name="Id_Congreso" <?php echo 'value="'.$Id_Congreso.'"';?>>
+          </form>
+          <div class="col-sm-12">
+            <div class="alert alert-danger" style="color: #fff" role="alert">El formato de la imagen debe de ser .jpg o .png, su peso no debe superar 1 Mb y sus medidas deben ser de 1539 píxeles de largo por 732 píxeles de alto.</div>
+            </div>
+          </div>
+          
+      <br> 
+        <div class="col-sm-6">
+          <p style="text-align: center; margin-top: -4px;">Elija imagen de los auspiciantes</p>
+          <form action="upload6.php" class="dropzone" id="myDrop6">
+            <h2 style="text-align:center; color:#0277bd;">Imagen auspiciantes</h2>
+            <div class="form-group label-floating">
+              <input type="file" name="archivo">
+            </div>
+            <input type="hidden" name="Id_Congreso" <?php echo 'value="'.$Id_Congreso.'"';?>>
+          </form>
+          <div class="col-sm-12">
+            <div class="alert alert-danger" style="color: #fff" role="alert">El formato de la imagen debe de ser .jpg o .png, su peso no debe superar 1 Mb y sus medidas deben ser de 1539 píxeles de largo por 732 píxeles de alto.</div>
+            </div>
         </div>
       </div><br> 
       <div class="row">
@@ -109,8 +173,13 @@ include("Head.php");?>
           </form>
         </div>
       </div>
+      <div class="row">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <div class="alert alert-danger" style="color: #fff" role="alert">El formato de la imagen debe de ser .jpg o .png, su peso no debe superar 1 Mb y sus medidas deben ser de 1539 píxeles de largo por 732 píxeles de alto.</div>
+          </div>
+        </div>
 <?php
-$Datos=$conex->query("SELECT info_congreso.Texto1, info_congreso.Texto2, info_congreso.Texto3, info_congreso.Que_es, info_congreso.Sobre_Congreso, info_congreso.Quienes, info_congreso.Por_que, info_congreso.Nosotros, congreso.Nombre, congreso.Institucion, congreso.Color FROM info_congreso, congreso WHERE info_congreso.Id_Congreso='$Id_Congreso' AND congreso.Id_Congreso='$Id_Congreso' AND congreso.Id_Congreso=info_congreso.Id_Congreso");
+$Datos=$conex->query("SELECT info_congreso.Texto1, info_congreso.Texto2, info_congreso.Texto3, info_congreso.Que_es, info_congreso.Sobre_Congreso, info_congreso.Quienes, info_congreso.Por_que, info_congreso.Nosotros, info_congreso.Facebook, info_congreso.Twitter, info_congreso.Youtube, congreso.Nombre, congreso.Institucion, congreso.Color FROM info_congreso, congreso WHERE info_congreso.Id_Congreso='$Id_Congreso' AND congreso.Id_Congreso='$Id_Congreso' AND congreso.Id_Congreso=info_congreso.Id_Congreso");
 $Info=mysqli_fetch_assoc($Datos);
 echo'      
       <form method="POST" action="">
@@ -138,9 +207,9 @@ echo'
                 <input class="form-control" id="exampleInputEmail1" value="'.$Info[
                   Institucion].'" name="Institucion">
               </div>
-              <div class="form-group col-xs-12">
-                <label for="exampleSelect1" style="font-size: 16px " class="control-label">Siglas del Congreso</label>
-                <input class="form-control" id="exampleSelect1"  value="'.$Info[Nombre].'" name="Nombre">
+              <div class="col-xs-12">
+                <label style="font-size: 16px ">Siglas del Congreso</label><br>
+                <p>'.$Info[Nombre].'</p>
               </div>
             </div>
             <div class="row">
@@ -151,7 +220,7 @@ echo'
             </div>
             <div class="row">  
               <div class="form-group col-xs-12">
-                <label for="exampleTextarea" style="font-size: 16px " class="control-label">Descripcion del Congreso</label>
+                <label for="exampleTextarea" style="font-size: 16px " class="control-label">Descripción del Congreso</label>
                 <textarea class="form-control" id="exampleTextarea" rows="3" name="Sobre_Congreso">'.$Info[Sobre_Congreso].'</textarea>
               </div>
             </div>
@@ -172,7 +241,25 @@ echo'
                 <label for="exampleTextarea" style="font-size: 16px " class="control-label">Información del Congreso</label>
                 <textarea class="form-control" id="exampleTextarea" rows="3"  name="Nosotros">'.$Info[Nosotros].'</textarea>
               </div>
-            </div>
+            </div>           
+            <div class="row">
+              <div class="form-group col-xs-12">
+                <label for="exampleTextarea" style="font-size: 16px " class="control-label">Página de Facebook</label>
+                <textarea class="form-control" id="exampleTextarea" rows="3"  name="Facebook">'.$Info[Facebook].'</textarea>
+              </div>
+            </div> 
+            <div class="row">
+              <div class="form-group col-xs-12">
+                <label for="exampleTextarea" style="font-size: 16px " class="control-label">Página de Twitter</label>
+                <textarea class="form-control" id="exampleTextarea" rows="3"  name="Twitter">'.$Info[Twitter].'</textarea>
+              </div>
+            </div> 
+            <div class="row">
+              <div class="form-group col-xs-12">
+                <label for="exampleTextarea" style="font-size: 16px " class="control-label">Página de YouTube</label>
+                <textarea class="form-control" id="exampleTextarea" rows="3"  name="Youtube">'.$Info[Youtube].'</textarea>
+              </div>
+            </div> 
             <div class="row">
               <div class="col-xs-12">
                 <p>Elija el color principal del Congreso</p>
@@ -196,7 +283,6 @@ if ($_POST['Guardar']) {
     date_default_timezone_set('America/Bogota'); 
     $Año = date("Y");
     $Id_Congreso=$_POST['Id_Congreso'];
-    $Nombre=$_POST['Nombre'];
     $Institucion=$_POST['Institucion'];
     $Texto1=$_POST['Texto1'];
     $Texto2=$_POST['Texto2'];
@@ -206,10 +292,13 @@ if ($_POST['Guardar']) {
     $Quienes=$_POST['Quienes'];
     $Por_que=$_POST['Por_que'];
     $Nosotros=$_POST['Nosotros'];
+    $Facebook=$_POST['Facebook'];
+    $Twitter=$_POST['Twitter'];
+    $Youtube=$_POST['Youtube'];
     $Color=$_POST['Color'];
     $Logo=$_POST['Logo'];
-    $Actualizar= $conex ->query("UPDATE congreso SET Año='$Año', Nombre='$Nombre', Institucion='$Institucion', Color='$Color', Logo='$Logo' WHERE Id_Congreso='$Id_Congreso'");
-    $Info = $conex->query("UPDATE info_congreso SET Texto1='$Texto1', Texto2='$Texto2', Texto3='$Texto3', Que_es='$Que_es', Sobre_Congreso='$Sobre_Congreso',Quienes='$Quienes', Por_que='$Por_que', Nosotros='$Nosotros' WHERE Id_Congreso='$Id_Congreso'");
+    $Actualizar= $conex ->query("UPDATE congreso SET Año='$Año', Institucion='$Institucion', Color='$Color', Logo='$Logo' WHERE Id_Congreso='$Id_Congreso'");
+    $Info = $conex->query("UPDATE info_congreso SET Texto1='$Texto1', Texto2='$Texto2', Texto3='$Texto3', Que_es='$Que_es', Sobre_Congreso='$Sobre_Congreso',Quienes='$Quienes', Por_que='$Por_que', Nosotros='$Nosotros', Facebook='$Facebook', Twitter='$Twitter', Youtube='$Youtube' WHERE Id_Congreso='$Id_Congreso'");
     
     echo "
               <div style='display:block;left:0px;' class='Area_Oscura2'>

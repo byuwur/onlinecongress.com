@@ -167,7 +167,7 @@ if ($IdPonente != ""){
           </iframe>";
       }else{
        echo "
-        <iframe style='height:90%; margin-top:-20px;' class='foo' scrolling='yes' name='iframe_thingy' src='.php'>
+        <iframe style='height:90%; margin-top:-20px;' class='foo' scrolling='yes' name='iframe_thingy' src='InsertarPonencia.php'>
         </iframe>";
       }
     }else{

@@ -37,15 +37,27 @@ include("Head.php");?>
                 <label for="exampleInputEmail1" style="font-size: 16px " class="control-label">Documento</label>
                 <input class="form-control" type="text" id="exampleInputEmail1" name="Documento">
               </div>
-              <div class="form-group col-xs-12">
-                <label for="exampleSelect1" style="font-size: 16px " class="control-label">Nombre Completo</label>
+            </div>
+            <div class="row">
+              <div class="form-group col-xs-12 col-sm-6">
+                <label for="exampleSelect1" style="font-size: 16px " class="control-label">Nombre(s) y Apellido(s) del administrador de congreso</label>
                 <input class="form-control" type="text" id="exampleSelect1" name="Nombre">
               </div>
-              <div class="form-group col-xs-12">
-                <label for="exampleSelect1" style="font-size: 16px " class="control-label">Correo Electronico</label>
-                <input class="form-control" type="text" id="exampleInputEmail1" name="Email">
+              <div class="form-group col-xs-12 col-sm-6">
+                <label for="exampleSelect1" style="font-size: 16px " class="control-label">Correo electrónico de contacto</label>
+                <input class="form-control" type="email" id="exampleInputEmail1" name="Email">
               </div>
             </div>
+          <div class="row">
+            <div class="form-group col-xs-12 col-sm-6">
+                <label for="exampleSelect1" style="font-size: 16px " class="control-label">Siglas del Congreso</label>
+                <input class="form-control" id="exampleSelect1" name="NombreCongreso">
+            </div>
+            <!--div class="form-group col-xs-12 col-sm-6">
+                <label for="exampleSelect1" style="font-size: 16px " class="control-label">Subdominio del Congreso</label>
+                <input class="form-control" id="exampleSelect1" name="Subdominio">
+            </div-->
+          </div>
             <div class="row">
               <div class="col-xs-12 col-sm-2 col-sm-offset-5">
                 <input type="submit" name="Guardar" value="Guardar" class="btn btn-success btn-raised">
@@ -64,6 +76,8 @@ if ($_POST['Guardar']) {
     $Documento=$_POST['Documento'];
     $Nombre=$_POST['Nombre'];
     $Email=$_POST['Email'];
+    $NombreCongreso=$_POST['NombreCongreso'];
+    $Subdominio="http://www.".$NombreCongreso.".onlinecongress.com.co";
     $Password=md5($Documento);
     
 
@@ -80,8 +94,9 @@ if ($_POST['Guardar']) {
     }
 
     $A=$conex->query("INSERT INTO administrador VALUES('$TipoDocumento', '$Documento','$Nombre', '$Email', '$Password')");
-    $B=$conex->query("INSERT INTO congreso VALUES('$randomString', '$Nombre', '', '#0277bd', '', '', '$Documento')");
-    $C=$conex->query("INSERT INTO info_congreso VALUES('$randomString', '', '', '', '', '', '', '', '', '', '', '')");
+    $B=$conex->query("INSERT INTO congreso VALUES('$randomString', '$NombreCongreso', '', '#0277bd', '', '', '$Documento')");
+    $C=$conex->query("INSERT INTO info_congreso VALUES('$randomString', '', '', '', '', '', '', '', '', '', '', '', '$Subdominio','','','')");
+    $D=$conex->query("INSERT INTO patrocinadores_congreso VALUES('$randomString', '', '')");
               $Destino = $Email;
               $Remitente = "comitetecnico@covaite.com";
               $Asunto = 'Notificación plataforma';
