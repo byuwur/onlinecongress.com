@@ -1,6 +1,5 @@
 <?php 
-include("conexion.php");
-include("../Idc.php");
+include("../conectar_bd.php");
 include('Head.php');
 echo '
 	<script src="https://js.pusher.com/4.3/pusher.min.js"></script>
@@ -9,11 +8,12 @@ echo '
 $IdPonencia = $_GET['P'];
 $Usuario = $_GET['U'];
 $TipoU = $_GET['TU'];
+$Idc = $_GET['IDC'];
 $sql=$conex->query("SELECT archivosponentes.Ruta, archivosponentes.Tipo, ponente.IdPonente,ponente.Nombres, ponente.Apellidos, ponente.NivelFormacion, ponencia.Titulo FROM archivosponentes, ponente, ponencia WHERE archivosponentes.IdPonencia='$IdPonencia' AND ponencia.IdPonencia='$IdPonencia' AND ponente.IdPonencia='$IdPonencia' AND archivosponentes.Id_Congreso='$Idc' AND ponente.Id_Congreso='$Idc' AND ponente.IdPonencia=ponencia.IdPonencia AND ponente.Id_Congreso=archivosponentes.Id_Congreso");
 $Resultado=mysqli_fetch_assoc($sql);
 $IdPonente=$Resultado['IdPonente'];
 
-$Sql1=$conex->query("SELECT Participacion FROM participacion");
+$Sql1=$conex->query("SELECT Participacion FROM participacion WHERE Id_Congreso='$Idc' ");
 $R=mysqli_fetch_assoc($Sql1);
 $Parti=$R['Participacion'];
 
@@ -24,28 +24,7 @@ echo '
 <input type="hidden" id="TipoU" value="'.$TipoU.'">
 <input type="hidden" id="Parti" value="'.$Parti.'">
 <input type="hidden" id="Id_Congreso" value="'.$Idc.'">
-<div class="container">
-	<div class="">';
-		echo "<h2>".$Resultado['Titulo']."</h2>";
-		$Url = $Resultado['Ruta'];
-		if ($Resultado['Tipo']=="Video") {
-			$ResultadoUrl = str_replace("watch?v=", "embed/", $Url);
-			echo '
-			<br>
-			<br>
-			<iframe width="560" height="515" style="height:515px" src="'.$ResultadoUrl.'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			';
-		}else {
-			echo '<iframe src="'.$Resultado['Ruta'].'" style="width:100%; height:500px; margin-top:30px;" frameborder="0"> </iframe>';
-		}
-	echo '
-	<div class="row">
-		<div class="col-xs-12 col-sm-offset-10 col-sm-2">
-			<a class="btn btn-raised btn-info" style="height:50px; color:#fff" href="MasInfoPonencia.php?P='.$IdPonencia.'&U='.$Usuario.'&TipoU='.$TipoU.'">Ver Información</a>
-		</div>
-	</div>
-	</div>
-</div>';?>
+';?>
 <script type="text/javascript">
 	//setInterval('Cargar()',5000);
 	$(document).ready(function(){
@@ -138,12 +117,11 @@ echo '
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="form-group">
-			    <label for="exampleTextarea" class="bmd-label-floating">Crear nuevo comentario</label>
-			    <textarea  class="form-control" id="ComentarioNuevo" rows="3"></textarea>
+			    <textarea  class="form-control" id="ComentarioNuevo" rows="3" placeholder="Crear nuevo comentario"></textarea>
 			</div>
 		</div>
 		<div class="col-xs-12 col-sm-2">
-			<a class="btn btn-raised" style="height:50px; background: #818181; color:#fff" onclick="AgregarComentario()">Agregar</a>
+			<a class="btn btn-raised" style="height:50px; background: #818181; color:#fff" onclick="AgregarComentario()">Enviar</a>
 		</div>
 	</div>
 </div>';

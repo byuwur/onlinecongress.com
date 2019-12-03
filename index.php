@@ -75,7 +75,7 @@ if (isset($_GET['lang'])) {
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <a href="?lang=es" class="a-logo" title="Español" style="margin-left:12px;"><img src="./assets/img/co.png" alt="" /> ESP</a>|<a href="?lang=en" class="a-logo" title="English"><img src="./assets/img/uk.png" alt="" /> ENG</a>
+          <!--a href="?lang=es" class="a-logo" title="Español" style="margin-left:12px;"><img src="./assets/img/co.png" alt="" /> ESP</a>|<a href="?lang=en" class="a-logo" title="English"><img src="./assets/img/uk.png" alt="" /> ENG</a-->
           <li class="menu-active"><a href="#intro">Inicio</a></li>
           <li><a href="#about">Acerca de</a></li>
           <!-- li><a href="#speakers">Speakers</a></li>
@@ -86,7 +86,7 @@ if (isset($_GET['lang'])) {
           <li><a href="#schedule">Calendario</a></li>
           <li><a href="#faq">F.A.Q.</a></li>
           <li><a href="#contact">Contacto</a></li>
-          <li class="buy-tickets"><a href="#buy-tickets">Ingresar</a></li>
+          <li class="buy-tickets"><a href="congreso">Ingresar</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
