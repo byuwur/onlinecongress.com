@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <?php
 if (isset($_GET['lang'])) {
-    if ($_GET['lang'] == 'es' || $_GET['lang'] == 'en') {
-        require("./assets/lang/lang_" . $_GET['lang'] . ".php");
-        setcookie('lang', $_GET['lang'], time() + 31536000, '/', '', false, false);
-        echo "<html lang='" . $_GET['lang'] . "'>";
-        $lang = $_GET['lang'];
-    } else {
-        setcookie('lang', 'es', time() + 31536000, '/', '', false, false);
-        echo '<script type="text/javascript"> window.location = window.location.pathname; </script>';
-    }
-} else if (isset($_COOKIE['lang'])) {
-    if ($_COOKIE['lang'] == 'es' || $_COOKIE['lang'] == 'en') {
-        require("./assets/lang/lang_" . $_COOKIE['lang'] . ".php");
-        echo "<html lang='" . $_COOKIE['lang'] . "'>";
-        $lang = $_COOKIE['lang'];
-    } else {
-        setcookie('lang', 'es', time() + 31536000, '/', '', false, false);
-        echo '<script type="text/javascript"> window.location = window.location.pathname; </script>';
-    }
-} else {
+  if ($_GET['lang'] == 'es' || $_GET['lang'] == 'en') {
+    require("./assets/lang/lang_" . $_GET['lang'] . ".php");
+    setcookie('lang', $_GET['lang'], time() + 31536000, '/', '', false, false);
+    echo "<html lang='" . $_GET['lang'] . "'>";
+    $lang = $_GET['lang'];
+  } else {
     setcookie('lang', 'es', time() + 31536000, '/', '', false, false);
     echo '<script type="text/javascript"> window.location = window.location.pathname; </script>';
+  }
+} else if (isset($_COOKIE['lang'])) {
+  if ($_COOKIE['lang'] == 'es' || $_COOKIE['lang'] == 'en') {
+    require("./assets/lang/lang_" . $_COOKIE['lang'] . ".php");
+    echo "<html lang='" . $_COOKIE['lang'] . "'>";
+    $lang = $_COOKIE['lang'];
+  } else {
+    setcookie('lang', 'es', time() + 31536000, '/', '', false, false);
+    echo '<script type="text/javascript"> window.location = window.location.pathname; </script>';
+  }
+} else {
+  setcookie('lang', 'es', time() + 31536000, '/', '', false, false);
+  echo '<script type="text/javascript"> window.location = window.location.pathname; </script>';
 }
 ?>
 
@@ -81,9 +81,10 @@ if (isset($_GET['lang'])) {
           <!-- li><a href="#speakers">Speakers</a></li>
           <li><a href="#hotels">Hotels</a></li>
           <li><a href="#gallery">Gallery</a></li -->
-          <li><a href="#venue">Congresos</a></li>
+          <li><a href="#services">Servicios </a></li>
+          <!--<li><a href="#venue">Congresos</a></li> -->
           <li><a href="#schedule">Calendario</a></li>
-          <li><a href="#supporters">Patrocinadores</a></li>
+          <li><a href="#faq">F.A.Q.</a></li>
           <li><a href="#contact">Contacto</a></li>
           <li class="buy-tickets"><a href="#buy-tickets">Ingresar</a></li>
         </ul>
@@ -97,9 +98,9 @@ if (isset($_GET['lang'])) {
   <section id="intro">
     <div class="intro-container wow fadeIn">
       <h1 class="mb-4 pb-0">SOFTWARE PARA <span>CONGRESOS Y<br>EVENTOS DE INVESTIGACIÓN</span> VIRTUALES</h1>
-      <p class="mb-4 pb-0">¿Piensa llevar a cabo un evento? Nosotros se lo desarrollamos.</p>
-      <a href="https://www.youtube.com/watch?v=vx_fByRp3fA" class="venobox play-btn mb-4" data-vbtype="video"
-        data-autoplay="true"></a>
+      <p class="mb-4 pb-0">¿Necesitas crear un Evento o Congreso Virtual? <br>Online Congress es tu solución.</p>
+      <!--a href="https://www.youtube.com/watch?v=vx_fByRp3fA" class="venobox play-btn mb-4" data-vbtype="video"
+        data-autoplay="true"></a> -->
       <a href="#about" class="about-btn scrollto">¿Empezamos?</a>
     </div>
   </section>
@@ -113,19 +114,70 @@ if (isset($_GET['lang'])) {
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <h2>¿QUÉ HACEMOS?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2>Sobre Nosotros</h2>
+            <p>Online Congress surge con el propósito de satisfacer las necesidades existentes en las instituciones educativas para la creación eventos o congresos virtuales. Siendo una plataforma con una interfaz amigable y de fácil uso ofreciéndole a sus usuarios el control total de sus eventos.</p>
           </div>
-          <div class="col-lg-3">
+          <!-- <div class="col-lg-3">
             <h3>¿En qué nos especializamos?</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>-->
+          <div class="col-lg-6">
+            <h2>¿Por qué elegirnos?</2>
+              <p>Te ofrecemos una plataforma amigable que te ayudará a gestionar todo lo que conlleva crear un congreso o evento de investigación virtual brindandoles a tus asistentes, ponentes y conferencistas una experiencia agradable para compartir sus concimientos y experiencias. Adicionalmente podrás acceder a nuestra APP que estará completamente personalizada con tu evento, sin mencionar que tendrás acceso a diferentes estadisticas para realizar informes y hacer las respectivas tomas de deciones futuras.
+              </p>
           </div>
-          <div class="col-lg-3">
-            <h3>¿Por qué elegirnos?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        </div>
+
+
+    </section>
+
+    <div class="wrapperMain">
+      <section id="services" class="bounce-inInverse">
+        <div class="container wow fadeInUp">
+          <div class="containerContent row">
+            <div class="set_size_section1">
+              <div class="section-header col-12">
+                <h2>Administra y controla tus eventos</h2>
+                <p class="services_p center"> Con Online Congress tendrás acceso a diferentes opciones que te permitiran llevar el control de tu congreso y/o evento virtual</p>
+              </div>
+
+              <div class="article_center2 row">
+                <article class="section_article col-6 col-sm-4 col-lg-3">
+                  <img style="max-width:100%;" alt="Personalización" src="https://cdn1.iconfinder.com/data/icons/DarkGlass_Reworked/128x128/actions/color.png">
+                  <h3>Personalización</h3>
+
+                </article>
+
+                <article class="section1_article col-6 col-sm-4 col-lg-3">
+                  <img style="max-width:100%;" alt="Control" src="https://cdn1.iconfinder.com/data/icons/Futurosoft%20Icons%200.5.2/128x128/apps/Login-Manager.png">
+                  <h3>Control de Inscripciones y participación</h3>
+                </article>
+                <article class="section1_article col-6 col-sm-4 col-lg-3">
+                  <img style="max-width:100%;" alt="Certificaciones" src="https://cdn1.iconfinder.com/data/icons/icons-for-a-site-1/64/advantage_certificate-512.png">
+                  <h3>Certificaciones</h3>
+
+                </article>
+                <article class="section1_article col-6 col-sm-4 col-lg-3">
+                  <img style="max-width:100%;" alt="estadisticas" src="https://cdn0.iconfinder.com/data/icons/Hosting_Icons/128/web-space-px-png.png">
+                  <h3>Estadísticas</h3>
+
+                </article>
+                <article class="section1_article col-6 col-sm-4 col-lg-3">
+                  <img style="max-width:100%;" alt="App" src="https://cdn2.iconfinder.com/data/icons/Mobile_Device_Icons_by_pierocksmysocks/Mobile%20Device%20Icons%20256/Apple%20iPhone.png">
+                  <h3>App móvil</h3>
+
+                </article>
+
+
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+      </section>
+    </div>
+
     </section>
 
     <!--
@@ -318,7 +370,7 @@ if (isset($_GET['lang'])) {
     <!--==========================
       Venue Section
     ============================-->
-    <section id="venue" class="wow fadeInUp">
+    <!--  <section id="venue" class="wow fadeInUp">
 
       <div class="container-fluid">
 
@@ -424,27 +476,29 @@ if (isset($_GET['lang'])) {
       <div class="container wow fadeInUp">
         <div class="section-header">
           <h2>Calendario</h2>
-          <p>Conozca nuestros próximos eventos</p>
         </div>
 
         <ul class="nav nav-tabs" role="tablist">
           <li class="nav-item">
-            <a class="nav-link active" href="#day-1" role="tab" data-toggle="tab">Fecha 1</a>
+            <a class="nav-link active" href="#day-1" role="tab" data-toggle="tab">Enero - Marzo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#day-2" role="tab" data-toggle="tab">Fecha 2</a>
+            <a class="nav-link" href="#day-2" role="tab" data-toggle="tab">Abril - Junio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#day-3" role="tab" data-toggle="tab">Fecha 3</a>
+            <a class="nav-link" href="#day-3" role="tab" data-toggle="tab">Julio - septiembre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#day-4" role="tab" data-toggle="tab">Octubre - Diciembre</a>
           </li>
         </ul>
-        <h3 class="sub-heading">Nos permitimos presentar los congresos destacados de las próximas fechas:</h3><br>
+        <h3 class="sub-heading">Nos permitimos presentar los congresos y eventos destacados de las próximas fechas:</h3><br>
         <div class="tab-content row justify-content-center">
           <!-- Schdule Day 1 -->
           <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>09:30 AM</time></div>
+
               <div class="col-md-10">
                 <h4>Registration</h4>
                 <p>Fugit voluptas iusto maiores temporibus autem numquam magnam.</p>
@@ -452,7 +506,7 @@ if (isset($_GET['lang'])) {
             </div>
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>10:00 AM</time></div>
+
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/1.jpg" alt="Brenden Legros">
@@ -463,7 +517,7 @@ if (isset($_GET['lang'])) {
             </div>
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>11:00 AM</time></div>
+
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/2.jpg" alt="Hubert Hirthe">
@@ -474,7 +528,7 @@ if (isset($_GET['lang'])) {
             </div>
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>12:00 AM</time></div>
+
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/3.jpg" alt="Cole Emmerich">
@@ -485,7 +539,7 @@ if (isset($_GET['lang'])) {
             </div>
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>02:00 PM</time></div>
+
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/4.jpg" alt="Jack Christiansen">
@@ -496,7 +550,7 @@ if (isset($_GET['lang'])) {
             </div>
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>03:00 PM</time></div>
+
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/5.jpg" alt="Alejandrin Littel">
@@ -507,7 +561,6 @@ if (isset($_GET['lang'])) {
             </div>
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>04:00 PM</time></div>
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/6.jpg" alt="Willow Trantow">
@@ -524,7 +577,7 @@ if (isset($_GET['lang'])) {
           <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-2">
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>10:00 AM</time></div>
+
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/1.jpg" alt="Brenden Legros">
@@ -535,7 +588,7 @@ if (isset($_GET['lang'])) {
             </div>
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>11:00 AM</time></div>
+
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/2.jpg" alt="Hubert Hirthe">
@@ -546,7 +599,7 @@ if (isset($_GET['lang'])) {
             </div>
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>12:00 AM</time></div>
+
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/3.jpg" alt="Cole Emmerich">
@@ -557,7 +610,7 @@ if (isset($_GET['lang'])) {
             </div>
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>02:00 PM</time></div>
+
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/4.jpg" alt="Jack Christiansen">
@@ -568,7 +621,7 @@ if (isset($_GET['lang'])) {
             </div>
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>03:00 PM</time></div>
+
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/5.jpg" alt="Alejandrin Littel">
@@ -579,7 +632,7 @@ if (isset($_GET['lang'])) {
             </div>
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>04:00 PM</time></div>
+
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/6.jpg" alt="Willow Trantow">
@@ -596,7 +649,7 @@ if (isset($_GET['lang'])) {
           <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-3">
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>10:00 AM</time></div>
+
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/2.jpg" alt="Hubert Hirthe">
@@ -607,7 +660,7 @@ if (isset($_GET['lang'])) {
             </div>
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>11:00 AM</time></div>
+
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/3.jpg" alt="Cole Emmerich">
@@ -618,7 +671,7 @@ if (isset($_GET['lang'])) {
             </div>
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>12:00 AM</time></div>
+
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/1.jpg" alt="Brenden Legros">
@@ -629,7 +682,7 @@ if (isset($_GET['lang'])) {
             </div>
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>02:00 PM</time></div>
+
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/4.jpg" alt="Jack Christiansen">
@@ -640,7 +693,7 @@ if (isset($_GET['lang'])) {
             </div>
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>03:00 PM</time></div>
+
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/5.jpg" alt="Alejandrin Littel">
@@ -651,7 +704,7 @@ if (isset($_GET['lang'])) {
             </div>
 
             <div class="row schedule-item">
-              <div class="col-md-2"><time>04:00 PM</time></div>
+
               <div class="col-md-10">
                 <div class="speaker">
                   <img src="./assets/img/speakers/6.jpg" alt="Willow Trantow">
@@ -662,7 +715,7 @@ if (isset($_GET['lang'])) {
             </div>
 
           </div>
-          <!-- End Schdule Day 2 -->
+          <!-- End Schdule Day 3 -->
 
         </div>
 
@@ -674,11 +727,11 @@ if (isset($_GET['lang'])) {
     <!--==========================
       Sponsors Section
     ============================-->
-    <section id="supporters" class="section-with-bg wow fadeInUp">
+    <!--section id="supporters" class="section-with-bg wow fadeInUp">
 
       <div class="container">
         <div class="section-header">
-          <h2>Sponsors</h2>
+          <h2>Nuestros Patrocinadores</h2>
         </div>
 
         <div class="row no-gutters supporters-wrap clearfix">
@@ -688,43 +741,43 @@ if (isset($_GET['lang'])) {
               <img src="./assets/img/supporters/1.png" class="img-fluid" alt="">
             </div>
           </div>
-          
+
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
               <img src="./assets/img/supporters/2.png" class="img-fluid" alt="">
             </div>
           </div>
-        
+
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
               <img src="./assets/img/supporters/3.png" class="img-fluid" alt="">
             </div>
           </div>
-          
+
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
               <img src="./assets/img/supporters/4.png" class="img-fluid" alt="">
             </div>
           </div>
-          
+
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
               <img src="./assets/img/supporters/5.png" class="img-fluid" alt="">
             </div>
           </div>
-        
+
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
               <img src="./assets/img/supporters/6.png" class="img-fluid" alt="">
             </div>
           </div>
-          
+
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
               <img src="./assets/img/supporters/7.png" class="img-fluid" alt="">
             </div>
           </div>
-          
+
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
               <img src="./assets/img/supporters/8.png" class="img-fluid" alt="">
@@ -735,7 +788,7 @@ if (isset($_GET['lang'])) {
 
       </div>
 
-    </section>
+    </section-->
 
     <!--==========================
       F.A.Q Section
@@ -745,68 +798,68 @@ if (isset($_GET['lang'])) {
       <div class="container">
 
         <div class="section-header">
-          <h2>F.A.Q </h2>
+          <h2>PREGUNTAS FRECUENTES </h2>
         </div>
 
         <div class="row justify-content-center">
           <div class="col-lg-9">
-              <ul id="faq-list">
+            <ul id="faq-list">
 
-                <li>
-                  <a data-toggle="collapse" class="collapsed" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="fa fa-minus-circle"></i></a>
-                  <div id="faq1" class="collapse" data-parent="#faq-list">
-                    <p>
-                      Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-                    </p>
-                  </div>
-                </li>
-      
-                <li>
-                  <a data-toggle="collapse" href="#faq2" class="collapsed">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? <i class="fa fa-minus-circle"></i></a>
-                  <div id="faq2" class="collapse" data-parent="#faq-list">
-                    <p>
-                      Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                    </p>
-                  </div>
-                </li>
-      
-                <li>
-                  <a data-toggle="collapse" href="#faq3" class="collapsed">Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? <i class="fa fa-minus-circle"></i></a>
-                  <div id="faq3" class="collapse" data-parent="#faq-list">
-                    <p>
-                      Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-                    </p>
-                  </div>
-                </li>
-      
-                <li>
-                  <a data-toggle="collapse" href="#faq4" class="collapsed">Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla? <i class="fa fa-minus-circle"></i></a>
-                  <div id="faq4" class="collapse" data-parent="#faq-list">
-                    <p>
-                      Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                    </p>
-                  </div>
-                </li>
-      
-                <li>
-                  <a data-toggle="collapse" href="#faq5" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="fa fa-minus-circle"></i></a>
-                  <div id="faq5" class="collapse" data-parent="#faq-list">
-                    <p>
-                      Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-                    </p>
-                  </div>
-                </li>
-      
-                <li>
-                  <a data-toggle="collapse" href="#faq6" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="fa fa-minus-circle"></i></a>
-                  <div id="faq6" class="collapse" data-parent="#faq-list">
-                    <p>
-                      Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
-                    </p>
-                  </div>
-                </li>
-      
-              </ul>
+              <li>
+                <a data-toggle="collapse" class="collapsed" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="fa fa-minus-circle"></i></a>
+                <div id="faq1" class="collapse" data-parent="#faq-list">
+                  <p>
+                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                  </p>
+                </div>
+              </li>
+
+              <li>
+                <a data-toggle="collapse" href="#faq2" class="collapsed">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? <i class="fa fa-minus-circle"></i></a>
+                <div id="faq2" class="collapse" data-parent="#faq-list">
+                  <p>
+                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                  </p>
+                </div>
+              </li>
+
+              <li>
+                <a data-toggle="collapse" href="#faq3" class="collapsed">Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? <i class="fa fa-minus-circle"></i></a>
+                <div id="faq3" class="collapse" data-parent="#faq-list">
+                  <p>
+                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                  </p>
+                </div>
+              </li>
+
+              <li>
+                <a data-toggle="collapse" href="#faq4" class="collapsed">Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla? <i class="fa fa-minus-circle"></i></a>
+                <div id="faq4" class="collapse" data-parent="#faq-list">
+                  <p>
+                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                  </p>
+                </div>
+              </li>
+
+              <li>
+                <a data-toggle="collapse" href="#faq5" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="fa fa-minus-circle"></i></a>
+                <div id="faq5" class="collapse" data-parent="#faq-list">
+                  <p>
+                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                  </p>
+                </div>
+              </li>
+
+              <li>
+                <a data-toggle="collapse" href="#faq6" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="fa fa-minus-circle"></i></a>
+                <div id="faq6" class="collapse" data-parent="#faq-list">
+                  <p>
+                    Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
+                  </p>
+                </div>
+              </li>
+
+            </ul>
           </div>
         </div>
 
@@ -817,10 +870,10 @@ if (isset($_GET['lang'])) {
     <!--==========================
       Subscribe Section
     ============================-->
-    <section id="subscribe">
+    <!--section id="subscribe">
       <div class="container wow fadeInUp">
         <div class="section-header">
-          <h2>Newsletter</h2>
+          <h2>Suscríbete</h2>
           <p>Rerum numquam illum recusandae quia mollitia consequatur.</p>
         </div>
 
@@ -836,11 +889,11 @@ if (isset($_GET['lang'])) {
         </form>
 
       </div>
-    </section>
+    </section-->
 
     <!--==========================
       Buy Ticket Section
-    ============================-->
+    ============================
     <section id="buy-tickets" class="section-with-bg wow fadeInUp">
       <div class="container">
 
@@ -892,7 +945,7 @@ if (isset($_GET['lang'])) {
               </div>
             </div>
           </div>
-          <!-- Pro Tier -->
+          <!-- Pro Tier 
           <div class="col-lg-4">
             <div class="card">
               <div class="card-body">
@@ -919,7 +972,7 @@ if (isset($_GET['lang'])) {
 
       </div>
 
-      <!-- Modal Order Form -->
+      <!-- Modal Order Form 
       <div id="buy-ticket-modal" class="modal fade">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -951,8 +1004,8 @@ if (isset($_GET['lang'])) {
               </form>
             </div>
           </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
     </section>
 
@@ -1081,7 +1134,7 @@ if (isset($_GET['lang'])) {
 
     <div class="container">
       <div class="copyright">
-        &copy; 2019 <strong>MNM - GRIDSOA</strong>. Derechos reservados.
+        &copy; 2019 <strong><a href="https://mnm.team" target="_blank">MNM</a> - GRIDSOA</strong>. Derechos reservados.
       </div>
       <div class="credits">
         <!--

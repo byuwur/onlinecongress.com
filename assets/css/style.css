@@ -254,7 +254,7 @@ h6 {
 }
 
 .nav-menu ul li {
-  min-width: 180px;
+  width: 25%;
 }
 
 /* Nav Menu Arrows */
@@ -845,7 +845,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-weight: 600;
   background-color: #0e1b4d;
   color: #fff;
-  padding: 10px 100px;
+  padding: 10px 20px;
 }
 
 #schedule .nav-tabs a.active {

@@ -31,7 +31,7 @@ if( isset($_POST['id']) && isset($_POST['pass']) ) {
 		$usrape=$row['ApellidosA'];
 	    $usremail=$row['Email'];
 	    $usrcel=$row['Telefono'];
-	    $usrciudad=$row['Ciudad'];
+	    $usrpais=$row['Pais'];
 		$usrrol=$row['Tipo'];
 		$usrsex=$row['Genero'];
 		$usrinst=$row['Institucion'];   
@@ -41,7 +41,7 @@ if( isset($_POST['id']) && isset($_POST['pass']) ) {
 		$success = true;
 		
 		$mensaje = "Continuar.";
-		$res[] = array('error'=>$error, 'success' => $success, 'mensaje'=>$mensaje,'usrid'=>$usrid,'usrname'=>$usrname,'usrape'=>$usrape,'usremail'=>$usremail,'usrciudad'=>$usrciudad,'usrcel'=>$usrcel,'usrrol'=>$usrrol,'usrsex'=>$usrsex,'usrinst'=>$usrinst,'usrpass'=>$usrpass);
+		$res[] = array('error'=>$error, 'success' => $success, 'mensaje'=>$mensaje,'usrid'=>$usrid,'usrname'=>$usrname,'usrape'=>$usrape,'usremail'=>$usremail,'usrpais'=>$usrpais,'usrcel'=>$usrcel,'usrrol'=>$usrrol,'usrsex'=>$usrsex,'usrinst'=>$usrinst,'usrpass'=>$usrpass);
 		echo json_encode($res);
 		exit;
 	}

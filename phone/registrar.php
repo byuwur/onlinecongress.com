@@ -1,13 +1,11 @@
 <?php
-	ob_start();
-	session_start();
 	require_once 'conectar_bd.php';
 
 	$error=false;
 	$success=false;
 	$mensaje="";
 
-	if (( isset($_POST['tipodni']) && isset($_POST['dni']) && isset($_POST['name']) && isset($_POST['last']) && isset($_POST['sexo']) && isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['ciudad']) ) && isset($_POST['inst']) || isset($_POST['phone'])) {
+	if (( isset($_POST['tipodni']) && isset($_POST['dni']) && isset($_POST['name']) && isset($_POST['last']) && isset($_POST['sexo']) && isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['pais']) ) && isset($_POST['inst']) || isset($_POST['phone'])) {
 		//
 		$tipodni = trim($_POST['tipodni']);
 		$tipodni = strip_tags($tipodni);
@@ -37,14 +35,14 @@
 		$pass = strip_tags($pass);
 		$pass = htmlspecialchars($pass);
 		//
-		$ciudad = trim($_POST['ciudad']);
-		$ciudad = strip_tags($ciudad);
-		$ciudad = htmlspecialchars($ciudad);
+		$pais = trim($_POST['pais']);
+		$pais = strip_tags($pais);
+		$pais = htmlspecialchars($pais);
 		//
 		$inst = trim($_POST['inst']);
 		$inst = strip_tags($inst);
 		$inst = htmlspecialchars($inst);
-		//ciudad validation
+		//pais validation
 		if (!empty($_POST['phone'])){
 			$phone = trim($_POST['phone']);
 			$phone = strip_tags($phone);
@@ -129,14 +127,14 @@
 		$password = hash('md5', $pass);
 		// if there's no error, continue to signup
 		if( !$error ) {
-			//ciudad validation
+			//pais validation
  			if (!empty($_POST['phone'])) {
-				$query = $conex->query("INSERT INTO `asistente` (`IdAsistente`, `TipoDocumentoA`, `DocumentoA`, `NombresA`, `ApellidosA`, `Institucion`, `Genero`, `Email`, `Ciudad`, `Password`, `AñoA`, `Tipo`, `Telefono`)
-				VALUES ('$randomString', '$tipodni', '$dni', '$name', '$last', '$inst', '$sexo', '$email', '$ciudad', '$password', '$_anio', '2', '$phone');");
+				$query = $conex->query("INSERT INTO `asistente` (`IdAsistente`, `TipoDocumentoA`, `DocumentoA`, `NombresA`, `ApellidosA`, `Institucion`, `Genero`, `Email`, `Pais`, `Password`, `AñoA`, `Tipo`, `Telefono`)
+				VALUES ('$randomString', '$tipodni', '$dni', '$name', '$last', '$inst', '$sexo', '$email', '$pais', '$password', '$_anio', '2', '$phone');");
  			}
 			else{
-				$query = $conex->query("INSERT INTO `asistente` (`IdAsistente`, `TipoDocumentoA`, `DocumentoA`, `NombresA`, `ApellidosA`, `Institucion`, `Genero`, `Email`, `Ciudad`, `Password`, `AñoA`, `Tipo`, `Telefono`)
-				VALUES ('$randomString', '$tipodni', '$dni', '$name', '$last', '$inst', '$sexo', '$email', '$ciudad', '$password', '$_anio', '2', NULL);");
+				$query = $conex->query("INSERT INTO `asistente` (`IdAsistente`, `TipoDocumentoA`, `DocumentoA`, `NombresA`, `ApellidosA`, `Institucion`, `Genero`, `Email`, `Pais`, `Password`, `AñoA`, `Tipo`, `Telefono`)
+				VALUES ('$randomString', '$tipodni', '$dni', '$name', '$last', '$inst', '$sexo', '$email', '$pais', '$password', '$_anio', '2', NULL);");
 			}
 			//register if it's all ok
 			if ($query) {
@@ -146,7 +144,7 @@
 					$mensaje = "Registrado satisfactoriamente. Revise su correo electrónico para verificar su cuenta.\n\nSu ID es $randomString";
 				}
 				else{
-					$mensaje = "Registrado satisfactoriamente. Revise su correo electrónico para verificar su cuenta.\n\nSu ID es $randomString\n\nConsidere modificar su ciudad para presentarle canchas cercanas.";
+					$mensaje = "Registrado satisfactoriamente. Revise su correo electrónico para verificar su cuenta.\n\nSu ID es $randomString\n\nConsidere modificar su pais para presentarle canchas cercanas.";
 				}
 				$res = array('error' => $error, 'mensaje' => $mensaje, 'success' => $success);
 				$response[]=$res;

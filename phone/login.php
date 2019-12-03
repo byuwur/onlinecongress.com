@@ -1,6 +1,4 @@
 <?php
-	ob_start();
-	session_start();
 	require_once 'conectar_bd.php';
 
 	$error=false;
@@ -55,7 +53,6 @@
 					//echo json_encode($res);
                 }
                 else{
-                   	$_SESSION['user'] = $row['IdAsistente'];
 	                   	$mensaje = "Ha ingresado correctamente.";
 	                   	$sesion=true;
 
@@ -66,13 +63,13 @@
 						$usrape=$row['ApellidosA'];
 	                   	$usremail=$row['Email'];
 	                   	$usrcel=$row['Telefono'];
-	                   	$usrciudad=$row['Ciudad'];
+	                   	$usrpais=$row['Pais'];
 						$usrsex=$row['Genero'];
 						$usrinst=$row['Institucion'];   
 	                   	$usrpass=$row['Password'];
 						$usrrol=$row['Tipo'];
 
-						$res = array('error'=>$error,'mensaje'=>$mensaje,'sesion'=>$sesion,'usrid'=>$usrid,'usrtipodni'=>$usrtipodni,'usrdni'=>$usrdni,'usrname'=>$usrname,'usrape'=>$usrape,'usremail'=>$usremail,'usrciudad'=>$usrciudad,'usrcel'=>$usrcel,'usrrol'=>$usrrol,'usrsex'=>$usrsex,'usrinst'=>$usrinst,'usrpass'=>$usrpass);
+						$res = array('error'=>$error,'mensaje'=>$mensaje,'sesion'=>$sesion,'usrid'=>$usrid,'usrtipodni'=>$usrtipodni,'usrdni'=>$usrdni,'usrname'=>$usrname,'usrape'=>$usrape,'usremail'=>$usremail,'usrpais'=>$usrpais,'usrcel'=>$usrcel,'usrrol'=>$usrrol,'usrsex'=>$usrsex,'usrinst'=>$usrinst,'usrpass'=>$usrpass);
 						$response[]=$res;
 						echo json_encode($response);
 						exit;
@@ -99,7 +96,6 @@
 						//echo json_encode($res);
 	                }
 	                else{
-	                   	$_SESSION['user'] = $row['IdAsistente'];
 	                   	$mensaje = "Ha ingresado correctamente.";
 	                   	$sesion=true;
 
@@ -110,13 +106,13 @@
 						$usrape=$row['ApellidosA'];
 	                   	$usremail=$row['Email'];
 	                   	$usrcel=$row['Telefono'];
-	                   	$usrciudad=$row['Ciudad'];
+	                   	$usrpais=$row['Pais'];
 						$usrsex=$row['Genero'];
 						$usrinst=$row['Institucion'];   
 	                   	$usrpass=$row['Password'];
 						$usrrol=$row['Tipo'];
 
-						$res = array('error'=>$error,'mensaje'=>$mensaje,'sesion'=>$sesion,'usrid'=>$usrid,'usrtipodni'=>$usrtipodni,'usrdni'=>$usrdni,'usrname'=>$usrname,'usrape'=>$usrape,'usremail'=>$usremail,'usrciudad'=>$usrciudad,'usrcel'=>$usrcel,'usrrol'=>$usrrol,'usrsex'=>$usrsex,'usrinst'=>$usrinst,'usrpass'=>$usrpass);
+						$res = array('error'=>$error,'mensaje'=>$mensaje,'sesion'=>$sesion,'usrid'=>$usrid,'usrtipodni'=>$usrtipodni,'usrdni'=>$usrdni,'usrname'=>$usrname,'usrape'=>$usrape,'usremail'=>$usremail,'usrpais'=>$usrpais,'usrcel'=>$usrcel,'usrrol'=>$usrrol,'usrsex'=>$usrsex,'usrinst'=>$usrinst,'usrpass'=>$usrpass);
 						$response[]=$res;
 						echo json_encode($response);
 						exit;
@@ -144,4 +140,3 @@
 		exit;
 		//echo json_encode($res);
 	}
-?>

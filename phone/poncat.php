@@ -1,22 +1,24 @@
 <?php
 include_once 'conectar_bd.php';
-$pais=array();
+$pon=array();
 
-if (isset($_GET['congreso']) || isset($_GET['categoria'])){
+if (isset($_GET['congreso']) && isset($_GET['categoria'])){
 	$congreso = $_GET['congreso'];
 	$categoria = $_GET['categoria'];
 }
 
-$res= $conex->query("SELECT * FROM ponencia WHERE Id_Congreso = '$congreso' AND Categoria = '$categoria' AND Estado = '1' ");
+$sql = $conex->query("SELECT IdPonencia FROM ponente WHERE Id_Congreso='$congreso' ");
 $i = 0;
-while($row = mysqli_fetch_object($res)){
-	$pais[$i]=$row;
-	$idcat = $row -> Categoria;
-    $sqlarray = mysqli_fetch_array( $conex -> query("SELECT * FROM categorias WHERE Id='$idcat' "));
+while($row = mysqli_fetch_assoc($sql)){
+	$res= $conex->query("SELECT * FROM ponencia WHERE IdPonencia = '$row[IdPonencia]' AND Estado = '1' AND Categoria='$categoria' ");
+	$rowres = mysqli_fetch_object($res);
+	$pon[$i]=$rowres;
+	$idcat = $pon[$i] -> Categoria;
+    $sqlarray = mysqli_fetch_assoc( $conex -> query("SELECT * FROM categorias WHERE Id='$idcat' ") );
     $nomcat = $sqlarray['Categoria'];
-	$pais[$i] -> NombreCategoria = $nomcat;
+	$pon[$i] -> NombreCategoria = $nomcat;
 	$i++;
 }
 
-echo json_encode($pais);
+echo json_encode($pon);
 ?>

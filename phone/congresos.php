@@ -1,12 +1,12 @@
 <?php
 include_once 'conectar_bd.php';
-$pais=array();
+$pon=array();
 
 $res= $conex->query("SELECT * FROM congreso");
 
 while($row = mysqli_fetch_object($res)){
-	$pais[]=$row;
+	$pon[]=$row;
 }
 
-echo json_encode($pais);
+echo json_encode($pon);
 ?>

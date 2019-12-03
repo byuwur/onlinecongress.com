@@ -1,7 +1,7 @@
 <?php
 include_once '../conectar_bd.php';
 
-function GenerarID ($length = 3){
+function GenerarID (){
     $cadena="";
     $opc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz";
     for($i=0; $i<8; $i++){
