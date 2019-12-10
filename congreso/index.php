@@ -77,47 +77,12 @@ echo "
   <div class="row">
     <h2 class="section-heading" style="text-align: center;">PATROCINADORES</h2>
     <hr class="section-heading-spacer center-block" style="width:20%">
-    <div class="col-xs-2 col-sm-2">
-      <a target="_blank" href="http://www.itfip.edu.co/" class="thumb">
-          <img style="height: 110px; width: 120px;" class="center-block img-responsive" src="Img_Web/Patrocinadores/logoitfip.png">
-      </a>
-    </div>
-    <div class="col-xs-3 col-sm-3">
-      <a target="_blank" href="https://utn.edu.ar/es/" class="thumb">
-        <img class="center-block img-responsive" src="Img_Web/Patrocinadores/UTLR.png">
-      </a>
-    </div>
-    <div class="col-xs-2 col-sm-2">
-      <a target="_blank" class="thumb">
-        <img style="height: 100px; width: 100px;" class="center-block img-responsive"  src="Img_Web/Patrocinadores/Naucalpan.png">
-      </a>
-    </div>
-    <div class="col-xs-3 col-sm-3">
-      <a target="_blank" href="http://www.uncuyo.edu.ar/" class="thumb">
-        <img class="center-block img-responsive"  src="Img_Web/Patrocinadores/UNC.png">
-      </a>
-    </div>
-    <div class="col-xs-2 col-sm-2">
-      <a target="_blank" href="http://www.weapp.com.co" class="thumb">
-        <img class="center-block img-responsive"  src="Img_Web/Patrocinadores/Weapp.png">
-      </a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-3 col-sm-3">
-      <a target="_blank" href="http://www.sara.com.co/" class="thumb">
-        <img class="center-block img-responsive"  src="Img_Web/Patrocinadores/Sara.png">
-      </a>
-    </div>
-    <div class="col-xs-2 col-sm-3">
-      <a target="_blank" href="http://sistemas-i-computacion-tic.com/" class="thumb">
-        <img class="center-block img-responsive"  src="Img_Web/Patrocinadores/TIC.png">
-      </a>
-    </div>
-    <div class="col-xs-3 col-sm-3">
-      <a target="_blank" href="http://sistemas-i-computacion-tic.com/" class="thumb">
-        <img class="center-block img-responsive" src="Img_Web/Patrocinadores/gridsoa.png">
-      </a>
+    <div class="col-xs-2 col-sm-12">
+     <?php
+        $Consul = $conex->query("SELECT Img FROM patrocinadores WHERE Id_Congreso='$Idc'");
+        $Result=mysqli_fetch_assoc($Consul);
+              echo '<img class="center-block img-responsive" src="'.$Result[Img].'">';
+        ?>
     </div>
   </div>
 </div>

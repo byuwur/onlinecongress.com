@@ -98,7 +98,7 @@ echo '
 					<input type="hidden" name="Tipo" value="Video">
 				</div>
 				<div class="AlertContra alert alert-danger col-xs-12 col-sm-6" role="alert" style="font-size: 16px; text-align:center;" id="Alerta2">
-                Debe de copiar y pegar en este espacio la URL de su vídeo, el cual debe de estar subido en tu cuenta de YouTube.
+                Debes de copiar y pegar en este espacio la URL de tu vídeo, el cual debe de estar subido en tu cuenta de YouTube.
             </div>
 			</div>
 		</div>
@@ -110,7 +110,7 @@ echo '
 		</div>
 		<div class="row">
 			<div class="form-group label-floating col-xs-12 col-sm-12">
-			    <label for="exampleTextarea" class="control-label">Resumen ponencia</label>
+			    <label for="exampleTextarea" class="control-label">Resúmen ponencia</label>
 			    <textarea class="form-control" id="exampleTextarea" name="ResumenPonencia" rows="5" maxlength="2000" required></textarea>
 			</div>
 		</div>
@@ -156,7 +156,7 @@ echo '
 			    </select>
 			 </div>
 			<div class="form-group label-floating col-xs-12 col-sm-4">
-				<label class="control-label" for="Barrio">Número documento</label>
+				<label class="control-label" for="Barrio">Numero documento</label>
 				<input type="text" maxlength="30" class="form-control" onkeyup="ValidarMensaje()" name="DocumentoA1">
 			</div>
 		</div>
@@ -235,7 +235,7 @@ echo '
 			    </select>
 			 </div>
 			<div class="form-group label-floating col-xs-12 col-sm-4">
-				<label class="control-label" for="Barrio">Número documento</label>
+				<label class="control-label" for="Barrio">Numero documento</label>
 				<input type="text" maxlength="30" class="form-control" name="DocumentoA2">
 			</div>
 		</div>
@@ -313,7 +313,7 @@ echo '
 			    </select>
 			 </div>
 			<div class="form-group label-floating col-xs-12 col-sm-4">
-				<label class="control-label" for="Barrio">Número documento</label>
+				<label class="control-label" for="Barrio">Numero documento</label>
 				<input type="text" maxlength="30" class="form-control" name="DocumentoA3">
 			</div>
 		</div>

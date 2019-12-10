@@ -54,7 +54,7 @@ echo '
 				<p>'.$Resultado['name_pais'].'</p>
 			</div>
 		</div>';
-			$SqlAutores=$conex->query("SELECT autores.NombresA, autores.ApellidosA, autores.NivelFormacion, autores.EmailA, paises.name_pais FROM autores, ponencia, paises WHERE autores.IdPonencia=ponente.IdPonencia AND autores.IdPonencia='$IdPonencia' AND ponente.IdPonencia='$IdPonencia' AND autores.PaisA=paises.id AND ponente.Estado=1 AND autores.Id_Congreso='$Idc'");
+			$SqlAutores=$conex->query("SELECT autores.NombresA, autores.ApellidosA, autores.NivelFormacion,autores.EmailA, paises.name_pais FROM autores, ponencia, paises WHERE autores.IdPonencia=ponente.IdPonencia AND autores.IdPonencia='$IdPonencia' AND ponente.IdPonencia='$IdPonencia' AND autores.PaisA=paises.id AND ponente.Estado=1 AND autores.Id_Congreso='$Idc'");
 			if (mysqli_num_rows($SqlAutores)>0) {
 				echo '<div class="row">
 					<div class="col-sm-12">

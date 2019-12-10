@@ -40,9 +40,9 @@ if ($Usuario!="") {
 			<div class='container'>
 				<div class='row'>
 					<div class='col-xs-12 col-sm-6 offset-sm-3 card' style='margin-top:50px;'>
-						<h2 style='text-align:center'>Crear Categoría<h2>
+						<h2 style='text-align:center'>Crear Categoria<h2>
 						<div class='form-group col-xs-12'>
-			                <label for='exampleInputEmail1' style='font-size: 16px ' class='control-label'>Ingrese nombre de la categoría</label>
+			                <label for='exampleInputEmail1' style='font-size: 16px ' class='control-label'>Ingrese nombre de la categoria</label>
 			                <input class='form-control' id='' name='Categoria' required>
 			              </div>
 						<div class='row'>
@@ -60,7 +60,7 @@ if ($Usuario!="") {
 	echo '<div class="container">
   <div class="col-xs-12 col-sm-12">
  
-      <h1 style="text-align:center;">LISTADO DE CATEGORÍAS CREADAS</h1>
+      <h1 style="text-align:center;">LISTADO DE CATEGORIAS CREADAS</h1>
       <hr style="color:#0277bd; background:#0277bd; width:30%;" class="center-block">
       <br
       <br
@@ -69,8 +69,8 @@ if ($Usuario!="") {
         <table class="table">
 			  <thead style="background: #f2f2f2">
 			    <tr>
-			    	<th scope="col">NÚMERO</th>
-			      	<th scope="col">NOMBRE DE LA CATEGORÍA</th>
+			    	<th scope="col">NUMERO</th>
+			      	<th scope="col">NOMBRE DE LA CATEGORIA</th>
 			      	<th scope="col"></th>
 			    </tr>
 			  </thead>
@@ -98,7 +98,7 @@ if ($Usuario!="") {
 						               <div class=''>
 						                    <div class='row'>
 						                        <div class='col-xs-12 col-sm-12' style='text-align:center; height:115px;'>
-						                            <h4>¿Estás seguro que deseas eliminar esta categoría ".$resultado[Categoria]."?</h4>
+						                            <h4>¿Estás seguro que deseas eliminar esta categoria ".$resultado[Categoria]."?</h4>
 						                        </div>
 						                    </div>
 						                    <div class='row'>
@@ -138,7 +138,7 @@ if ($_POST['Eliminar']){
 							<div class='col-sm-4 offset-sm-4'>
 								<div class='card' style='margin-top:55%; height:150px;'>
                         			<br>								
-									<h4 align='center'>La categoría se ha eliminado correctamente</h4>
+									<h4 align='center'>La categoria se ha eliminado correctamente</h4>
 									<div class='row'>
 										<div class='col-sm-4 offset-sm-4'>
 											<a href='Categoria.php' style='height:45px; width:100%; margin-top:10px;' class='btn btn-info btn-raised'>Aceptar</a>
@@ -162,7 +162,7 @@ if ($_POST['Guardar']) {
                       <div class='col-sm-4 offset-sm-4'>
                         <div class='card' style='margin-top:55%; height:150px;'>
                         	<br>
-                          <h4 align='center'>La categoría ha sido creada.</h4>
+                          <h4 align='center'>La categoria ha sido creada.</h4>
                           <div class='row'>
                             <div class='col-sm-6 offset-sm-3'>
                                 <a href='Categoria.php' style='width:100%; padding-top:10px; margin-top:15px;' class='btn btn-info btn-raised'>Aceptar</a>

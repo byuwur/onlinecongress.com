@@ -64,7 +64,7 @@ if ($Resultado==0) {
 				<input type="text" maxlength="50" class="form-control" name="Apellidos" required>
 			</div>
 			<div class="form-group col-xs-12 col-sm-2" style="margin-top: 0px;">
-			    <label for="exampleSelect1" class="bmd-label-floating">Género</label>
+			    <label for="exampleSelect1" class="bmd-label-floating">Genero</label>
 			    <select class="form-control" id="exampleSelect1" name="Genero">
 			      <option>Femenino</option>
 			      <option>Masculino</option>
@@ -87,7 +87,7 @@ if ($Resultado==0) {
 				<label class="control-label" style="margin-left: 16px; ">País</label>
 				<select class="form-control" id="Pais" name="Pais" onchange="Cargar_Provincia()">
 					<?php
-					$ConsultaG = $conex->query("SELECT * FROM Paises ORDER BY name_pais ASC");
+					$ConsultaG = $conex->query("SELECT * FROM paises ORDER BY name_pais ASC");
 					while($Dep=mysqli_fetch_assoc($ConsultaG)){
 						echo "<option id='".$Dep[id]."' value='".$Dep[id]."'>".$Dep[name_pais]."</option>";  
 					}?>
@@ -188,7 +188,7 @@ include("conexion.php");
 				}else{
 				$Contra=md5($Contra1);
 				$query3 = $conex->query("INSERT INTO asistente VALUES('$randomString','$TipoDocumento','$Documento','$Nombres','$Apellidos', '$Institucion', '$Genero','$Email', '$Pais', '$Contra', '$Año', '2')");
-				$Registro = $conex->query("INSERT INTO registro_asistencia VALUES ('$Idc', '$randomString')");
+				$Registro = $conex->query("INSERT INTO registro_asistencia VALUES ('$Idc', '$randomString','$Año')");
 				$Ncon= $conex->query("SELECT congreso.Nombre,congreso.Logo, info_congreso.Subdominio, administrador.Email FROM congreso, info_congreso, administrador WHERE congreso.Id_Congreso='$Idc' AND info_congreso.Id_Congreso='$Idc'");
 				$NombreC=mysqli_fetch_assoc($Ncon);
 					$Destino = $Email;
@@ -200,12 +200,12 @@ include("conexion.php");
 			          <title></title>
 			        </head>
 			        <body>
-			          <p style="font-size:28px; color:#333"><strong>Bienvenido: </strong> '.$Nombres.' '.$Apellidos.', Su registro ha sido exitoso, ahora puede ingresar a la plataforma de '.$NombreC[Nombre].'.</p>
+			          <p style="font-size:28px; color:#333"><strong>Bienvenido: </strong> '.$Nombres.' '.$Apellidos.', tú registro ha sido exitoso, ahora pudes ingresar a la plataforma de '.$NombreC[Nombre].'.</p>
 			          <br>
 			          <div>
 			            <p style="font-size:28px; color:#333"><strong>Usuario: </strong> '.$Documento.' </p>
-			            <p style="font-size:28px; color:#333"><strong>Password: </strong>Es su mismo número de usuario.</p>			           
-			            <p style="font-size:28px; color:#333"><strong>Password: </strong>Es la que ingreso a la hora de registrarse.</p>
+			            <p style="font-size:28px; color:#333"><strong>Password: </strong>Es tú mismo numero de usuario.</p>			           
+			            <p style="font-size:28px; color:#333"><strong>Password: </strong>Es la que ingresaste a la hora de registrate.</p>
 			            <br>
 			            <hr style="width:45%; background:#ccc;" align="left">
 			            <br>

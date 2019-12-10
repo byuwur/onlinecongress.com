@@ -110,7 +110,7 @@ include("Head.php");?>
       </div>
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
-           <div class="alert alert-danger" style="color: #fff" role="alert">El formato de la imagen debe de ser .jpg o .png, su peso no debe superar 1 Mb y sus medidas deben ser de 379 píxeles de largo por 100 píxeles de alto.</div>
+           <div class="alert alert-danger" role="alert">El formato de la imagen debe de ser .jpg o .png, su peso no debe superar 1 Mb y sus medidas deben ser de 379 píxeles de largo por 100 píxeles de alto.</div>
         </div>
       </div>
       <br> 
@@ -124,14 +124,9 @@ include("Head.php");?>
             </div>
             <input type="hidden" name="Id_Congreso" <?php echo 'value="'.$Id_Congreso.'"';?>>
           </form>
-          <div class="col-sm-12">
-            <div class="alert alert-danger" style="color: #fff" role="alert">El formato de la imagen debe de ser .jpg o .png, su peso no debe superar 1 Mb y sus medidas deben ser de 1539 píxeles de largo por 732 píxeles de alto.</div>
-            </div>
-          </div>
-          
-      <br> 
+        </div>
         <div class="col-sm-6">
-          <p style="text-align: center; margin-top: -4px;">Elija imagen de los auspiciantes</p>
+          <p style="text-align: center;">Elija imagen de los auspiciantes</p>
           <form action="upload6.php" class="dropzone" id="myDrop6">
             <h2 style="text-align:center; color:#0277bd;">Imagen auspiciantes</h2>
             <div class="form-group label-floating">
@@ -139,9 +134,6 @@ include("Head.php");?>
             </div>
             <input type="hidden" name="Id_Congreso" <?php echo 'value="'.$Id_Congreso.'"';?>>
           </form>
-          <div class="col-sm-12">
-            <div class="alert alert-danger" style="color: #fff" role="alert">El formato de la imagen debe de ser .jpg o .png, su peso no debe superar 1 Mb y sus medidas deben ser de 1539 píxeles de largo por 732 píxeles de alto.</div>
-            </div>
         </div>
       </div><br> 
       <div class="row">
@@ -173,11 +165,6 @@ include("Head.php");?>
           </form>
         </div>
       </div>
-      <div class="row">
-          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-            <div class="alert alert-danger" style="color: #fff" role="alert">El formato de la imagen debe de ser .jpg o .png, su peso no debe superar 1 Mb y sus medidas deben ser de 1539 píxeles de largo por 732 píxeles de alto.</div>
-          </div>
-        </div>
 <?php
 $Datos=$conex->query("SELECT info_congreso.Texto1, info_congreso.Texto2, info_congreso.Texto3, info_congreso.Que_es, info_congreso.Sobre_Congreso, info_congreso.Quienes, info_congreso.Por_que, info_congreso.Nosotros, info_congreso.Facebook, info_congreso.Twitter, info_congreso.Youtube, congreso.Nombre, congreso.Institucion, congreso.Color FROM info_congreso, congreso WHERE info_congreso.Id_Congreso='$Id_Congreso' AND congreso.Id_Congreso='$Id_Congreso' AND congreso.Id_Congreso=info_congreso.Id_Congreso");
 $Info=mysqli_fetch_assoc($Datos);
@@ -220,7 +207,7 @@ echo'
             </div>
             <div class="row">  
               <div class="form-group col-xs-12">
-                <label for="exampleTextarea" style="font-size: 16px " class="control-label">Descripción del Congreso</label>
+                <label for="exampleTextarea" style="font-size: 16px " class="control-label">Descripcion del Congreso</label>
                 <textarea class="form-control" id="exampleTextarea" rows="3" name="Sobre_Congreso">'.$Info[Sobre_Congreso].'</textarea>
               </div>
             </div>
@@ -241,7 +228,13 @@ echo'
                 <label for="exampleTextarea" style="font-size: 16px " class="control-label">Información del Congreso</label>
                 <textarea class="form-control" id="exampleTextarea" rows="3"  name="Nosotros">'.$Info[Nosotros].'</textarea>
               </div>
-            </div>           
+            </div>
+            <div class="row">
+              <div class="form-group col-xs-12">
+                <label for="exampleTextarea" style="font-size: 16px " class="control-label">Información del Congreso</label>
+                <textarea class="form-control" id="exampleTextarea" rows="3"  name="Nosotros">'.$Info[Nosotros].'</textarea>
+              </div>
+            </div>            
             <div class="row">
               <div class="form-group col-xs-12">
                 <label for="exampleTextarea" style="font-size: 16px " class="control-label">Página de Facebook</label>

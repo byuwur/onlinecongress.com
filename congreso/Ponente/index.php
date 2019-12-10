@@ -3,21 +3,25 @@ include("conexion.php");
 include("../Idc.php");
   session_start();
   if (@$_GET['cerrar']) {
+    date_default_timezone_set('America/Bogota'); 
+      $Fecha = date("Y");
+      $IdPonente=$_SESSION['IdPonente'];
+    $Sql1=$conex->query("UPDATE registro_asistencia SET Estado='0' WHERE Id_Congreso='$Idc' AND Id_Asistente='$IdPonente' AND Anno='$Fecha'");
     session_unset(@$_SESSION['IdPonente']);
     session_destroy();
+    
   }
+  date_default_timezone_set('America/Bogota'); 
+  $Año2 = date("Y");
   if ($_POST['Ingresar']) {
     $Tipo = $_POST['T'];
     if ($Tipo==2) {
       $Usuario = $_POST['Usuario'];
       $Password2 = $_POST['Password'];
       $Password = md5($_POST['Password']);
-      date_default_timezone_set('America/Bogota'); 
-      $Año = date("Y");
       if (!empty($Usuario)) {
           if (!empty($Password)) {
-            $sql = "SELECT asistente.DocumentoA FROM asistente, registro_asistencia WHERE asistente.DocumentoA='$Usuario' AND asistente.AñoA='$Año' AND asistente.Password='$Password' AND asistente.Tipo='$Tipo' AND registro_asistencia.Id_Congreso='$Idc' AND registro_asistencia.Id_Asistente=asistente.IdAsistente";
-            $querie = $conex->query($sql);
+            $querie=$conex->query("SELECT asistente.DocumentoA FROM asistente, registro_asistencia WHERE asistente.DocumentoA='$Usuario' AND asistente.Password='$Password' AND asistente.Tipo='$Tipo' AND registro_asistencia.Id_Congreso='$Idc' AND registro_asistencia.Id_Asistente=asistente.DocumentoA AND registro_asistencia.Anno='$Año2'");
             if (mysqli_num_rows($querie)==0){
                echo "
                 <div style='display:block;left:0px;' class='Area_Oscura2'>
@@ -25,7 +29,7 @@ include("../Idc.php");
                     <div class='row'>
                       <div class='col-sm-4 col-sm-offset-4'>
                         <div class='well' style='margin-top:55%;'>
-                          <h4 align='center'>Verifica tus datos ingresados. $Idc</h4>
+                          <h4 align='center'>Verifica tus datos ingresados. ".$Año2." oe</h4>
                           <div class='row'>
                             <div class='col-sm-6 col-sm-offset-3'>
                                 <a href='index.php?T=$Tipo' style='width:100%' class='btn btn-info btn-raised'>Aceptar</a>
@@ -248,7 +252,7 @@ include('Head.php');?>
                 <title></title>
               </head>
               <body>
-                <p style="font-size:28px; color:#333"><strong>Hola: </strong> '.$Nombres.' '.$Apellidos.', Has solicitado el cambio de contraseña, para poder iniciar sesión en '.$Resul[Nombre].' te ha generado la siguiente: </p>
+                <p style="font-size:28px; color:#333"><strong>Hola: </strong> '.$Nombres.' '.$Apellidos.', Has solicitado el cambio de contraseña, para poder iniciar sesion en '.$Resul[Nombre].' te ha generado la siguiente: </p>
                 <br>
                 <div>
                   <p style="font-size:28px; color:#333"><strong>Usuario: </strong> '.$Usuario.' </p>

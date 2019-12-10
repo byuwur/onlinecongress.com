@@ -122,7 +122,7 @@ $RC=$RH['Categoria'];
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
-						<h3>Asignar categoría de la ponencia</h3>	
+						<h3>Asignar categoria de la ponencia</h3>	
 					    <select class="form-control" name="Categoria">
 					    	<option value="'.$RH[Categoria].'">'.$NombreCategoria[Categoria].'</option>
 					    ';
@@ -147,7 +147,7 @@ $RC=$RH['Categoria'];
 						<input type="time" min="00:01" max=24:00" name="Hora" required>
 					</div-->
 					<div class="col-xs-12 col-sm-12">
-						<h3>Asignar categoría de la ponencia</h3>	
+						<h3>Asignar categoria de la ponencia</h3>	
 					    <select class="form-control" name="Categoria">';
 					    $Categoria=$conex->query("SELECT Id, Categoria FROM categorias WHERE Id_Congreso='$Id_Congreso'");
 						while ($RCategorias=mysqli_fetch_assoc($Categoria)) {
@@ -179,11 +179,38 @@ $RC=$RH['Categoria'];
 	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-2">
+			<div class="col-xs-12 col-sm-3">
 				<a class="btn btn-raised btn-danger" style="height:50px; color:#fff" href="TodasPonencias.php?T=0" >Volver</a>
+			</div>
+			<div class="col-xs-12 col-sm-3 col-sm-offset-6">
+				<input type="submit" class="btn btn-raised btn-danger" style="height:50px;" onclick="Alerta()" color:#fff" value="Eliminar Ponencia">
 			</div>
 		</div>
 	</div>';
+echo "
+		<div style='display:none; left:0px;' id='Eliminar' class='Area_Oscura2'>
+			<div class='container'>
+			    <div class='row'>
+			       	<div class='col-sm-4 col-sm-offset-4'>
+			          	<div class='well' style='margin-top:55%;'>
+			            	<h4 align='center'>¿Está seguro que desea eliminar esta ponencia?.</h4>
+			            	<div class='row'>
+						    	<div class='col-sm-6'>
+						        	<a onclick='Ocultar()' style='width:100%; height:50px;' class='btn btn-danger btn-raised'>Cancelar</a>
+			                	</div>
+			                	<form action='' method='post'>
+							    	<div class='col-sm-6'>
+							        	<input type='submit' style='width:100%; height:50px;' class='btn btn-info btn-raised' value='Eliminar' name='EliminarPonencia'>
+				                	</div>
+				                	<input type='hidden' name='IdPonencia' value='$IdPonencia'>
+									<input type='hidden' name='Id_Congreso' value='$Id_Congreso'>
+				                </form>
+			            	</div>
+			        	</div>
+			    	</div>
+		  		</div>
+		    </div>
+		</div>";
 	if ($_POST['Guardar']) {
 		include("conexion.php");
 		$Idcon=$_POST['Id_Congreso'];
@@ -220,12 +247,45 @@ $RC=$RH['Categoria'];
 		    </div>
 		</div>";
 	}
+	if ($_POST['EliminarPonencia']) {
+		$Idcon=$_POST['Id_Congreso'];
+		$IdPonencia=$_POST['IdPonencia'];
+
+		$SqlElinimar=$conex->query("DELETE ponencia, ponente FROM ponencia JOIN ponente ON ponencia.IdPonencia=ponente.IdPonencia WHERE ponencia.IdPonencia='$IdPonencia' AND ponente.IdPonencia='$IdPonencia' AND ponencia.IdPonencia=ponente.IdPonencia AND ponente.Id_Congreso='$Idcon'");
+		$SqlElinimarArc=$conex->query("DELETE FROM archivosponentes WHERE IdPonencia='$IdPonencia' AND Id_Congreso='$Idcon'");
+		echo "
+		<div style='display:block;left:0px;' class='Area_Oscura2'>
+			<div class='container'>
+			    <div class='row'>
+			       	<div class='col-sm-4 col-sm-offset-4'>
+			          	<div class='well' style='margin-top:55%;'>
+			            	<h4 align='center'>La ponencia se ha eliminado correctamente.</h4>
+			            	<div class='row'>
+						    	<div class='col-sm-6 col-sm-offset-3'>
+						        	<a href='TodasPonencias.php?T=0' style='width:100%' class='btn btn-info btn-raised'>Aceptar</a>
+			                	</div>
+			            	</div>
+			        	</div>
+			    	</div>
+		  		</div>
+		    </div>
+		</div>";
+
+	}
 include('footer.php');
 }else{
   echo "
     <script type='text/javascript'>
-      document.location = '../index.php';
+      document.location.href = 'TodasPonencias.php?T=0';
     </script>
   ";
 }
 ?>
+<script type="text/javascript">
+	function Alerta() {
+		$("#Eliminar").fadeIn('fast');
+	}
+	function Ocultar() {
+		$("#Eliminar").fadeOut('fast');
+	}
+</script>

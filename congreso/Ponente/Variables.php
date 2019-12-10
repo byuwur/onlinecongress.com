@@ -30,4 +30,8 @@ if ($Tipo==2) {
 		$Genero="Hola";
 	}
 }
+include("../Idc.php");
+date_default_timezone_set('America/Bogota'); 
+$Fecha = date("Y");
+$Sql1=$conex->query("UPDATE registro_asistencia SET Estado='1' WHERE Id_Congreso='$Idc' AND Id_Asistente='$IdPonente' AND Anno='$Fecha'");
 ?>

@@ -136,6 +136,17 @@ if ($IdPonente != ""){
           </a>
         </div>";
         }
+      if ($Tipo==2) {
+        echo "<div style='margin-top: 15px;' class='col-xs-12'>
+          <a style='color:#818181; padding: 10px 1px; text-align: left; margin-top: 0px;' class='menu-toggle Ocultar_A btn btn-default' href='CambiarCongreso.php?U=$IdPonente&Tipo=$Tipo' target='iframe_thingy'>
+            <div class='row' style='padding-top: 0px;'>
+              <div class='col-xs-9'>
+                <p>Ir a otro congreso</p>
+              </div>              
+            </div>
+          </a>
+        </div>";
+      }
       echo "
         <div style='margin-top: 15px;' class='col-xs-12'>
           <a style='color:#818181; padding: 10px 1px; text-align: left; margin-top: 0px;' class='menu-toggle Ocultar_A btn btn-default' href='Contrasena.php?U=$IdPonente&Tipo=$Tipo' target='iframe_thingy'>

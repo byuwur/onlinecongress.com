@@ -30,7 +30,7 @@ if ($Usuario!="") {
 						<p style="font-size:15px;">'.$NumP[Num_Ponente].'</p>
 					</div>
 					<div class="col-xs-12 col-sm-offset-3 col-sm-1">
-						<a target="_blank" class="btn btn-raised btn-info" style="height:50px; color:#fff" href="Exportar_Registro.php?C='.$NumP[Num_Ponente].'&T=0">Ver</a>
+						<a target="_blank" class="btn btn-raised btn-info" style="height:50px; color:#fff" href="Exportar_Registros_Excel.php?C='.$NumP[Num_Ponente].'&T=0">Ver</a>
 					</div>
 				</div>
 			</div>
@@ -47,7 +47,7 @@ if ($Usuario!="") {
 						<p style="font-size:15px;">'.$NumP2[Num_Confe].'</p>
 					</div>
 					<div class="col-xs-12 col-sm-offset-3 col-sm-1">
-						<a target="_blank" class="btn btn-raised btn-info" style="height:50px; color:#fff" href="Exportar_Registro.php?C='.$NumP2[Num_Confe].'&T=1">Ver</a>
+						<a target="_blank" class="btn btn-raised btn-info" style="height:50px; color:#fff" href="Exportar_Registros_Excel.php?C='.$NumP2[Num_Confe].'&T=1">Ver</a>
 					</div>
 				</div>
 			</div>
@@ -64,7 +64,7 @@ if ($Usuario!="") {
 						<p style="font-size:15px;">'.$NumP3[Num_Asis].'</p>
 					</div>
 					<div class="col-xs-12 col-sm-offset-3 col-sm-1">
-						<a target="_blank" class="btn btn-raised btn-info" style="height:50px; color:#fff" href="Exportar_Asistentes.php?C='.$NumP3[Num_Asis].'">Ver</a>
+						<a target="_blank" class="btn btn-raised btn-info" style="height:50px; color:#fff" href="Exportar_RegistrosA_Excel.php?C='.$NumP3[Num_Asis].'">Ver</a>
 					</div>
 				</div>
 			</div>

@@ -64,11 +64,11 @@ if ($Usuario!="") {
 						</div>
 						';
 						if ($Tipo==0) {
-							echo '<div class="col-xs-12 col-sm-offset-4 col-sm-1">
+							echo '<div class="col-xs-12 col-sm-offset-3 col-sm-2">
 							<a class="btn btn-raised btn-info" style="height:50px; color:#fff" href="MasInfoPonencia.php?U='.$Usuario.'&P='.$Resultado['IdPonencia'].'">Ver</a>
 						</div>';
 						}else{
-							echo '<div class="col-xs-12 col-sm-offset-4 col-sm-1">
+							echo '<div class="col-xs-12 col-sm-offset-3 col-sm-2">
 							<a class="btn btn-raised btn-info" style="height:50px; color:#fff" href="MasInfoConferencia.php?U='.$Usuario.'&P='.$Resultado['IdPonencia'].'">Ver</a>
 						</div>';
 						}

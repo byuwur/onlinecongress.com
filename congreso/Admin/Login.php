@@ -56,7 +56,7 @@ if ($Usuario != ""){
             <a style='color:#818181; padding: 10px 1px; text-align: left; margin-top: 0px;' class='menu-toggle Ocultar_A btn btn-default' href='Categoria.php' target='iframe_thingy'>
               <div class='row' style='padding-top: 0px;'>
                 <div class='col-xs-9'>
-                  <p>Crear Categorías</p>
+                  <p>Crear Categorias</p>
                 </div>              
               </div>
             </a>
@@ -65,7 +65,43 @@ if ($Usuario != ""){
             <a style='color:#818181; padding: 10px 1px; text-align: left; margin-top: 0px;' class='menu-toggle Ocultar_A btn btn-default' href='Comites.php' target='iframe_thingy'>
               <div class='row' style='padding-top: 0px;'>
                 <div class='col-xs-9'>
-                  <p>Crear Comités</p>
+                  <p>Crear Comites</p>
+                </div>              
+              </div>
+            </a>
+          </div>
+          <div style='margin-top: 15px;' class='col-xs-12'>
+            <a style='color:#818181; padding: 10px 1px; text-align: left; margin-top: 0px;' class='menu-toggle Ocultar_A btn btn-default' href='CrearPreguntas.php' target='iframe_thingy'>
+              <div class='row' style='padding-top: 0px;'>
+                <div class='col-xs-9'>
+                  <p>Crear Preguntas del Comite</p>
+                </div>              
+              </div>
+            </a>
+          </div>
+          <div style='margin-top: 15px;' class='col-xs-12'>
+            <a style='color:#818181; padding: 10px 1px; text-align: left; margin-top: 0px;' class='menu-toggle Ocultar_A btn btn-default' href='Patrocinadores.php' target='iframe_thingy'>
+              <div class='row' style='padding-top: 0px;'>
+                <div class='col-xs-9'>
+                  <p>Patrocinadores</p>
+                </div>              
+              </div>
+            </a>
+          </div>
+          <div style='margin-top: 15px;' class='col-xs-12'>
+            <a style='color:#818181; padding: 10px 1px; text-align: left; margin-top: 0px;' class='menu-toggle Ocultar_A btn btn-default' href='Auspiciantes.php' target='iframe_thingy'>
+              <div class='row' style='padding-top: 0px;'>
+                <div class='col-xs-9'>
+                  <p>Auspiciantes</p>
+                </div>              
+              </div>
+            </a>
+          </div>
+          <div style='margin-top: 15px;' class='col-xs-12'>
+            <a style='color:#818181; padding: 10px 1px; text-align: left; margin-top: 0px;' class='menu-toggle Ocultar_A btn btn-default' href='ImgCertificados.php' target='iframe_thingy'>
+              <div class='row' style='padding-top: 0px;'>
+                <div class='col-xs-9'>
+                  <p>Imagen Cerficados</p>
                 </div>              
               </div>
             </a>
@@ -74,7 +110,7 @@ if ($Usuario != ""){
             <a style='color:#818181; padding: 10px 1px; text-align: left; margin-top: 0px;' class='menu-toggle Ocultar_A btn btn-default' href='Asignar_Comite.php' target='iframe_thingy'>
               <div class='row' style='padding-top: 0px;'>
                 <div class='col-xs-9'>
-                  <p>Asignar a Comités</p>
+                  <p>Asignar a Comites</p>
                 </div>              
               </div>
             </a>
@@ -120,6 +156,24 @@ if ($Usuario != ""){
               <div class='row' style='padding-top: 0px;'>
                 <div class='col-xs-9'>
                   <p>Registros del Congreso</p>
+                </div>              
+              </div>
+            </a>
+          </div>
+          <div style='margin-top: 15px;' class='col-xs-12'>
+            <a style='color:#818181; padding: 10px 1px; text-align: left; margin-top: 0px;' class='menu-toggle Ocultar_A btn btn-default' href='Estadisticas.php' target='iframe_thingy'>
+              <div class='row' style='padding-top: 0px;'>
+                <div class='col-xs-9'>
+                  <p>Estadísticas</p>
+                </div>              
+              </div>
+            </a>
+          </div>
+          <div style='margin-top: 15px;' class='col-xs-12'>
+            <a style='color:#818181; padding: 10px 1px; text-align: left; margin-top: 0px;' class='menu-toggle Ocultar_A btn btn-default' href='Certificado.php' target='iframe_thingy'>
+              <div class='row' style='padding-top: 0px;'>
+                <div class='col-xs-9'>
+                  <p>Certificados</p>
                 </div>              
               </div>
             </a>

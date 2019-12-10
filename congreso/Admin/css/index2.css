@@ -51,9 +51,9 @@ iframe{
 }
 
 #sidebar-wrapper {
-    margin-left: -350px;
-    left: 350px;
-    width: 350px;
+    margin-left: -400px;
+    left: 400px;
+    width: 400px;
     background: black;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
     position: fixed;
@@ -170,14 +170,14 @@ iframe{
     transition: all .4s ease 0s;
 }
 #sidebar-wrapper {
-    left: 350px;
+    left: 400px;
 }
 #wrapper.active {
     padding-left: 350px;
 }
 #wrapper.active #sidebar-wrapper {
     left: 0px;
-    width: 350px;
+    width: 400px;
     transition: all .4s ease 0s;
 }
 }

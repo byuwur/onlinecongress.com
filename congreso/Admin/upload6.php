@@ -8,7 +8,7 @@
 			$extension = end(explode(".", $_FILES['archivo']['name']));
 			$Ruta = "../Fotografias/Auspiciantes/".$Id_Congreso."/".basename(4).$extension; 
 
-			$Ruta2 = "http://www.onlinecongress.com.co/Fotografias/Auspiciantes/".$Id_Congreso."/".basename(4).$extension;  
+			$Ruta2 = "http://experienciamotera.com/onlinecongress-web/congreso/Fotografias/Auspiciantes/".$Id_Congreso."/".basename(4).$extension;  
 			$uploadedfileload2="true";
 
 

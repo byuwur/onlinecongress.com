@@ -69,7 +69,7 @@ if ($Usuario!="") {
         <table class="table">
 			  <thead style="background: #f2f2f2">
 			    <tr>
-			    	<th scope="col">NÚMERO</th>
+			    	<th scope="col">NUMERO</th>
 			      	<th scope="col">NOMBRE DEL COMITÉ</th>
 			      	<th scope="col"></th>
 			    </tr>

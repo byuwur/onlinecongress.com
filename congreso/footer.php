@@ -20,14 +20,15 @@
         <h2 style="color: #fff; margin-top: 10%;">Preguntas Frecuentes</h2>
         <br>
         <p style="color: #dddd; font-size: 16px;">
-          <a href="Preguntas.php">¿Cómo evoluciona el congreso virtual?</a><br>
-          <a href="Preguntas.php">¿Quién puede participar como ponente?</a><br>
-          <a href="Preguntas.php">¿Cuáles son las categorías o temáticas de participación?</a><br>
-          <a href="Preguntas.php">¿Dónde me inscribo?</a><br>
-          <a href="Preguntas.php">¿Hasta cuándo hay plazo para enviar la ponencia o archivo de exposición?</a><br>
-          <a href="Preguntas.php">¿Hay una programación o agenda del congreso?</a><br>
-          <a href="Preguntas.php">¿Cuál es el formato de participación?</a><br><br>
-          <a href="Preguntas.php">VER TODAS LAS PREGUNTAS FRECUENTES</a>
+        <?php
+          $Sql1=$conex->query("SELECT Pregunta FROM preguntas_frecuentes WHERE Id_Congreso='$Idc' ORDER BY RAND() LIMIT 8");
+          while ($Result=mysqli_fetch_assoc($Sql1)) {
+            echo '
+            <a href="Preguntas.php">'.$Result[Pregunta].'</a><br>
+            ';
+          }
+        ?>
+        <a href="Preguntas.php">VER TODAS LAS PREGUNTAS FRECUENTES</a>
         </p>
         <hr align="left" style="width: 20%; background: #0277bd; border-color:#0277bd">
       </div>

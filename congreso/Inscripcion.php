@@ -75,7 +75,7 @@ if ($Resultado==0) {
 				<input type="text" maxlength="50" class="form-control" name="Apellidos" required>
 			</div>
 			<div class="form-group col-xs-12 col-sm-2" style="margin-top: 0px;">
-			    <label for="exampleSelect1" class="bmd-label-floating">Género</label>
+			    <label for="exampleSelect1" class="bmd-label-floating">Genero</label>
 			    <select class="form-control" id="exampleSelect1" name="Genero">
 			      <option>Femenino</option>
 			      <option>Masculino</option>
@@ -135,9 +135,9 @@ if ($Resultado==0) {
 					<?php
 						$Tipo=$_GET['T'];
 						if ($Tipo==1) {
-							echo '<label for="exampleTextarea" class="control-label">Resumen bibliográfico del conferencista</label>';
+							echo '<label for="exampleTextarea" class="control-label">Resúmen bibliográfico del conferencista</label>';
 						}else{
-							echo '<label for="exampleTextarea" class="control-label">Resumen bibliográfico del ponente</label>';
+							echo '<label for="exampleTextarea" class="control-label">Resúmen bibliográfico del ponente</label>';
 						}
 					?>
 			    
@@ -248,7 +248,7 @@ if ($Resultado==0) {
 				$Contra=md5($Contra1);
 				$query3 = $conex->query("INSERT INTO ponente VALUES('$Idc', '$randomString','$TipoDocumento','$Documento','$Nombres','$Apellidos','$Genero','$Email','$Telefono','$Pais','$Provincia','$Ciudad','$Resumen','$Labora','$Formacion','','$Fecha','$Año','$Contra','$Tipo')");
 				$querie4 = $conex->query("INSERT INTO ponencia VALUES('$randomString','','','','','','$Fecha','$Tipo','0','0')");
-				$queryTipo=$conex->query("INSERT INTO archivosponentes VALUES('$Idc', '$randomString','0','')");
+				$queryTipo=$conex->query("INSERT INTO archivosponentes VALUES(null,'$Idc', '$randomString','0','')");
 				$Ncon= $conex->query("SELECT congreso.Nombre,congreso.Logo, info_congreso.Subdominio, administrador.Email FROM congreso, info_congreso, administrador WHERE congreso.Id_Congreso='$Idc' AND info_congreso.Id_Congreso='$Idc'");
 				$NombreC=mysqli_fetch_assoc($Ncon);
 					$Destino = $Email;
@@ -260,12 +260,12 @@ if ($Resultado==0) {
 			          <title></title>
 			        </head>
 			        <body>
-			          <p style="font-size:28px; color:#333"><strong>Bienvenido: </strong> '.$Nombres.' '.$Apellidos.', Su registro ha sido exitoso, ahora puede ingresar a la plataforma de '.$NombreC[Nombre].'.</p>
+			          <p style="font-size:28px; color:#333"><strong>Bienvenido: </strong> '.$Nombres.' '.$Apellidos.', tú registro ha sido exitoso, ahora pudes ingresar a la plataforma de '.$NombreC[Nombre].'.</p>
 			          <br>
 			          <div>
 			            <p style="font-size:28px; color:#333"><strong>Usuario: </strong> '.$Documento.' </p>
-			            <p style="font-size:28px; color:#333"><strong>Password: </strong>Es la que ingreso a la hora de registrarse.</p>
-			            <p style="font-size:28px; color:#333"><strong>Recuerda ingresar a: </strong><a style="text-decoration:none;" href="'.$Resul[Subdominio].'">"'.$Resul[Subdominio].'"</a></p>
+			            <p style="font-size:28px; color:#333"><strong>Password: </strong>Es la que ingresaste a la hora de registrate.</p>
+			            <p style="font-size:28px; color:#333"><strong>Recuerda ingresar a: </strong><a style="text-decoration:none;" href="http://covaite.com">www.covaite.com</a></p>
 			            <br>
 			            <hr style="width:45%; background:#ccc;" align="left">
 			            <br>

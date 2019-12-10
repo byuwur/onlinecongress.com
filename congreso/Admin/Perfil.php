@@ -10,7 +10,7 @@ echo "
 			<div class='container'>
 				<div class='row'>
 					<div class='col-xs-12 col-sm-6 offset-sm-3 card' style='margin-top:50px;'>
-						<h2 style='text-align:center'>INFORMACIÓN ADMINISTRADOR</h2>
+						<h2 style='text-align:center'>INFORMACION ADMINISTRADOR</h2>
 						<div class='form-group col-xs-12'>
 			                <label for='exampleInputEmail1' style='font-size: 16px ' class='control-label'>Documento</label>
 			                <input value='".$Datos[Documento]."' type='text' class='form-control' id='' name='Documento' required>
