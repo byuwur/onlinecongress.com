@@ -179,11 +179,38 @@ $RC=$RH['Categoria'];
 	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-2">
+			<div class="col-xs-12 col-sm-3">
 				<a class="btn btn-raised btn-danger" style="height:50px; color:#fff" href="TodasPonencias.php?T=0" >Volver</a>
+			</div>
+			<div class="col-xs-12 col-sm-3 col-sm-offset-6">
+				<input type="submit" class="btn btn-raised btn-danger" style="height:50px;" onclick="Alerta()" color:#fff" value="Eliminar Ponencia">
 			</div>
 		</div>
 	</div>';
+echo "
+		<div style='display:none; left:0px;' id='Eliminar' class='Area_Oscura2'>
+			<div class='container'>
+			    <div class='row'>
+			       	<div class='col-sm-4 col-sm-offset-4'>
+			          	<div class='well' style='margin-top:55%;'>
+			            	<h4 align='center'>¿Está seguro que desea eliminar esta ponencia?.</h4>
+			            	<div class='row'>
+						    	<div class='col-sm-6'>
+						        	<a onclick='Ocultar()' style='width:100%; height:50px;' class='btn btn-danger btn-raised'>Cancelar</a>
+			                	</div>
+			                	<form action='' method='post'>
+							    	<div class='col-sm-6'>
+							        	<input type='submit' style='width:100%; height:50px;' class='btn btn-info btn-raised' value='Eliminar' name='EliminarPonencia'>
+				                	</div>
+				                	<input type='hidden' name='IdPonencia' value='$IdPonencia'>
+									<input type='hidden' name='Id_Congreso' value='$Id_Congreso'>
+				                </form>
+			            	</div>
+			        	</div>
+			    	</div>
+		  		</div>
+		    </div>
+		</div>";
 	if ($_POST['Guardar']) {
 		include("conexion.php");
 		$Idcon=$_POST['Id_Congreso'];
@@ -192,7 +219,7 @@ $RC=$RH['Categoria'];
 		$Fecha2=$_POST['Fecha'];
 		//$Hora2=$_POST['Hora'];
 		$Categoria2=$_POST['Categoria'];
-		$Categoria3="http://localhost/Covaite/ImgCategorias/".$Categoria2.".png";
+		$Categoria3="http://onlinecongress.com.co/img-main/ponente.png";
 		$Estado=$_POST['Estado'];
 		$SqlC=$conex->query("UPDATE ponencia, ponente SET ponencia.Categoria='$Categoria2', ponencia.Estado='$Estado' WHERE ponencia.IdPonencia='$IdPonencia' AND ponente.IdPonencia=ponencia.IdPonencia AND ponente.Id_Congreso='$Idcon'");
 		$SqlC2=$conex->query("UPDATE ponente SET Fotografia='$Categoria3' WHERE IdPonencia='$IdPonencia' AND Id_Congreso='$Idcon'");
@@ -220,12 +247,45 @@ $RC=$RH['Categoria'];
 		    </div>
 		</div>";
 	}
+	if ($_POST['EliminarPonencia']) {
+		$Idcon=$_POST['Id_Congreso'];
+		$IdPonencia=$_POST['IdPonencia'];
+
+		$SqlElinimar=$conex->query("DELETE ponencia, ponente FROM ponencia JOIN ponente ON ponencia.IdPonencia=ponente.IdPonencia WHERE ponencia.IdPonencia='$IdPonencia' AND ponente.IdPonencia='$IdPonencia' AND ponencia.IdPonencia=ponente.IdPonencia AND ponente.Id_Congreso='$Idcon'");
+		$SqlElinimarArc=$conex->query("DELETE FROM archivosponentes WHERE IdPonencia='$IdPonencia' AND Id_Congreso='$Idcon'");
+		echo "
+		<div style='display:block;left:0px;' class='Area_Oscura2'>
+			<div class='container'>
+			    <div class='row'>
+			       	<div class='col-sm-4 col-sm-offset-4'>
+			          	<div class='well' style='margin-top:55%;'>
+			            	<h4 align='center'>La ponencia se ha eliminado correctamente.</h4>
+			            	<div class='row'>
+						    	<div class='col-sm-6 col-sm-offset-3'>
+						        	<a href='TodasPonencias.php?T=0' style='width:100%' class='btn btn-info btn-raised'>Aceptar</a>
+			                	</div>
+			            	</div>
+			        	</div>
+			    	</div>
+		  		</div>
+		    </div>
+		</div>";
+
+	}
 include('footer.php');
 }else{
   echo "
     <script type='text/javascript'>
-      document.location = '../index.php';
+      document.location.href = 'TodasPonencias.php?T=0';
     </script>
   ";
 }
 ?>
+<script type="text/javascript">
+	function Alerta() {
+		$("#Eliminar").fadeIn('fast');
+	}
+	function Ocultar() {
+		$("#Eliminar").fadeOut('fast');
+	}
+</script>

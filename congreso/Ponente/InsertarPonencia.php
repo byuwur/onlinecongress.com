@@ -70,12 +70,12 @@ echo '
 			    <label for="exampleSelect1" class="bmd-label-floating">Tipo de archivo</label>
 			    <select class="form-control" id="TipoArchivo" name="Idioma" onchange="Archivo()">
 			      <option value="Video">Vídeo</option>
-			      <option value="Pdf">Pdf</option>
+			      <!--option value="Pdf">Pdf</option-->
 			    </select>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-3">
+			<!--div class="col-sm-3">
 				<form action="Upload1.php" class="dropzone" id="Pdf" style="display: none;">
 					<h2 style="text-align:center; color:#ff5722;">PDF</h2>
 					<div class="form-group label-floating">
@@ -84,7 +84,7 @@ echo '
 					<input type="hidden" name="IDP" value='.$IdPonencia.'>
 					<input type="hidden" name="Tipo" value="Pdf">
 				</form>
-			</div>
+			</div-->
             <div class="AlertContra alert alert-danger col-xs-12 col-sm-4" role="alert" style="font-size: 16px; text-align:center; display:none" id="Alerta">
                 Recuerda que el archivo que vayas a cargar no debe de superar los 5 MB(Megabyte).
             </div>

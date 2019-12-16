@@ -1,6 +1,7 @@
 <?php
 include('Head.php');
 include('Nav.php');
+include('Idc.php');
 include("conexion.php");?>
 <style type="text/css">
 	p,ul{
@@ -98,7 +99,7 @@ include("conexion.php");?>
       $(".Loader").fadeIn('fast');
       $(".Loader_C").fadeIn('fast');
       $.ajax({
-        url: 'http://weapp.com.co/Covaite/Email.php',
+        url: 'http://onlinecongress.com.co/Email.php',
         type: 'POST',
         data: data,
         dataType: "json",

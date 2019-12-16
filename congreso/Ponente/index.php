@@ -3,21 +3,25 @@ include("conexion.php");
 include("../Idc.php");
   session_start();
   if (@$_GET['cerrar']) {
+    date_default_timezone_set('America/Bogota'); 
+      $Fecha = date("Y");
+      $IdPonente=$_SESSION['IdPonente'];
+    $Sql1=$conex->query("UPDATE registro_asistencia SET Estado='0' WHERE Id_Congreso='$Idc' AND Id_Asistente='$IdPonente' AND Anno='$Fecha'");
     session_unset(@$_SESSION['IdPonente']);
     session_destroy();
+    
   }
+  date_default_timezone_set('America/Bogota'); 
+  $Año2 = date("Y");
   if ($_POST['Ingresar']) {
     $Tipo = $_POST['T'];
     if ($Tipo==2) {
       $Usuario = $_POST['Usuario'];
       $Password2 = $_POST['Password'];
       $Password = md5($_POST['Password']);
-      date_default_timezone_set('America/Bogota'); 
-      $Año = date("Y");
       if (!empty($Usuario)) {
           if (!empty($Password)) {
-            $sql = "SELECT DocumentoA FROM asistente WHERE DocumentoA='$Usuario' AND AñoA='$Año' AND Password='$Password' AND Tipo='$Tipo' AND Id_Congreso='$Idc'";
-            $querie = $conex->query($sql);
+            $querie=$conex->query("SELECT asistente.DocumentoA FROM asistente, registro_asistencia WHERE asistente.DocumentoA='$Usuario' AND asistente.Password='$Password' AND asistente.Tipo='$Tipo' AND registro_asistencia.Id_Congreso='$Idc' AND registro_asistencia.Id_Asistente=asistente.DocumentoA AND registro_asistencia.Anno='$Año2'");
             if (mysqli_num_rows($querie)==0){
                echo "
                 <div style='display:block;left:0px;' class='Area_Oscura2'>
@@ -25,7 +29,7 @@ include("../Idc.php");
                     <div class='row'>
                       <div class='col-sm-4 col-sm-offset-4'>
                         <div class='well' style='margin-top:55%;'>
-                          <h4 align='center'>Verifica tus datos ingresados.</h4>
+                          <h4 align='center'>Verifica tus datos ingresados. ".$Año2." oe</h4>
                           <div class='row'>
                             <div class='col-sm-6 col-sm-offset-3'>
                                 <a href='index.php?T=$Tipo' style='width:100%' class='btn btn-info btn-raised'>Aceptar</a>
@@ -89,8 +93,11 @@ include('Head.php');?>
       <div class="row"> 
         <div class="col-sm-6 col-sm-offset-3">
           <div class="well" style="margin-top: 15%;">
-            <img src="../Img_Web/Logo.png" class="center-block">
-             <?php
+            <?php
+            $Sql2=$conex->query("SELECT Logo FROM congreso WHERE Id_Congreso='$Idc'");
+            $Resul2=mysqli_fetch_assoc($Sql2);
+            echo '
+                <img src="'.$Resul2[Logo].'" class="center-block">';             
                 $Tipo=$_GET['T'];
                 if ($Tipo==1) {
                   echo '
@@ -183,7 +190,7 @@ include('Head.php');?>
                 </div>
                 <div class='col-xs-12 col-sm-12'>
                   <div class='form-group label-floating'>
-                    <label class='control-label' for='focusedInput2'>Email registrado en COVAITE</label>
+                    <label class='control-label' for='focusedInput2'>Email registrado</label>
                     <input class='form-control' id='focusedInput2' type='Email' name='Email' required>
                   </div>
                 </div>
@@ -204,6 +211,10 @@ include('Head.php');?>
     $Usuario = $_POST['Usuario'];
     $Email = $_POST['Email'];
     $Tipo = $_POST['T'];
+
+    $Sql1=$conex->query("SELECT congreso.Nombre,congreso.Logo, info_congreso.Subdominio, administrador.Email FROM congreso, info_congreso, administrador WHERE congreso.Id_Congreso='$Idc' AND info_congreso.Id_Congreso='$Idc'");
+      $Resul=mysqli_fetch_assoc($Sql1);
+
     if ($Tipo==2) {
       $sql1=$conex->query("SELECT IdAsistente, NombresA, ApellidosA FROM asistente WHERE  DocumentoA='$Usuario' AND Email='$Email' AND Id_Congreso='$Idc'");
       $Doc=mysqli_fetch_assoc($sql1);
@@ -241,22 +252,22 @@ include('Head.php');?>
                 <title></title>
               </head>
               <body>
-                <p style="font-size:28px; color:#333"><strong>Hola: </strong> '.$Nombres.' '.$Apellidos.', Has solicitado el cambio de contraseña, para poder iniciar sesion COVAITE te ha generado la siguiente: </p>
+                <p style="font-size:28px; color:#333"><strong>Hola: </strong> '.$Nombres.' '.$Apellidos.', Has solicitado el cambio de contraseña, para poder iniciar sesion en '.$Resul[Nombre].' te ha generado la siguiente: </p>
                 <br>
                 <div>
                   <p style="font-size:28px; color:#333"><strong>Usuario: </strong> '.$Usuario.' </p>
                   <p style="font-size:28px; color:#333"><strong>Contraseña: </strong> '.$randomString.' </p>
-                  <p style="font-size:28px; color:#333"><strong>Recuerda ingresar a: </strong><a style="text-decoration:none;" href="http://covaite.com">www.covaite.com</a> y actualizar tus datos.</p>
+                  <p style="font-size:28px; color:#333"><strong>Recuerda ingresar a: </strong><a style="text-decoration:none;" href="'.$Resul[Subdominio].'">'.$Resul[Subdominio].'</a> y actualizar tus datos.</p>
                   <br>
                   <hr style="width:45%; background:#ccc;" align="left">
                   <br>
                   <table>
-                    <tr>
-                      <td width="250px">
-                        <a href="http://weapp.com.co/Covaite">
-                        <img src="http://weapp.com.co/Covaite/Img_Web/Logo.png">
-                      </a>
-                      </td>
+                      <tr>
+                        <td width="250px">
+                          <a href="'.$Resul[Subdominio].'">
+                            <img src="'.$Resul[Logo].'">
+                          </a>
+                        </td>
                     </tr>
                   </table>
                 </body>
@@ -298,7 +309,7 @@ include('Head.php');?>
                 <title></title>
               </head>
               <body>
-                <p style="font-size:28px; color:#333"><strong>Hola: </strong> '.$Nombres.' '.$Apellidos.', Has solicitado el cambio de contraseña, para poder iniciar sesion COVAITE te ha generado la siguiente: </p>
+                <p style="font-size:28px; color:#333"><strong>Hola: </strong> '.$Nombres.' '.$Apellidos.', Has solicitado el cambio de contraseña, para poder iniciar sesion en '.$Resul[Nombre].' te ha generado la siguiente: </p>
                 <br>
                 <div>
                   <p style="font-size:28px; color:#333"><strong>Usuario: </strong> '.$Usuario.' </p>
@@ -310,8 +321,8 @@ include('Head.php');?>
                   <table>
                     <tr>
                       <td width="250px">
-                        <a href="http://weapp.com.co/Covaite">
-                        <img src="http://weapp.com.co/Covaite/Img_Web/Logo.png">
+                        <a href="'.$Resul[Subdominio].'">
+                        <img src="'.$Resul[Logo].'">
                       </a>
                       </td>
                     </tr>

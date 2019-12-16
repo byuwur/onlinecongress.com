@@ -1,11 +1,12 @@
 <?php 
 include("conexion.php");
 include('Head.php');
+include("../Idc.php");
 $Usuario = $_GET['U'];
 $Tipo = $_GET['T'];
 $IdPonencia = $_GET['P'];
 if ($Usuario!="") {
-	$Sql=$conex->query("SELECT Ponente.TipoDocumento, Ponente.IdPonente, Ponente.Nombres, Ponente.Apellidos, Ponente.Genero, Ponente.Telefono, Ponente.Email, Ponente.Institucion, Ponente.NivelFormacion, Ponente.ResumenPonente, Paises.name_pais, Provincias.name_pro FROM Ponente, Paises, Provincias WHERE IdPonente='$Usuario' AND Ponente.Pais=Paises.id AND Ponente.Provincia=Provincias.id");
+	$Sql=$conex->query("SELECT ponente.TipoDocumento, ponente.IdPonente, ponente.Nombres, ponente.Apellidos, ponente.Genero, ponente.Telefono, ponente.Email, ponente.Institucion, ponente.NivelFormacion, ponente.ResumenPonente, paises.name_pais, provincias.name_pro FROM ponente, paises, provincias WHERE IdPonente='$Usuario' AND ponente.Pais=paises.id AND ponente.Provincia=provincias.id AND ponente.Id_Congreso='$Idc'");
 	$Resultado=mysqli_fetch_assoc($Sql);
 	echo '
 <br>
@@ -86,7 +87,7 @@ if ($Usuario!="") {
 			</div><div class="form-group col-xs-12 col-sm-4">
 				<h5 style="color:#d2d2d2">Ciudad</h5>
 				';
-				$sqlC=$conex->query("SELECT Ciudades.name_ciu FROM Ponente, Ciudades WHERE Ponente.IdPonencia='$IdPonencia' AND Ciudades.id=Ponente.Ciudad AND Tipo='$Tipo'");
+				$sqlC=$conex->query("SELECT ciudades.name_ciu FROM ponente, ciudades WHERE ponente.IdPonencia='$IdPonencia' AND ciudades.id=ponente.Ciudad AND Tipo='$Tipo' AND ponente.Id_Congreso='$Idc'");
 				$RC=mysqli_fetch_assoc($sqlC);
 				if ($RC['name_ciu']!="") {
 					echo '
@@ -112,6 +113,7 @@ if ($Usuario!="") {
 				<input type="submit" name="Guardar" value="Guardar" style="height: 50px;" class="Guardar btn btn-success btn-raised">
 			</div>
 		</div>
+		<input type="hidden" name="Id_Congreso" value="'.$Idc.'">
 	</form>
 	</div>
 </div>
@@ -121,6 +123,7 @@ if ($Usuario!="") {
 <?php
 include("conexion.php");
 	if ($_POST['Guardar']) {
+		$Id_Congreso=$_POST['Id_Congreso'];
 		$Usuario=$_POST['Usuario'];
 		$Telefono=$_POST['Telefono'];
 		$Email=$_POST['Email'];
@@ -132,7 +135,7 @@ include("conexion.php");
 		$Fecha = date("Y-m-d");
 		$Año = date("Y");
 		if ($Telefono!="" && $Email!="" && $Labora!="" && $Formacion!="" && $Resumen!="") {
-				$query2 = $conex->query("UPDATE Ponente SET Telefono='$Telefono', Email='$Email', Institucion='$Labora', NivelFormacion='$Formacion', ResumenPonente='$Resumen' WHERE IdPonente='$Usuario'");	
+				$query2 = $conex->query("UPDATE ponente SET Telefono='$Telefono', Email='$Email', Institucion='$Labora', NivelFormacion='$Formacion', ResumenPonente='$Resumen' WHERE IdPonente='$Usuario' AND Id_Congreso='$Id_Congreso'");	
 			echo "
 		    <script type='text/javascript'>
 		      document.location = 'Perfil.php?U=$Usuario';

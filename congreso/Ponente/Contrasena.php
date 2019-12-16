@@ -1,6 +1,7 @@
 <?php 
 include("conexion.php");
 include('Head.php');
+include("../Idc.php");
 $Usuario = $_GET['U'];
 $Tipo = $_GET['Tipo'];
 if ($Usuario!="") {
@@ -37,6 +38,7 @@ if ($Usuario!="") {
 			</div>
 		</div>
 	</div>
+	<input type="hidden" name="Id_Congreso" value="'.$Idc.'">
 	</form>
 </div>';
 }
@@ -44,24 +46,25 @@ if ($Usuario!="") {
 <?php
 include("conexion.php");
 	if ($_POST['Guardar']) {
+		$Id_Congreso=$_POST['Id_Congreso'];
 		$ContraA=md5($_POST['ContrActual']);
 		$Contra1=$_POST['Contra1'];
 		$Contra2=$_POST['Contra2'];
 		$Usuario=$_POST['Usuario'];
 		$Tipo=$_POST['Tipo'];
 		if ($Tipo==2) {
-			$query1=$conex->query("SELECT DocumentoA FROM Asistente WHERE Password='$ContraA'");
+			$query1=$conex->query("SELECT asistente.DocumentoA FROM asistente, registro_asistencia WHERE asistente.Password='$ContraA' AND registro_asistencia.Id_Congreso='$Id_Congreso' AND asistente.IdAsistente=registro_asistencia.Id_Asistente");
 		}else{
-			$query1=$conex->query("SELECT IdPonente FROM Ponente WHERE Password='$ContraA'");
+			$query1=$conex->query("SELECT IdPonente FROM ponente WHERE Password='$ContraA' AND Id_Congreso='$Id_Congreso'");
 		}
 	
 		if (mysqli_num_rows($query1)>0) {
 			if ($Contra2==$Contra1) {
 				$ContraN=md5($Contra1);
 					if ($Tipo==2) {
-						$query2 = $conex->query("UPDATE Asistente SET Password='$ContraN' WHERE DocumentoA='$Usuario'");	
+						$query2 = $conex->query("UPDATE asistente,registro_asistencia SET asistente.Password='$ContraN' WHERE asistente.DocumentoA='$Usuario' AND registro_asistencia.Id_Congreso='$Id_Congreso' AND asistente.IdAsistente=registro_asistencia.Id_Asistente");	
 					}else{
-						$query2 = $conex->query("UPDATE Ponente SET Password='$ContraN' WHERE IdPonente='$Usuario'");	
+						$query2 = $conex->query("UPDATE ponente SET Password='$ContraN' WHERE IdPonente='$Usuario' AND Id_Congreso='$Id_Congreso'");	
 					}
 				echo "
 				<div style='display:block;left:0px;' class='Area_Oscura2'>
@@ -69,10 +72,10 @@ include("conexion.php");
 					    <div class='row'>
 					        <div class='col-sm-4 col-sm-offset-4'>
 					            <div class='well' style='margin-top:55%;'>
-					               <h4 align='center'>La contraseña actualizado corrextamente.</h4>
+					               <h4 align='center'>La contraseña actualizado correctamente.</h4>
 					                <div class='row'>
 					           		    <div class='col-sm-6 col-sm-offset-3'>
-					                      <a href='Contrasena.php?U=$Usuario&Tipo=$Tipo' style='width:100%' class='btn btn-info btn-raised'>Aceppar</a>
+					                      <a href='Contrasena.php?U=$Usuario&Tipo=$Tipo' style='width:100%' class='btn btn-info btn-raised'>Aceptar</a>
 					                  	</div>
 					                </div>
 					            </div>

@@ -46,11 +46,7 @@ echo '
 						echo '</h3>
 						<p style="font-size:15px;">'.$Resultado['Nombres'].' '.$Resultado['Apellidos'].'</p>
 					</div>
-					<div class="col-xs-12 col-sm-4">
-						<h3 style="font-size:18px;">Hora</h3>
-						<p style="font-size:15px;">'.date("g:i a").'</p>
-					</div>
-					<div class="col-xs-12 col-sm-1">
+					<div class="col-xs-12 col-sm-2 col-sm-offset-3">
 							<a class="btn btn-raised btn-info" style="height:50px; color:#fff" href="Ponencia.php?U='.$Usuario.'&P='.$Resultado['IdPonencia'].'&TU='.$TipoU.'">Ver</a>
 						</div>';
 					echo'

@@ -2,8 +2,9 @@
 include("conexion.php");
 include('Head.php');
 include('Nav.php'); 
+include('Idc.php'); 
 $IdPonencia = $_GET['P'];
-$sql=$conex->query("SELECT Ponencia.Categoria, Ponente.Nombres, Ponente.Apellidos, Ponente.NivelFormacion, Ponente.Email, Ponencia.Titulo, Ponencia.Resumen, Ponencia.Idioma, Ponencia.InstitucionPatrocinadora, Ponencia.SitioWeb,Paises.name_pais, Programacion.Hora, Programacion.Fecha FROM Ponente, Ponencia, Paises, Programacion  WHERE Ponencia.IdPonencia='$IdPonencia' AND Ponente.IdPonencia='$IdPonencia' AND Ponente.Pais=Paises.id AND Ponencia.Estado=1 AND Programacion.IdPonencia=Ponencia.IdPonencia ");
+$sql=$conex->query("SELECT ponencia.Categoria, ponente.Nombres, ponente.Apellidos, ponente.NivelFormacion, ponente.Email, ponencia.Titulo, ponencia.Resumen, ponencia.Idioma, ponencia.InstitucionPatrocinadora, ponencia.SitioWeb,paises.name_pais, programacion.Fecha FROM ponente, ponencia, paises, programacion  WHERE ponencia.IdPonencia='$IdPonencia' AND ponente.IdPonencia='$IdPonencia' AND ponente.Pais=paises.id AND ponencia.Estado=1 AND programacion.IdPonencia=ponencia.IdPonencia AND ponente.Id_Congreso='$Idc'");
 $Resultado=mysqli_fetch_assoc($sql);
 $FechaHoy=$Resultado['Fecha'];
 		$A = substr($FechaHoy, 0, 4); 
@@ -53,7 +54,7 @@ echo '
 				<p>'.$Resultado['name_pais'].'</p>
 			</div>
 		</div>';
-			$SqlAutores=$conex->query("SELECT Autores.NombresA, Autores.ApellidosA, Autores.NivelFormacion,Autores.EmailA, Paises.name_pais FROM Autores, Ponencia, Paises WHERE Autores.IdPonencia=Ponencia.IdPonencia AND Autores.IdPonencia='$IdPonencia' AND Ponencia.IdPonencia='$IdPonencia' AND Autores.PaisA=Paises.id AND Ponencia.Estado=1");
+			$SqlAutores=$conex->query("SELECT autores.NombresA, autores.ApellidosA, autores.NivelFormacion,autores.EmailA, paises.name_pais FROM autores, ponencia, paises WHERE autores.IdPonencia=ponente.IdPonencia AND autores.IdPonencia='$IdPonencia' AND ponente.IdPonencia='$IdPonencia' AND autores.PaisA=paises.id AND ponente.Estado=1 AND autores.Id_Congreso='$Idc'");
 			if (mysqli_num_rows($SqlAutores)>0) {
 				echo '<div class="row">
 					<div class="col-sm-12">
@@ -96,16 +97,10 @@ echo '
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-12 col-sm-2">
+			<div class="col-xs-12 col-sm-4">
 				<h4>Fecha</h4>
 				<p>
 				'.$Fecha.'
-				</p>
-			</div>
-			<div class="col-xs-12 col-sm-2">
-				<h4>Hora</h4>
-				<p>
-				'.date("g:i a",strtotime($Resultado['Hora'])).'
 				</p>
 			</div>
 		</div>

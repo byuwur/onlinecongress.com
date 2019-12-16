@@ -1,3 +1,9 @@
+<?php
+include('Idc.php');
+include("conexion.php");
+$Info2=$conex->query("SELECT Nombre FROM info_congreso, congreso WHERE info_congreso.Id_Congreso=congreso.Id_Congreso AND info_congreso.Id_Congreso='$Idc' AND congreso.Id_Congreso='$Idc'");
+  $ResultadoI2=mysqli_fetch_assoc($Info2);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +16,7 @@
 
   gtag('config', 'UA-133452079-1');
 </script>
-  <title>Online Congress</title>
+  <title><?php echo $ResultadoI2[Nombre]?></title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="Weapp" content="Weapp">
@@ -49,11 +55,11 @@
     <script src="js/parallax.min.js"></script>
   </head>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  
 <!-------------slider------------->
   <link rel="stylesheet" type="text/css" href="css/slider.css">
   <script type="text/javascript" src="js/slider.js"></script>
 <!-------------fin slider------------->
-
 <style type="text/css">
     @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 @import url(https://fonts.googleapis.com/css?family=Teko:700);
@@ -253,7 +259,6 @@
       font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
     }
     .btn-ponentes{
-      background: #0277bd;
       color: #fff;
       height:50px;
       padding-top: 15px;

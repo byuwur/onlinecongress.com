@@ -181,11 +181,38 @@ $RC=$RH['Categoria'];
 	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-2">
+			<div class="col-xs-12 col-sm-3">
 				<a class="btn btn-raised btn-danger" style="height:50px; color:#fff" href="TodasPonencias.php?T=1" >Volver</a>
+			</div>
+			<div class="col-xs-12 col-sm-3 col-sm-offset-6">
+				<input type="submit" class="btn btn-raised btn-danger" style="height:50px;" onclick="Alerta()" color:#fff" value="Eliminar Conferencia">
 			</div>
 		</div>
 	</div>';
+echo "
+		<div style='display:none; left:0px;' id='Eliminar' class='Area_Oscura2'>
+			<div class='container'>
+			    <div class='row'>
+			       	<div class='col-sm-4 col-sm-offset-4'>
+			          	<div class='well' style='margin-top:55%;'>
+			            	<h4 align='center'>¿Está seguro que desea eliminar esta conferencia?.</h4>
+			            	<div class='row'>
+						    	<div class='col-sm-6'>
+						        	<a onclick='Ocultar()' style='width:100%; height:50px;' class='btn btn-danger btn-raised'>Cancelar</a>
+			                	</div>
+			                	<form action='' method='post'>
+							    	<div class='col-sm-6'>
+							        	<input type='submit' style='width:100%; height:50px;' class='btn btn-info btn-raised' value='Eliminar' name='EliminarPonencia'>
+				                	</div>
+				                	<input type='hidden' name='IdPonencia' value='$IdPonencia'>
+									<input type='hidden' name='Id_Congreso' value='$Id_Congreso'>
+				                </form>
+			            	</div>
+			        	</div>
+			    	</div>
+		  		</div>
+		    </div>
+		</div>";
 	if ($_POST['Guardar']) {
 		include("conexion.php");
 		$Idcon=$_POST['Id_Congreso'];
@@ -220,6 +247,32 @@ $RC=$RH['Categoria'];
 		    </div>
 		</div>";
 	}
+
+	if ($_POST['EliminarPonencia']) {
+		$Idcon=$_POST['Id_Congreso'];
+		$IdPonencia=$_POST['IdPonencia'];
+
+		$SqlElinimar=$conex->query("DELETE ponencia, ponente FROM ponencia JOIN ponente ON ponencia.IdPonencia=ponente.IdPonencia WHERE ponencia.IdPonencia='$IdPonencia' AND ponente.IdPonencia='$IdPonencia' AND ponencia.IdPonencia=ponente.IdPonencia AND ponente.Id_Congreso='$Idcon'");
+		$SqlElinimarArc=$conex->query("DELETE FROM archivosponentes WHERE IdPonencia='$IdPonencia' AND Id_Congreso='$Idcon'");
+		echo "
+		<div style='display:block;left:0px;' class='Area_Oscura2'>
+			<div class='container'>
+			    <div class='row'>
+			       	<div class='col-sm-4 col-sm-offset-4'>
+			          	<div class='well' style='margin-top:55%;'>
+			            	<h4 align='center'>La conferencia se ha eliminado correctamente.</h4>
+			            	<div class='row'>
+						    	<div class='col-sm-6 col-sm-offset-3'>
+						        	<a href='TodasPonencias.php?T=1' style='width:100%' class='btn btn-info btn-raised'>Aceptar</a>
+			                	</div>
+			            	</div>
+			        	</div>
+			    	</div>
+		  		</div>
+		    </div>
+		</div>";
+
+	}
 }else{
   echo "
     <script type='text/javascript'>
@@ -228,3 +281,12 @@ $RC=$RH['Categoria'];
   ";
 }
 include('footer.php');?>
+
+<script type="text/javascript">
+	function Alerta() {
+		$("#Eliminar").fadeIn('fast');
+	}
+	function Ocultar() {
+		$("#Eliminar").fadeOut('fast');
+	}
+</script>

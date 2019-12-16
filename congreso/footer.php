@@ -4,34 +4,40 @@
       <div class="col-sm-4">
         <h2 style="color: #fff; margin-top: 10%;">Sobre Nosotros</h2>
         <br>
-        <p style="color: #dddd; font-size: 18px;">COVAITE surge como una propuesta educativa de profesionales y educadores independientes convencidos que, desde el aporte desinteresado de todos, podemos lograr una educación de calidad y en igualdad de oportunidades.</p>
+        <p style="color: #dddd; font-size: 18px;"><?php echo $ResultadoI[Nosotros]?></p>
         <p style="color: #dddd; font-size: 18px;">
-          Email: <a href="mailto:info@covaite.com" style="color: #818181;"> comitetecnico@covaite.com</a>
+          Email: <a href="mailto:info@covaite.com" style="color: #818181;"> <?php 
+          $SQLA =$conex->query("SELECT administrador.Email FROM administrador, congreso WHERE administrador.Documento=congreso.Id_Administrador AND congreso.Id_Congreso='$Idc'");
+          $ResultadoAd=mysqli_fetch_assoc($SQLA);
+          echo $ResultadoAd[Email]?></a>
         </p>
-        <p style="color: #dddd; font-size: 18px;">
+        <!--p style="color: #dddd; font-size: 18px;">
           Web: <a href="http://www.covaite.com" style="color: #818181;"> www.covaite.com</a>
-        </p>
+        </p-->
         <hr align="left" style="width: 20%; background: #0277bd; border-color:#0277bd">
       </div>
       <div class="col-sm-4">
         <h2 style="color: #fff; margin-top: 10%;">Preguntas Frecuentes</h2>
         <br>
         <p style="color: #dddd; font-size: 16px;">
-          <a href="Preguntas.php">¿Cómo evoluciona el congreso virtual?</a><br>
-          <a href="Preguntas.php">¿Quién puede participar como ponente?</a><br>
-          <a href="Preguntas.php">¿Cuáles son las categorías o temáticas de participación?</a><br>
-          <a href="Preguntas.php">¿Dónde me inscribo?</a><br>
-          <a href="Preguntas.php">¿Hasta cuándo hay plazo para enviar la ponencia o archivo de exposición?</a><br>
-          <a href="Preguntas.php">¿Hay una programación o agenda del congreso?</a><br>
-          <a href="Preguntas.php">¿Cuál es el formato de participación?</a><br><br>
-          <a href="Preguntas.php">VER TODAS LAS PREGUNTAS FRECUENTES</a>
+        <?php
+          $Sql1=$conex->query("SELECT Pregunta FROM preguntas_frecuentes WHERE Id_Congreso='$Idc' ORDER BY RAND() LIMIT 8");
+          while ($Result=mysqli_fetch_assoc($Sql1)) {
+            echo '
+            <a href="Preguntas.php">'.$Result[Pregunta].'</a><br>
+            ';
+          }
+        ?>
+        <a href="Preguntas.php">VER TODAS LAS PREGUNTAS FRECUENTES</a>
         </p>
         <hr align="left" style="width: 20%; background: #0277bd; border-color:#0277bd">
       </div>
       <div class="col-xs-12 col-sm-4">
         <h2 style="color: #fff; margin-top: 10%;">Siguenos en Facebook</h2>
             <div style="position: relative; margin-top: 0px; width: 100%; height: 250px;">
-              <div style="top: 15px;" class="fb-page" data-href="https://www.facebook.com/covaite/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/covaite/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/covaite/">Covaite</a></blockquote></div>
+              <?php
+                echo "<div style='top: 15px;' class='fb-page' data-href='$ResultadoI[Facebook]' data-small-header='false' data-adapt-container-width='true' data-hide-cover='false' data-show-facepile='true'><blockquote cite='$Pagina_F' class='fb-xfbml-parse-ignore'><a href='$ResultadoI[Facebook]'></a></blockquote></div>";
+              ?>
             </div>
           </div>
     </div>     

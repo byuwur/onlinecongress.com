@@ -1,9 +1,14 @@
 <?php 
+include('Idc.php');
+include("conexion.php");
+$Sql1=$conex->query("SELECT congreso.Logo, info_congreso.Subdominio, administrador.Email FROM congreso, info_congreso, administrador WHERE congreso.Id_Congreso='$Idc' AND info_congreso.Id_Congreso='$Idc'");
+$Resul=mysqli_fetch_assoc($Sql1);
+
 $Nombres = $_POST['Nombres'];
 $Apellidos = $_POST['Apellidos'];
 $Remitente = $_POST['Email'];
 $Mensaje = $_POST['Comen'];
-$Destino = "comitetecnico@covaite.com";
+$Destino = $Resul['Email'];
 $Asunto = 'Notificación plataforma';
 $Cuerpo = '
 			        <html>
@@ -22,8 +27,8 @@ $Cuerpo = '
 			            <table>
 			              <tr>
 			                <td width="250px">
-			                	<a href="http://weapp.com.co/Covaite">
-					              <img src="http://weapp.com.co/Covaite/Img_Web/Logo.png">
+			                	<a href="'.$Resul[Subdominio].'">
+					              <img src="'.$Resul[Logo].'">
 					            </a>
 			                </td>
 			              </tr>

@@ -1,11 +1,12 @@
 <?php 
 include("conexion.php");
 include('Head.php');
+include("../Idc.php");
 $Usuario = $_GET['U'];
 $Tipo = $_GET['T'];
 $IdPonencia = $_GET['P'];
 if ($Usuario!="") {
-		$Sql=$conex->query("SELECT Asistente.TipoDocumentoA, Asistente.NombresA, Asistente.ApellidosA, Asistente.Genero, Asistente.Email, Paises.name_pais FROM Asistente, Paises WHERE Asistente.DocumentoA='$Usuario' AND Paises.id=Asistente.Pais");
+		$Sql=$conex->query("SELECT asistente.TipoDocumentoA, asistente.NombresA, asistente.ApellidosA, asistente.Genero, asistente.Email, paises.name_pais FROM asistente, paises, registro_asistencia WHERE asistente.DocumentoA='$Usuario' AND paises.id=asistente.pais AND registro_asistencia.Id_Congreso='$Idc' AND registro_asistencia.Id_Asistente=asistente.IdAsistente");
 			$Resultado=mysqli_fetch_assoc($Sql);
 	echo '
 <br>
@@ -56,6 +57,7 @@ if ($Usuario!="") {
 				<input type="submit" name="Guardar" value="Guardar" style="height: 50px;" class="Guardar btn btn-success btn-raised">
 			</div>
 		</div>
+		<input type="hidden" name="Id_Congreso" value="'.$Idc.'">
 	</form>
 	</div>
 </div>
@@ -65,6 +67,7 @@ if ($Usuario!="") {
 <?php
 include("conexion.php");
 	if ($_POST['Guardar']) {
+		$Id_Congreso=$_POST['Id_Congreso'];
 		$Usuario=$_POST['Usuario'];
 		$Email=$_POST['Email'];
 
@@ -72,7 +75,7 @@ include("conexion.php");
 		$Fecha = date("Y-m-d");
 		$Año = date("Y");
 		if ($Email!="") {
-				$query2 = $conex->query("UPDATE Asistente SET Email='$Email' WHERE DocumentoA='$Usuario'");	
+				$query2 = $conex->query("UPDATE asistente, registro_asistencia SET asistente.Email='$Email' WHERE asistente.DocumentoA='$Usuario'AND registro_asistencia.Id_Congreso='$Id_Congreso' AND registro_asistencia.Id_Asistente=asistente.IdAsistente");	
 			echo "
 		    <script type='text/javascript'>
 		      document.location = 'PerfilA.php?U=$Usuario';
