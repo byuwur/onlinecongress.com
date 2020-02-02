@@ -1,4 +1,5 @@
 <?php
+	
 	function tipo($TipoDocumento) {
 			echo "1. El tipo de documento: ";
 			$prueba1 = true;

@@ -6,13 +6,9 @@
 			@mkdir("../Fotografias/Certificados/$Id_Congreso/", 0777 -R, TRUE);
 			@chmod("../Fotografias/Certificados/*", 0777);
 			
-			$extension=".hola";
-			if ($_FILES[archivo][type] =="image/png"){
-					$extension=".png";
-				}
-			$Ruta = "../Fotografias/Certificados/".$Id_Congreso."/".basename(1).$extension; 
+			$Ruta = "../Fotografias/Certificados/".$Id_Congreso."/".basename(1).".jpg"; 
 
-			$Ruta2 = "http://www.onlinecongress.com.co/Fotografias/Certificados/".$Id_Congreso."/".basename(1).$extension;  
+			$Ruta2 = "http://experienciamotera.com/onlinecongress-web/congreso/Fotografias/Certificados/".$Id_Congreso."/".basename(1).".jpg";  
 			$uploadedfileload2="true";
 
 

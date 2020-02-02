@@ -87,11 +87,11 @@ if (isset($_GET['lang'])) {
           <!--li><a href="#schedule">Calendario</a></li-->
           <li><a href="#faq">F.A.Q.</a></li>
           <li><a href="#contact">Contacto</a></li>
-         <li>
+         <!--li>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="background: none; border: none; margin-top: 5px">
             Ingresar
             </button>
-          </li>
+          </li-->
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
