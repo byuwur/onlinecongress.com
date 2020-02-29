@@ -1,7 +1,7 @@
 <?php
     $s="localhost";
-    $u="mateus_root";
-    $p="12345679";
+    $u="root";
+    $p="IaPRsxmKE7ok";
     $b="onlinecongress";
 
 	$conex = new mysqli($s, $u, $p, $b) or die('No se pudo conectar a la Base de Datos');

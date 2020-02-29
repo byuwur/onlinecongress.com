@@ -911,7 +911,13 @@ if (isset($_GET['lang'])) {
                   <a data-toggle="collapse" href="#faq4" class="collapsed">¿QUÉ TIPO DE TECNOLOGÍA SE APLICA EN LA PLATAFORMA ONLINE CONGRESS?<i class="fa fa-minus-circle"></i></a>
                   <div id="faq4" class="collapse" data-parent="#faq-list">
                     <p>
-                      
+                      En cuanto a la interacción con la plataforma Online Congress, es probable afirmar que está desarrollada bajo lenguajes de programación estructurada, que hacen ver una interfaz fácil y amigable a la hora de administrar la información por parte de nuestros usuarios Además, cumple con un estándar tecnológico para funcionalidad web, es decir, permite realizar peticiones con un modelo cliente-servidor teniendo así respuestas más rápidas y de manera oportuna.
+                    </p>
+                    <p>
+                      Los requerimientos tecnológicos para plataformas web se han vuelto indispensable el uso de esta tecnología, ya que esta permite que la información sea distribuida de manera ágil y eficaz, así mismo, promueve un mejor servicio a los clientes. Cabe destacar que el software hace uso de la arquitectura de dos capas, ya que efectúa el procesamiento y administración de la información, brindada por los motores de bases de datos al cliente.
+                    </p>
+                    <p>
+                      Para el almacenamiento y mantenimiento  de la información, se hace uso de MySql, el cual utiliza: Varias capas de seguridad, contraseñas encriptadas, derechos de acceso y privilegios para los usuarios y ofrece robustez. 
                     </p>
                   </div>
                 </li>
